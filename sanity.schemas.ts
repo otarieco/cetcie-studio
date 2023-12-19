@@ -1,11 +1,13 @@
 export enum SANITY_DOCUMENTS {
   /* HORSE */
-  $HORSE_SOCIAL = 'horse_site_social',
+  $HORSE_PAGE = 'horse_page',
   $HORSE_BLOG = 'horse_blog',
+  $HORSE_SOCIAL = 'horse_site_social',
 
   /* PETS */
-  $PETS_SOCIAL = 'pets_site_social',
+  $PETS_PAGE = 'pets_page',
   $PETS_BLOG = 'pets_blog',
+  $PETS_SOCIAL = 'pets_site_social',
 }
 
 export enum SANITY_SINGLETONS {
@@ -44,7 +46,9 @@ export enum SANITY_FIELDS {
 export enum SANITY_BLOCKS {}
 
 export enum SANITY_SECTIONS {
-  /* HORSE */
+  /**
+   * HORSE
+   */
 
   // home
   $HORSE_HOME_HERO = 'horse.section_home_hero',
@@ -55,7 +59,12 @@ export enum SANITY_SECTIONS {
   // contact
   $HORSE_CONTACT_HERO = 'horse.section_contact_hero',
 
-  /* PETS */
+  // pages
+  $HORSE_HERO = 'horse.section_hero',
+
+  /**
+   * PETS
+   */
 
   // home
   $PETS_HOME_HERO = 'pets.section_home_hero',
@@ -65,4 +74,7 @@ export enum SANITY_SECTIONS {
 
   // contact
   $PETS_CONTACT_HERO = 'pets.section_contact_hero',
+
+  // pages
+  $PETS_HERO = 'pets.section_hero',
 }

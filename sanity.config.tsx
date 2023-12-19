@@ -1,28 +1,27 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
-import {media} from 'sanity-plugin-media'
-import {SANITY_SINGLETONS} from './sanity.schemas'
-import {muxInput} from 'sanity-plugin-mux-input'
-import {plausible} from './plugins/plausible'
-import './utils/richText.style.css'
-import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array'
-import {structure} from './desk'
-import {Horse} from 'phosphor-react'
+import {defineConfig} from 'sanity';
+import {deskTool} from 'sanity/desk';
+import {visionTool} from '@sanity/vision';
+import {schemaTypes} from './schemas';
+import {media} from 'sanity-plugin-media';
+import {SANITY_SINGLETONS} from './sanity.schemas';
+import {muxInput} from 'sanity-plugin-mux-input';
+import {plausible} from './plugins/plausible';
+import './utils/richText.style.css';
+import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array';
+import {Horse} from 'phosphor-react';
+import {defaultDocumentNode, structure} from './desk/sanity.structure';
 
-const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
+const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
-const singletonTypes = new Set(Object.values(SANITY_SINGLETONS))
+const singletonTypes = new Set(Object.values(SANITY_SINGLETONS));
 export default defineConfig({
   name: 'default',
   title: 'Compagnons & Cie',
   projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_DATASET!,
   icon: Horse,
-  // TODO: remettre defaultDocumentNode deskTool({structure, defaultDocumentNode}),
   plugins: [
-    deskTool({structure}),
+    deskTool({structure, defaultDocumentNode}),
     // documentInternationalization({
     //   supportedLanguages: i18n.locales.map((locale) => ({
     //     id: locale,
@@ -58,4 +57,4 @@ export default defineConfig({
         ? input.filter(({action}) => action && singletonActions.has(action))
         : input,
   },
-})
+});

@@ -1,9 +1,9 @@
-import type {DefineSchemaType} from '@sanity/types'
+import type {DefineSchemaType} from '@sanity/types';
 
 // @ts-ignore
-const modules = import.meta.glob(['./shared/**', './horse/**', './pets/**'], {
+const modules = import.meta.glob(['./shared/**', './horse/**', './pets/**', './shopify/**'], {
   eager: true,
   import: 'default',
-})
+});
 
-export const schemaTypes = Object.values(modules) as DefineSchemaType<any, any>[]
+export const schemaTypes = Object.values(modules) as DefineSchemaType<any, any>[];
