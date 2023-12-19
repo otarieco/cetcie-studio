@@ -1,8 +1,12 @@
-import {defineCliConfig} from 'sanity/cli'
+import {defineCliConfig} from 'sanity/cli';
+
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
+const dataset = process.env.SANITY_STUDIO_DATASET;
 
 export default defineCliConfig({
-  api: {
-    projectId: 'a9wz18ln',
-    dataset: 'production'
-  }
-})
+  api: {projectId, dataset},
+  vite: (config) => ({
+    ...config,
+    envPrefix: ['SANITY_STUDIO_', 'VITE_'],
+  }),
+});

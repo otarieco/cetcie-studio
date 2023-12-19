@@ -1,0 +1,73 @@
+/**
+    Custom css for RichTextLite Editor
+ */
+
+/**
+ * Lite
+ */
+div.richText--lite {
+    & div[data-testid="text-block"] {
+        padding-block: 0.4375rem !important;
+    }
+
+    & div.pt-editable > :last-child,
+    & div.pt-editable > :first-child {
+        padding-block: 0.4375rem !important;
+    }
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 7em !important;
+    }
+
+    /*Disable expand button*/
+
+    & div[data-testid="pt-editor__toolbar-card"] > div > div:last-child {
+        display: none !important;
+    }
+}
+
+
+/**
+ * Regular
+ */
+div.richText--regular {
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 10em !important;
+    }
+}
+
+/**
+ * Complex
+ */
+div.richText--complex {
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 10em !important;
+    }
+}
+
+/**
+ * Blog
+ */
+div.richText--blog {
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 35em !important;
+    }
+}
+
+/**
+ * Adding a little more margin to following paragraphs
+ */
+.pt-text-block + .pt-text-block {
+    margin-top: 0.7em;
+}
+
+.pt-text-block-style-medium + .pt-text-block-style-medium {
+    margin-top: 0.2em;
+}
