@@ -1,17 +1,6 @@
-import {defineType, SanityDocument} from 'sanity';
+import {defineType} from 'sanity';
 import {FlagBanner, House, MagnifyingGlass, Stack} from 'phosphor-react';
-import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../sanity.schemas';
-import {Seo} from '../../shared/objects/seo';
-import {Locale} from '../../../i18n.config';
-import {HomeHero} from '../sections/home/homeHero';
-
-export type Home = SanityDocument & {
-  _type: SANITY_SINGLETONS.$PETS_HOME;
-  locale?: Locale;
-  hero?: HomeHero;
-  sections?: any[];
-  seo?: Seo;
-};
+import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$PETS_HOME,

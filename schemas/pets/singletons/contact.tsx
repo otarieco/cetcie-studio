@@ -1,17 +1,6 @@
 import {defineType, SanityDocument} from 'sanity';
 import {FlagBanner, MagnifyingGlass, PaperPlaneTilt, Stack} from 'phosphor-react';
-import {Locale} from '../../../i18n.config';
-import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../sanity.schemas';
-import {ContactHero} from '../sections/contact/contactHero';
-import {Seo} from '../../shared/objects/seo';
-
-export type Contact = SanityDocument & {
-  _type: SANITY_SINGLETONS.$PETS_CONTACT;
-  locale?: Locale;
-  hero?: ContactHero;
-  sections?: any[];
-  seo?: Seo;
-};
+import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$PETS_CONTACT,

@@ -5,7 +5,7 @@ import ProductHiddenInput from '../../../utils/shopify/components/inputs/Product
 import {getPriceRange} from '../../../utils/shopify/getPriceRange';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
 import {Tag} from 'phosphor-react';
-import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
+import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 
 const GROUPS = [
   {

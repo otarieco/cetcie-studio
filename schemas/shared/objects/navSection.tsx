@@ -1,20 +1,12 @@
 import {defineType} from 'sanity';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
-import {Figure} from './figure';
-import {Link} from './link';
-import {StackSimple} from 'phosphor-react';
-
-export type NavSection = {
-  title?: string;
-  image?: Figure;
-  links?: Link[];
-};
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
+import {Stack} from 'phosphor-react';
 
 export default defineType({
   name: SANITY_FIELDS.NAV_SECTION,
   title: 'Section',
   type: 'object',
-  icon: () => <StackSimple width="1em" height="1em" />,
+  icon: () => <Stack width="1em" height="1em" />,
   fields: [
     {
       name: 'title',
@@ -24,7 +16,7 @@ export default defineType({
     {
       name: 'image',
       title: 'Image',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
     },
     {
       name: 'links',
@@ -33,6 +25,9 @@ export default defineType({
       of: [
         {
           type: SANITY_FIELDS.LINK,
+        },
+        {
+          type: SANITY_FIELDS.NAV_SUB_SECTION,
         },
       ],
     },

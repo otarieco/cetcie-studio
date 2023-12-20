@@ -9,9 +9,9 @@ enum STATUS {
 }
 
 const COLORS = {
-  critical: '#a30e0e',
-  caution: '#d5ab01',
-  positive: '#0ea34a',
+  critical: '#A30E0E',
+  caution: '#D5AB01',
+  positive: '#0EA34A',
 };
 
 const CustomMetaDescriptionField = ({title, description, value, ...props}: StringFieldProps) => {
@@ -45,8 +45,6 @@ const CustomMetaDescriptionField = ({title, description, value, ...props}: Strin
     </Stack>
   );
 };
-
-export type SeoMetaDescription = string;
 
 export default {
   name: 'seo.metaDescription',

@@ -1,20 +1,6 @@
-import {defineType, SanityDocument} from 'sanity';
+import {defineType} from 'sanity';
 import {Info} from 'phosphor-react';
-import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../sanity.schemas';
-import {Locale} from '../../../i18n.config';
-
-export type Information = SanityDocument & {
-  _type: SANITY_SINGLETONS.$HORSE_INFORMATION;
-  locale?: Locale;
-  company?: string;
-  address?: string;
-  postalCode?: string;
-  city?: string;
-  region?: string;
-  country?: string;
-  email?: string;
-  tel?: string;
-};
+import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_INFORMATION,

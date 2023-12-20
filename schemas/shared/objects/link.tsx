@@ -1,34 +1,18 @@
-import {defineType, Slug} from 'sanity';
+import {defineType} from 'sanity';
 import {
   SANITY_DOCUMENTS,
   SANITY_FIELDS,
   SANITY_SINGLETONS,
   SHOPIFY_DOCUMENTS,
-} from '../../../sanity.schemas';
-import {Home} from '../../horse/singletons/home';
-import {Link} from 'phosphor-react';
-
-type LinkDocRef = {
-  _id: string;
-  _type: Home['_type'];
-
-  title?: string;
-  slug?: Slug;
-} | null;
-
-export type Link = {
-  _type: SANITY_FIELDS.LINK;
-  title?: string;
-  linkType?: 'page' | 'external' | 'blog' | 'product' | 'collection';
-  doc?: LinkDocRef;
-  url?: string;
-};
+} from '../../../types/sanity.schemas';
+import {Link as LinkIcon} from 'phosphor-react';
+import type {Link} from '../../../types/shared/objects/link';
 
 export default defineType({
   name: SANITY_FIELDS.LINK,
   title: 'Lien',
   type: 'object',
-  icon: () => <Link />,
+  icon: () => <LinkIcon />,
   options: {
     collapsible: true,
     collapsed: true,
@@ -72,7 +56,7 @@ export default defineType({
       },
     },
     {
-      name: 'doc',
+      name: 'document',
       title: 'Document',
       description: 'Redirige vers une page interne du site',
       type: 'reference',
@@ -146,7 +130,7 @@ export default defineType({
       title: 'Url',
       description: 'Url externe au site',
       type: SANITY_FIELDS.URL,
-      readOnly: ({parent}: {parent: Link}) => !!parent?.doc,
+      readOnly: ({parent}: {parent: Link}) => !!parent?.document,
       hidden: ({parent}) => parent?.linkType !== 'external',
     },
   ],
@@ -162,7 +146,7 @@ export default defineType({
       return {
         title: title || pageTitle,
         subtitle: url || pageSlug,
-        media: Link,
+        media: LinkIcon,
       };
     },
   },

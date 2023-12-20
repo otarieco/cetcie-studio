@@ -33,13 +33,14 @@ export enum SANITY_FIELDS {
   RICHTEXT_REGULAR = 'field.richTextRegular',
   RICHTEXT_COMPLEX = 'field.richTextComplex',
   RICHTEXT_BLOG = 'field.richTextBlog',
-  FIGURE = 'field.figure',
+  IMAGE = 'field.image',
   MUX_VIDEO = 'mux.video',
   MEDIA = 'field.media',
   URL = 'field.url',
   SEO = 'field.seo',
   LINK = 'field.link',
   NAV_SECTION = 'field.navSection',
+  NAV_SUB_SECTION = 'field.navSubSection',
   LOCALE = 'field.locale',
 }
 
@@ -51,32 +52,32 @@ export enum SANITY_SECTIONS {
    */
 
   // home
-  $HORSE_HOME_HERO = 'horse.section_home_hero',
+  $HORSE_HOME_HERO = 'section.horse_home_hero',
 
   // about
-  $HORSE_ABOUT_HERO = 'horse.section_about_hero',
+  $HORSE_ABOUT_HERO = 'section.horse_about_hero',
 
   // contact
-  $HORSE_CONTACT_HERO = 'horse.section_contact_hero',
+  $HORSE_CONTACT_HERO = 'section.horse_contact_hero',
 
   // pages
-  $HORSE_HERO = 'horse.section_hero',
+  $HORSE_HERO = 'section.horse_hero',
 
   /**
    * PETS
    */
 
   // home
-  $PETS_HOME_HERO = 'pets.section_home_hero',
+  $PETS_HOME_HERO = 'section.pets_home_hero',
 
   // about
-  $PETS_ABOUT_HERO = 'pets.section_about_hero',
+  $PETS_ABOUT_HERO = 'section.pets_about_hero',
 
   // contact
-  $PETS_CONTACT_HERO = 'pets.section_contact_hero',
+  $PETS_CONTACT_HERO = 'section.pets_contact_hero',
 
   // pages
-  $PETS_HERO = 'pets.section_hero',
+  $PETS_HERO = 'section.pets_hero',
 }
 
 export enum SHOPIFY_DOCUMENTS {

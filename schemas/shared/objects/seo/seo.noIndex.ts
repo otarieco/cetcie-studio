@@ -1,5 +1,3 @@
-export type SeoNoIndex = boolean;
-
 export default {
   name: 'seo.noIndex',
   title: 'Seo NoIndex',

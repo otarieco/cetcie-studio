@@ -1,20 +1,8 @@
 import {defineType} from '@sanity/types';
-import {SanityDocument, Slug} from 'sanity';
 import {Browser, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
-import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../sanity.schemas';
-import {Locale} from '../../../i18n.config';
-import {Seo} from '../../shared/objects/seo';
+import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
-import {Hero} from '../sections/page/hero';
-
-export type Page = SanityDocument & {
-  _type: SANITY_DOCUMENTS.$HORSE_PAGE;
-  locale?: Locale;
-  title?: string;
-  slug?: Slug;
-  sections?: Hero[];
-  seo?: Seo;
-};
+import {Page} from '../../../types/horse/documents/page';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_PAGE,

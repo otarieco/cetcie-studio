@@ -1,18 +1,6 @@
-import {defineType, SanityDocument} from 'sanity';
+import {defineType} from 'sanity';
 import {Rectangle} from 'phosphor-react';
-import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../sanity.schemas';
-import {Link} from '../../shared/objects/link';
-import {Locale} from '../../../i18n.config';
-import {Figure} from '../../shared/objects/figure';
-import {RichTextLite} from '../../shared/objects/richTextLite';
-
-export type Footer = SanityDocument & {
-  _type: SANITY_SINGLETONS.$HORSE_FOOTER;
-  locale?: Locale;
-  logo?: Figure;
-  description?: RichTextLite;
-  navigation?: Link[];
-};
+import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_FOOTER,
@@ -27,7 +15,7 @@ export default defineType({
     {
       name: 'logo',
       title: 'Logo',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
     },
     {
       name: 'description',

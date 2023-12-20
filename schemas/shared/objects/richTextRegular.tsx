@@ -1,12 +1,6 @@
 import {ArrayOfObjectsInputProps, defineType} from 'sanity';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
-import {PortableTextBlock} from '@portabletext/types';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Heading, Stack} from '@sanity/ui';
-import {Figure} from './figure';
-
-export type RichTextRegular = (PortableTextBlock | Figure)[] & {
-  _type: SANITY_FIELDS.RICHTEXT_REGULAR;
-};
 
 const TextSizes = (props: any) => {
   if (props.value === 'title')

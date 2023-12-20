@@ -1,7 +1,7 @@
 import {Stack, Text} from '@sanity/ui';
 import type {StringInputProps} from 'sanity';
 import {defineType} from 'sanity';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {ArrowSquareOut} from 'phosphor-react';
 
 export const CustomUrlInput = (props: StringInputProps) => {
@@ -20,8 +20,6 @@ export const CustomUrlInput = (props: StringInputProps) => {
     </Stack>
   );
 };
-
-export type Url = string;
 
 export default defineType({
   name: SANITY_FIELDS.URL,

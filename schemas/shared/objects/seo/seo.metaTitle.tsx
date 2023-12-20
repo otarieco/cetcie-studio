@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import {Card, Inline, Stack, Text} from '@sanity/ui'
-import {StringFieldProps} from 'sanity'
+import {Card, Inline, Stack, Text} from '@sanity/ui';
+import {StringFieldProps} from 'sanity';
 
 enum STATUS {
   CRITICAL = 'critical',
@@ -45,8 +45,6 @@ const CustomMetaTitleField = ({title, description, value, ...props}: StringField
     </Stack>
   );
 };
-
-export type SeoMetaTitle = string;
 
 export default {
   name: 'seo.metaTitle',

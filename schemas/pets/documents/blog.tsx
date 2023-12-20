@@ -1,19 +1,7 @@
-import {defineType, SanityDocument, Slug} from 'sanity';
-import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../sanity.schemas';
+import {defineType} from 'sanity';
+import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Article, FlagBanner, MagnifyingGlass, PencilSimpleLine} from 'phosphor-react';
-import {Figure} from '../../shared/objects/figure';
-import {Seo} from '../../shared/objects/seo';
-import {RichTextBlog} from '../../shared/objects/richTextBlog';
-
-export type SanityDocumentArticleType = SanityDocument & {
-  _type: SANITY_DOCUMENTS.$PETS_BLOG;
-  title?: string;
-  slug?: Slug;
-  date?: string;
-  coverImage?: Figure;
-  body?: RichTextBlog;
-  seo?: Seo;
-};
+import {Blog} from '../../../types/pets/documents/blog';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$PETS_BLOG,
@@ -54,7 +42,7 @@ export default defineType({
     },
     {
       name: 'coverImage',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
       group: 'hero',
     },
     {
@@ -79,11 +67,7 @@ export default defineType({
       seo: 'seo',
     },
     prepare(selection) {
-      const {
-        title,
-        date,
-        seo,
-      }: Pick<SanityDocumentArticleType, 'title' | 'date' | 'status' | 'seo'> = selection;
+      const {title, date, seo}: Pick<Blog, 'title' | 'date' | 'status' | 'seo'> = selection;
 
       enum SEO_STATUS {
         VALID = 'valid',

@@ -1,11 +1,6 @@
 import {ArrayOfObjectsInputProps, defineType} from 'sanity';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
-import {PortableTextBlock} from '@portabletext/types';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
-
-export type RichTextLite = PortableTextBlock[] & {
-  _type: SANITY_FIELDS.RICHTEXT_LITE;
-};
 
 export const CustomRichTextInput = (props: ArrayOfObjectsInputProps) => {
   return <Stack className="richText richText--lite">{props.renderDefault(props)}</Stack>;

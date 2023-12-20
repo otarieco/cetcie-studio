@@ -1,16 +1,6 @@
 import {defineType} from '@sanity/types';
-import {SanityDocument} from 'sanity';
 import {Link} from 'phosphor-react';
-import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../sanity.schemas';
-import {Locale} from '../../../i18n.config';
-import {Url} from '../../shared/objects/url';
-
-export type Social = SanityDocument & {
-  _type: SANITY_DOCUMENTS.$PETS_SOCIAL;
-  locale?: Locale;
-  title?: string;
-  url?: Url;
-};
+import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$PETS_SOCIAL,

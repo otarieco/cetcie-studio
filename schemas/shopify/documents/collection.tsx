@@ -5,7 +5,7 @@ import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
 import {Package} from 'phosphor-react';
-import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
+import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 
 const GROUPS = [
   {

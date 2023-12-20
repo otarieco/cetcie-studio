@@ -1,15 +1,7 @@
 import {defineType} from 'sanity';
-import {Figure} from './figure';
-import {MuxAsset} from 'sanity-plugin-mux-input/src/util/types';
 import {Camera} from 'phosphor-react';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
-
-export type Media = {
-  _type: SANITY_FIELDS.MEDIA;
-  mediaType?: 'image' | 'video';
-  image?: Figure;
-  video?: MuxAsset;
-};
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
+import {Media} from '../../../types/shared/objects/media';
 
 export default defineType({
   name: SANITY_FIELDS.MEDIA,
@@ -34,7 +26,7 @@ export default defineType({
     {
       name: 'image',
       title: 'Image ',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
       options: {
         collapsible: false,
       },

@@ -1,17 +1,6 @@
-import {defineType, SanityDocument} from 'sanity';
+import {defineType} from 'sanity';
 import {Compass} from 'phosphor-react';
-import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../sanity.schemas';
-import {Locale} from '../../../i18n.config';
-import {Link} from '../../shared/objects/link';
-import {Figure} from '../../shared/objects/figure';
-
-export type Header = SanityDocument & {
-  _type: SANITY_SINGLETONS.$HORSE_HEADER;
-  locale?: Locale;
-  logoLight?: Figure;
-  logoDark?: Figure;
-  navigation?: Link[];
-};
+import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_HEADER,
@@ -26,12 +15,12 @@ export default defineType({
     {
       name: 'logoLight',
       title: 'Logo Light',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
     },
     {
       name: 'logoDark',
       title: 'Logo Dark',
-      type: SANITY_FIELDS.FIGURE,
+      type: SANITY_FIELDS.IMAGE,
     },
     {
       name: 'navigation',

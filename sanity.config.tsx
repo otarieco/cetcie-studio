@@ -3,13 +3,16 @@ import {deskTool} from 'sanity/desk';
 import {visionTool} from '@sanity/vision';
 import {schemaTypes} from './schemas';
 import {media} from 'sanity-plugin-media';
-import {SANITY_SINGLETONS} from './sanity.schemas';
+import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from './types/sanity.schemas';
 import {muxInput} from 'sanity-plugin-mux-input';
 import {plausible} from './plugins/plausible';
 import './utils/richText.style.css';
 import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array';
 import {Horse} from 'phosphor-react';
 import {defaultDocumentNode, structure} from './desk/sanity.structure';
+import {documentInternationalization} from '@sanity/document-internationalization';
+import {i18n, localesFlags} from './i18n.config';
+import Flag from 'react-world-flags';
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
@@ -22,18 +25,18 @@ export default defineConfig({
   icon: Horse,
   plugins: [
     deskTool({structure, defaultDocumentNode}),
-    // documentInternationalization({
-    //   supportedLanguages: i18n.locales.map((locale) => ({
-    //     id: locale,
-    //     title: (
-    //       <span>
-    //         {locale.toLocaleUpperCase()} <Flag code={localesFlags[locale]} height="13" />
-    //       </span>
-    //     ) as unknown as string,
-    //   })),
-    //   schemaTypes: [...Object.values(SANITY_DOCUMENTS), ...Object.values(SANITY_SINGLETONS)],
-    //   languageField: 'locale',
-    // }),
+    documentInternationalization({
+      supportedLanguages: i18n.locales.map((locale) => ({
+        id: locale,
+        title: (
+          <span>
+            {locale.toLocaleUpperCase()} <Flag code={localesFlags[locale]} height="13" />
+          </span>
+        ) as unknown as string,
+      })),
+      schemaTypes: [...Object.values(SANITY_DOCUMENTS), ...Object.values(SANITY_SINGLETONS)],
+      languageField: 'locale',
+    }),
     media(),
     muxInput(),
     visionTool(),

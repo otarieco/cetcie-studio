@@ -1,16 +1,9 @@
 import {Image} from 'phosphor-react';
-import {SanityAssetSource} from '@sanity/asset-utils';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {defineType} from 'sanity';
 
-export type Figure = {
-  _type: SANITY_FIELDS.FIGURE;
-  image?: SanityAssetSource;
-  alt?: string;
-};
-
 export default defineType({
-  name: SANITY_FIELDS.FIGURE,
+  name: SANITY_FIELDS.IMAGE,
   title: 'Image',
   type: 'image',
   icon: Image,

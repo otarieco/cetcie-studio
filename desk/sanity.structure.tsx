@@ -1,5 +1,5 @@
 import type {DefaultDocumentNodeResolver} from 'sanity/desk';
-import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../sanity.schemas';
+import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../types/sanity.schemas';
 import {EditView, IframeView} from '../sanity.views';
 import {StructureResolver} from 'sanity/lib/exports/desk';
 import horse from './horse';

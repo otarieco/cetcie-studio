@@ -1,8 +1,8 @@
-import {defineType, StringFieldProps} from 'sanity'
-import {Badge, Inline} from '@sanity/ui'
-import {SANITY_FIELDS} from '../../../sanity.schemas'
-import Flag from 'react-world-flags'
-import {localesFlags} from '../../../i18n.config'
+import {defineType, StringFieldProps} from 'sanity';
+import {Badge, Inline} from '@sanity/ui';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
+import Flag from 'react-world-flags';
+import {localesFlags} from '../../../i18n.config';
 
 const CustomLocaleField = ({title, description, value, ...props}: StringFieldProps) => {
   return (
@@ -12,8 +12,8 @@ const CustomLocaleField = ({title, description, value, ...props}: StringFieldPro
         {value && <Flag code={localesFlags[value]} height="10" width="18" />}
       </Badge>
     </Inline>
-  )
-}
+  );
+};
 
 export default defineType({
   name: SANITY_FIELDS.LOCALE,
@@ -22,4 +22,4 @@ export default defineType({
   components: {
     field: CustomLocaleField,
   },
-})
+});

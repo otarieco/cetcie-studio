@@ -1,0 +1,1 @@
+export type SeoMetaTitle = string;

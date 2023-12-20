@@ -1,14 +1,6 @@
 import {FlagBanner} from 'phosphor-react';
 import {defineType} from 'sanity';
-import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../sanity.schemas';
-import {Media} from '../../../shared/objects/media';
-
-export type Hero = {
-  _type: SANITY_SECTIONS.$PETS_HERO;
-  surtitle?: string;
-  title?: string;
-  media?: Media;
-};
+import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SECTIONS.$PETS_HERO,

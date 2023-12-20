@@ -1,5 +1,3 @@
-export type SeoKeywords = string[];
-
 export default {
   name: 'seo.keywords',
   title: 'Seo Keywords',

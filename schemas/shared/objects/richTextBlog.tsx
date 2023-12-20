@@ -1,13 +1,7 @@
 import {ArrayOfObjectsInputProps, defineType} from 'sanity';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
-import {PortableTextBlock} from '@portabletext/types';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
 import {HighlighterCircle} from 'phosphor-react';
-import {Media} from './media';
-
-export type RichTextBlog = (PortableTextBlock | Media)[] & {
-  _type: SANITY_FIELDS.RICHTEXT_BLOG;
-};
 
 const HighlightDecorator = (props: any) => (
   <span style={{backgroundColor: 'yellow'}}>{props.children}</span>
