@@ -5,7 +5,7 @@ import ProductHiddenInput from '../../../utils/shopify/components/inputs/Product
 import {getPriceRange} from '../../../utils/shopify/getPriceRange';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
 import {Tag} from 'phosphor-react';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
+import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 
 const GROUPS = [
   {
@@ -21,7 +21,7 @@ const GROUPS = [
 ];
 
 export default defineType({
-  name: 'product',
+  name: SHOPIFY_DOCUMENTS.PRODUCT,
   title: 'Produit',
   type: 'document',
   icon: () => <Tag width="1em" height="1em" />,

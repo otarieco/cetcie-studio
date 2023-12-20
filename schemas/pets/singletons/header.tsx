@@ -35,7 +35,7 @@ export default defineType({
     },
     {
       name: 'navigation',
-      title: 'Navigation Principale',
+      title: 'Navigation',
       type: 'array',
       of: [
         {

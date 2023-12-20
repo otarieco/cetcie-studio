@@ -1,5 +1,10 @@
 import {defineType, Slug} from 'sanity';
-import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SINGLETONS} from '../../../sanity.schemas';
+import {
+  SANITY_DOCUMENTS,
+  SANITY_FIELDS,
+  SANITY_SINGLETONS,
+  SHOPIFY_DOCUMENTS,
+} from '../../../sanity.schemas';
 import {Home} from '../../horse/singletons/home';
 import {Link} from 'phosphor-react';
 
@@ -73,15 +78,51 @@ export default defineType({
       type: 'reference',
       options: {
         disableNew: true,
-        filter: ({document, parent, parentPath}) => {
+        filter: ({document, parent: _parent, parentPath}) => {
+          const parent = _parent as Link;
+          // 'horse' | 'pets'
           const siteType = document?._type.split('_')[0];
+          // 'page' | 'external' | 'blog' | 'product' | 'collection'
           const linkType = parent?.linkType;
-          // TODO: fix filter
+
+          if (linkType === 'page') {
+            return Promise.resolve({
+              filter: '_type match $docType',
+              params: {
+                docType: `${siteType}_page*`,
+              },
+            });
+          }
+
+          if (linkType === 'blog') {
+            return Promise.resolve({
+              filter: '_type == $docType',
+              params: {
+                docType: `${siteType}_blog`,
+              },
+            });
+          }
+
+          if (linkType === 'product') {
+            return Promise.resolve({
+              filter: '_type == $docType',
+              params: {
+                docType: 'product',
+              },
+            });
+          }
+
+          if (linkType === 'collection') {
+            return Promise.resolve({
+              filter: '_type == $docType',
+              params: {
+                docType: 'collection',
+              },
+            });
+          }
+
           return Promise.resolve({
-            filter: '_type == $docType || _type == horse_page_home',
-            params: {
-              docType: siteType + '_' + linkType,
-            },
+            filter: '*',
           });
         },
       },
@@ -91,8 +132,8 @@ export default defineType({
           ...Object.values(SANITY_DOCUMENTS).filter(
             (doc) => doc.endsWith('page') || doc.endsWith('blog'),
           ),
-          'product',
-          'collection',
+          SHOPIFY_DOCUMENTS.PRODUCT,
+          SHOPIFY_DOCUMENTS.COLLECTION,
         ]).map((singleton) => ({
           type: singleton,
         })),

@@ -78,3 +78,8 @@ export enum SANITY_SECTIONS {
   // pages
   $PETS_HERO = 'pets.section_hero',
 }
+
+export enum SHOPIFY_DOCUMENTS {
+  PRODUCT = 'product',
+  COLLECTION = 'collection',
+}

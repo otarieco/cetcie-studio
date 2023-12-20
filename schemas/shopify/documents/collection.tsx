@@ -5,7 +5,7 @@ import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
 import {Package} from 'phosphor-react';
-import {SANITY_FIELDS} from '../../../sanity.schemas';
+import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 
 const GROUPS = [
   {
@@ -21,7 +21,7 @@ const GROUPS = [
 ];
 
 export default defineType({
-  name: 'collection',
+  name: SHOPIFY_DOCUMENTS.COLLECTION,
   title: 'Collection',
   type: 'document',
   icon: () => <Package width="1em" height="1em" />,
@@ -54,6 +54,15 @@ export default defineType({
       options: {field: 'store.slug.current'},
     }),
     // Show hero
+    defineField({
+      name: 'showHero',
+      title: 'Show hero',
+      type: 'boolean',
+      description: 'If disabled, page title will be displayed instead',
+      readOnly: true,
+      hidden: true,
+      group: 'editorial',
+    }),
     defineField({
       name: 'media',
       title: 'Média',

@@ -1,9 +1,10 @@
 import {ListItemBuilder} from 'sanity/desk';
 import defineStructure from '../../utils/defineStructure';
+import {SHOPIFY_DOCUMENTS} from '../../sanity.schemas';
 
 export default defineStructure<ListItemBuilder>((S) =>
   S.listItem()
     .title('Collections')
-    .schemaType('collection')
-    .child(S.documentTypeList('collection')),
+    .schemaType(SHOPIFY_DOCUMENTS.COLLECTION)
+    .child(S.documentTypeList(SHOPIFY_DOCUMENTS.COLLECTION)),
 );

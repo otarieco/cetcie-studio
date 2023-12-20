@@ -1,28 +1,30 @@
 import {ListItemBuilder} from 'sanity/desk';
 import defineStructure from '../../utils/defineStructure';
 import {Info} from 'phosphor-react';
+import {SHOPIFY_DOCUMENTS} from '../../sanity.schemas';
 
 export default defineStructure<ListItemBuilder>((S) =>
   S.listItem()
     .title('Produits')
-    .schemaType('product')
+    .schemaType(SHOPIFY_DOCUMENTS.PRODUCT)
     .child(
-      S.documentTypeList('product')
+      S.documentTypeList(SHOPIFY_DOCUMENTS.PRODUCT)
         // .defaultLayout('detail')
         .child(async (id) =>
           S.list()
             .title('Produits')
             .canHandleIntent(
-              (intentName, params) => intentName === 'edit' && params.type === 'product',
+              (intentName, params) =>
+                intentName === 'edit' && params.type === SHOPIFY_DOCUMENTS.PRODUCT,
             )
             .items([
               // Details
               S.listItem()
                 .title('Details')
                 .icon(() => <Info width="1em" height="1em" />)
-                .schemaType('product')
+                .schemaType(SHOPIFY_DOCUMENTS.PRODUCT)
                 .id(id)
-                .child(S.document().schemaType('product').documentId(id)),
+                .child(S.document().schemaType(SHOPIFY_DOCUMENTS.PRODUCT).documentId(id)),
               // Product variants
               S.listItem()
                 .title('Variants')
