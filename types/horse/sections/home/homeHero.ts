@@ -1,5 +1,5 @@
 import {SANITY_SECTIONS} from '../../../sanity.schemas';
-import {Media} from '../../../shared/objects/media';
+import type {Media} from '../../../shared/objects/media';
 
 export type HomeHero = {
   _type: SANITY_SECTIONS.$HORSE_HOME_HERO;

@@ -1,7 +1,7 @@
 import {defineType} from 'sanity';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Article, FlagBanner, MagnifyingGlass, PencilSimpleLine} from 'phosphor-react';
-import {Blog} from '../../../types/pets/documents/blog';
+import type {Blog} from '../../../types/pets/documents/blog';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$PETS_BLOG,

@@ -1,4 +1,4 @@
-import {defineType, StringFieldProps} from 'sanity';
+import {defineType, type StringFieldProps} from 'sanity';
 import {Badge, Inline} from '@sanity/ui';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import Flag from 'react-world-flags';

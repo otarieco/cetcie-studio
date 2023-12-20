@@ -1,7 +1,7 @@
-import {ListItemBuilder} from 'sanity/lib/exports/desk';
 import defineStructure from '../../utils/defineStructure';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../../types/sanity.schemas';
 import {Browser, Stack} from 'phosphor-react';
+import type {ListItemBuilder} from 'sanity/lib/exports/desk';
 
 export default defineStructure<ListItemBuilder>((S, context) =>
   S.listItem()

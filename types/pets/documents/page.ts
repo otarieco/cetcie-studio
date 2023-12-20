@@ -1,8 +1,8 @@
-import {SanityDocument, Slug} from 'sanity';
+import type {SanityDocument, Slug} from 'sanity';
 import {SANITY_DOCUMENTS} from '../../sanity.schemas';
-import {Locale} from '../../shared/locale';
-import {Hero} from '../sections/page/hero';
-import {Seo} from '../../shared/objects/seo';
+import type {Locale} from '../../shared/locale';
+import type {Hero} from '../sections/page/hero';
+import type {Seo} from '../../shared/objects/seo';
 
 export type Page = SanityDocument & {
   _type: SANITY_DOCUMENTS.$PETS_PAGE;

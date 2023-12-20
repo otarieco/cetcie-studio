@@ -1,9 +1,9 @@
-import {ListItemBuilder} from 'sanity/lib/exports/desk';
-import defineStructure from '../../utils/defineStructure';
 import {Cat} from 'phosphor-react';
+import defineStructure from '../../utils/defineStructure';
+import type {ListItemBuilder} from 'sanity/lib/exports/desk';
 import page from './page';
-import settings from './settings';
 import blog from './blog';
+import settings from './settings';
 
 export default defineStructure<ListItemBuilder>((S, context) =>
   S.listItem()

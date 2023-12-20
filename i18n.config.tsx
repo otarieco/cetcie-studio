@@ -1,4 +1,4 @@
-import {Locale} from './types/shared/locale';
+import type {Locale} from './types/shared/locale';
 
 export const i18n: {
   defaultLocale: Locale;

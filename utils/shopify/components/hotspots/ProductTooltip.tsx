@@ -1,6 +1,6 @@
-import {PreviewLayoutKey, SchemaType, useSchema} from 'sanity';
+import {type PreviewLayoutKey, type SchemaType, useSchema} from 'sanity';
 import {Box} from '@sanity/ui';
-import {HotspotTooltipProps} from 'sanity-plugin-hotspot-array';
+import type {HotspotTooltipProps} from 'sanity-plugin-hotspot-array';
 import {useMemo} from 'react';
 import styled from 'styled-components';
 

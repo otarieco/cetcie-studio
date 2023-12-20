@@ -1,4 +1,4 @@
-import {PortableTextBlock} from '@portabletext/types';
+import type {PortableTextBlock} from '@portabletext/types';
 import {SANITY_FIELDS} from '../../sanity.schemas';
 
 export type RichTextLite = PortableTextBlock[] & {

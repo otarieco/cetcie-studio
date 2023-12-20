@@ -1,4 +1,4 @@
-import {defineType, SanityDocument} from 'sanity';
+import {defineType, type SanityDocument} from 'sanity';
 import {FlagBanner, MagnifyingGlass, PaperPlaneTilt, Stack} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 

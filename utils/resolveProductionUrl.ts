@@ -1,4 +1,4 @@
-import {SanityDocument, Slug} from 'sanity';
+import type {SanityDocument, Slug} from 'sanity';
 
 export type ResolveProductionUrlProps = SanityDocument & {
   slug: Slug;

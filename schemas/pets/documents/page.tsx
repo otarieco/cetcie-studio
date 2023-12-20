@@ -2,7 +2,7 @@ import {defineType} from '@sanity/types';
 import {Browser, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
-import {Page} from '../../../types/pets/documents/page';
+import type {Page} from '../../../types/pets/documents/page';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$PETS_PAGE,

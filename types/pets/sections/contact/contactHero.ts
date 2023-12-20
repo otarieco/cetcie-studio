@@ -1,5 +1,5 @@
 import {SANITY_SECTIONS} from '../../../sanity.schemas';
-import {Media} from '../../../shared/objects/media';
+import type {Media} from '../../../shared/objects/media';
 
 export type ContactHero = {
   _type: SANITY_SECTIONS.$PETS_CONTACT_HERO;

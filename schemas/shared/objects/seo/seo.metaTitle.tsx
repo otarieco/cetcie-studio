@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import {Card, Inline, Stack, Text} from '@sanity/ui';
-import {StringFieldProps} from 'sanity';
+import type {StringFieldProps} from 'sanity';
 
 enum STATUS {
   CRITICAL = 'critical',

@@ -1,4 +1,4 @@
-import {Link} from './link';
+import type {Link} from './link';
 
 export type NavSubSection = {
   title?: string;

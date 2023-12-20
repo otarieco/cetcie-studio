@@ -1,9 +1,9 @@
-import type {StructureBuilder} from 'sanity/desk'
-import {Eye, PencilSimple} from 'phosphor-react'
-import {resolveProductionUrl, ResolveProductionUrlProps} from './utils/resolveProductionUrl'
-import {Iframe} from 'sanity-plugin-iframe-pane'
+import type {StructureBuilder} from 'sanity/desk';
+import {Eye, PencilSimple} from 'phosphor-react';
+import {resolveProductionUrl, type ResolveProductionUrlProps} from './utils/resolveProductionUrl';
+import {Iframe} from 'sanity-plugin-iframe-pane';
 
-export const EditView = (S: StructureBuilder) => S.view.form().icon(PencilSimple)
+export const EditView = (S: StructureBuilder) => S.view.form().icon(PencilSimple);
 
 export const IframeView = (S: StructureBuilder) =>
   S.view
@@ -15,4 +15,4 @@ export const IframeView = (S: StructureBuilder) =>
       },
     })
     .title('Preview')
-    .icon(Eye)
+    .icon(Eye);

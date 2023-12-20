@@ -1,7 +1,7 @@
 import {defineType} from 'sanity';
 import {Camera} from 'phosphor-react';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {Media} from '../../../types/shared/objects/media';
+import type {Media} from '../../../types/shared/objects/media';
 
 export default defineType({
   name: SANITY_FIELDS.MEDIA,

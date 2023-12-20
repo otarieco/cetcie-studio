@@ -1,6 +1,6 @@
-import {Slug} from 'sanity';
+import type {Slug} from 'sanity';
 import {SANITY_FIELDS} from '../../sanity.schemas';
-import {Home} from '../../horse/singletons/home';
+import type {Home} from '../../horse/singletons/home';
 
 export type LinkDocRef = {
   _id: string;

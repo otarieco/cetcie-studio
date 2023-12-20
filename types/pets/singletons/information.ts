@@ -1,6 +1,6 @@
-import {SanityDocument} from 'sanity';
+import type {SanityDocument} from 'sanity';
 import {SANITY_SINGLETONS} from '../../sanity.schemas';
-import {Locale} from '../../shared/locale';
+import type {Locale} from '../../shared/locale';
 
 export type Information = SanityDocument & {
   _type: SANITY_SINGLETONS.$PETS_INFORMATION;

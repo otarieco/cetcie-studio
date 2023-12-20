@@ -1,4 +1,4 @@
-import {ArrayOfObjectsInputProps, defineType} from 'sanity';
+import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
 

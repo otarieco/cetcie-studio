@@ -1,7 +1,7 @@
 import type {DefaultDocumentNodeResolver} from 'sanity/desk';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../types/sanity.schemas';
 import {EditView, IframeView} from '../sanity.views';
-import {StructureResolver} from 'sanity/lib/exports/desk';
+import type {StructureResolver} from 'sanity/lib/exports/desk';
 import horse from './horse';
 import pets from './pets';
 import product from './shopify/product';
