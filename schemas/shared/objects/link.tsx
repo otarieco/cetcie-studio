@@ -56,7 +56,7 @@ export default defineType({
       },
     },
     {
-      name: 'document',
+      name: 'doc',
       title: 'Document',
       description: 'Redirige vers une page interne du site',
       type: 'reference',
@@ -130,7 +130,7 @@ export default defineType({
       title: 'Url',
       description: 'Url externe au site',
       type: SANITY_FIELDS.URL,
-      readOnly: ({parent}: {parent: Link}) => !!parent?.document,
+      readOnly: ({parent}: {parent: Link}) => !!parent?.doc,
       hidden: ({parent}) => parent?.linkType !== 'external',
     },
   ],

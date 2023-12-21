@@ -1,11 +1,13 @@
-import type {SanityDocument, Slug} from 'sanity';
-import {SANITY_DOCUMENTS} from '../../sanity.schemas';
-import type {Image} from '../../shared/objects/image';
-import type {RichTextBlog} from '../../shared/objects/richTextBlog';
-import type {Seo} from '../../shared/objects/seo';
+import type { SanityDocument, Slug } from 'sanity';
+import { SANITY_DOCUMENTS } from '../../sanity.schemas';
+import { type Image, ImageProjection } from '../../shared/objects/image';
+import { type RichTextBlog, RichTextBlogProjection } from '../../shared/objects/richTextBlog';
+import { type Seo, SeoProjection } from '../../shared/objects/seo';
+import type { Locale } from '../../shared/locale';
 
 export type Blog = SanityDocument & {
   _type: SANITY_DOCUMENTS.$PETS_BLOG;
+  locale?: Locale;
   title?: string;
   slug?: Slug;
   date?: string;
@@ -13,3 +15,11 @@ export type Blog = SanityDocument & {
   body?: RichTextBlog;
   seo?: Seo;
 };
+
+export const BlogProjection = `
+   coverImage{${ImageProjection}},
+   body[]{
+    ${RichTextBlogProjection},
+   },
+   seo{${SeoProjection}},
+`;

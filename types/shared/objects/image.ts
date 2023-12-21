@@ -1,8 +1,19 @@
-import {SANITY_FIELDS} from '../../sanity.schemas';
-import type {SanityAssetSource} from '@sanity/asset-utils';
+import { SANITY_FIELDS } from '../../sanity.schemas';
+import type { SanityAssetSource } from '@sanity/asset-utils';
 
 export type Image = {
   _type: SANITY_FIELDS.IMAGE;
-  image?: SanityAssetSource;
+  asset?: SanityAssetSource;
   alt?: string;
-};
+} | null;
+
+export const ImageProjection = `
+  ...,
+  asset->{
+    _id, 
+    url,
+    metadata{
+      palette
+    }
+  }
+`;

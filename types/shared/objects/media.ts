@@ -1,6 +1,6 @@
-import {SANITY_FIELDS} from '../../sanity.schemas';
-import type {MuxAsset} from 'sanity-plugin-mux-input/src/util/types';
-import type {Image} from './image';
+import { SANITY_FIELDS } from '../../sanity.schemas';
+import type { MuxAsset } from 'sanity-plugin-mux-input/src/util/types';
+import { type Image, ImageProjection } from './image';
 
 export type Media = {
   _type: SANITY_FIELDS.MEDIA;
@@ -8,3 +8,18 @@ export type Media = {
   image?: Image;
   video?: MuxAsset;
 };
+
+export const VideoProjection = `
+  asset{
+    playbackId,
+  }
+`;
+
+export const MediaProjection = `
+  mediaType == "image" => {
+    image{${ImageProjection}}
+  }, 
+  mediaType == "video" => {
+    video{${VideoProjection}}
+  },
+`;

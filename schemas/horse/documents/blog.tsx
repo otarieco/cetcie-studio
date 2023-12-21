@@ -15,6 +15,11 @@ export default defineType({
   ],
   fields: [
     {
+      name: 'locale',
+      type: SANITY_FIELDS.LOCALE,
+      group: ['hero', 'body', 'seo'],
+    },
+    {
       name: 'title',
       title: 'Titre du blog',
       type: 'string',

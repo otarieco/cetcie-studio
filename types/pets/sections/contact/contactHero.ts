@@ -1,5 +1,5 @@
-import {SANITY_SECTIONS} from '../../../sanity.schemas';
-import type {Media} from '../../../shared/objects/media';
+import { SANITY_SECTIONS } from '../../../sanity.schemas';
+import { type Media, MediaProjection } from '../../../shared/objects/media';
 
 export type ContactHero = {
   _type: SANITY_SECTIONS.$PETS_CONTACT_HERO;
@@ -7,3 +7,8 @@ export type ContactHero = {
   title?: string;
   media?: Media;
 };
+
+export const ContactHeroProjection = `
+  ...,
+  media{${MediaProjection}}
+`;
