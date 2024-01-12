@@ -1,48 +1,22 @@
-import type {SanityDocument} from 'sanity';
-import {type CollectionEditorial, CollectionEditorialProjection} from './collectionEditorial';
+import type {SanityDocument, Slug} from 'sanity';
+import {SHOPIFY_DOCUMENTS} from '../../sanity.schemas';
+import {type RichTextRegular} from '../../shared/objects/richTextRegular';
+import {type Image} from '../../shared/objects/image';
+import {type Seo} from '../../shared/objects/seo';
 import type {Locale} from '../../shared/locale';
-import {type Seo, SeoProjection} from '../../shared/objects/seo';
 
 /**
- * CollectionRaw is the collection type stored in Sanity
- * Before his transformation into Collection type
+ * Type used in front-end
+ * Transformation step (CollectionRaw -> Collection)
  */
-export type RawCollection = SanityDocument & {
+export type Collection = SanityDocument & {
+  _type: SHOPIFY_DOCUMENTS.COLLECTION;
   locale?: Locale;
-  editorial?: CollectionEditorial;
-  store?: CollectionStore;
+  title?: string;
+  slug?: Slug;
+  description?: RichTextRegular;
+  image?: Image;
   seo?: Seo;
 };
 
-export const CollectionProjection = `
-   ...,
-   editorial{${CollectionEditorialProjection}},
-   store{...},
-   seo{${SeoProjection}},
-`;
-
-/**
- * Data synced from Shopify and stored in Sanity
- */
-type CollectionStore = {
-  title?: string;
-  isDeleted?: boolean;
-  sortOrder?: string;
-  id?: number;
-  createdAt?: string;
-  gid?: string;
-  slug?: {
-    current?: string;
-    _type: 'slug';
-  };
-  disjunctive?: boolean;
-  imageUrl?: string;
-  descriptionHtml?: string;
-  rules: {
-    condition?: string;
-    _type?: string;
-    column?: string;
-    _key?: string;
-    relation?: string;
-  }[];
-};
+// CollectionProjection on shopify > documents > collection
