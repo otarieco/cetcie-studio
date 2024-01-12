@@ -4,7 +4,7 @@ import pluralize from 'pluralize-esm';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {Package} from 'phosphor-react';
+import {MagnifyingGlass, Package, PencilSimpleLine} from 'phosphor-react';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 
 const GROUPS = [
@@ -12,11 +12,17 @@ const GROUPS = [
     default: true,
     name: 'editorial',
     title: 'Editorial',
+    icon: () => <PencilSimpleLine />,
   },
   {
     name: 'shopifySync',
     title: 'Shopify sync',
     icon: ShopifyIcon,
+  },
+  {
+    name: 'seo',
+    title: 'Seo',
+    icon: () => <MagnifyingGlass />,
   },
 ];
 
@@ -27,6 +33,11 @@ export default defineType({
   icon: () => <Package width="1em" height="1em" />,
   groups: GROUPS,
   fields: [
+    {
+      name: 'locale',
+      type: SANITY_FIELDS.LOCALE,
+      group: ['editorial', 'shopifySync'],
+    },
     // Product hidden status
     defineField({
       name: 'hidden',
@@ -53,6 +64,15 @@ export default defineType({
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     }),
+    /**
+     * Collection Editorial
+     */
+    {
+      name: 'editorial',
+      title: 'Collection',
+      type: SHOPIFY_DOCUMENTS.COLLECTION_EDITORIAL,
+      group: 'editorial',
+    },
     // Show hero
     defineField({
       name: 'showHero',
@@ -60,14 +80,8 @@ export default defineType({
       type: 'boolean',
       description: 'If disabled, page title will be displayed instead',
       readOnly: true,
-      hidden: true,
-      group: 'editorial',
-    }),
-    defineField({
-      name: 'media',
-      title: 'Média',
-      type: SANITY_FIELDS.MEDIA,
-      group: 'editorial',
+      hidden: false,
+      group: 'shopifySync',
     }),
     // Shopify collection
     defineField({
@@ -77,6 +91,13 @@ export default defineType({
       description: 'Collection data from Shopify (read-only)',
       group: 'shopifySync',
     }),
+    // Seo
+    {
+      name: 'seo',
+      title: 'Seo',
+      type: SANITY_FIELDS.SEO,
+      group: 'seo',
+    },
   ],
   orderings: [
     {

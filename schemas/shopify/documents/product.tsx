@@ -40,6 +40,11 @@ export default defineType({
         return !parent?.store || (isActive && !isDeleted);
       },
     }),
+    {
+      name: 'locale',
+      type: SANITY_FIELDS.LOCALE,
+      group: ['editorial', 'shopifySync'],
+    },
     // Title (proxy)
     defineField({
       name: 'titleProxy',

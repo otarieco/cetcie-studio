@@ -83,4 +83,5 @@ export enum SANITY_SECTIONS {
 export enum SHOPIFY_DOCUMENTS {
   PRODUCT = 'product',
   COLLECTION = 'collection',
+  COLLECTION_EDITORIAL = 'collection.editorial',
 }

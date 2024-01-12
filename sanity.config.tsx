@@ -3,7 +3,7 @@ import {deskTool} from 'sanity/desk';
 import {visionTool} from '@sanity/vision';
 import {schemaTypes} from './schemas';
 import {media} from 'sanity-plugin-media';
-import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from './types/sanity.schemas';
+import {SANITY_DOCUMENTS, SANITY_SINGLETONS, SHOPIFY_DOCUMENTS} from './types/sanity.schemas';
 import {muxInput} from 'sanity-plugin-mux-input';
 import {plausible} from './plugins/plausible';
 import './utils/richText.style.css';
@@ -34,7 +34,12 @@ export default defineConfig({
           </span>
         ) as unknown as string,
       })),
-      schemaTypes: [...Object.values(SANITY_DOCUMENTS), ...Object.values(SANITY_SINGLETONS)],
+      schemaTypes: [
+        ...Object.values(SANITY_DOCUMENTS),
+        ...Object.values(SANITY_SINGLETONS),
+        SHOPIFY_DOCUMENTS.COLLECTION,
+        SHOPIFY_DOCUMENTS.PRODUCT,
+      ],
       languageField: 'locale',
     }),
     media(),
