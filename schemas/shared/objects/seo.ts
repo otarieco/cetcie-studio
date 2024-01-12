@@ -7,12 +7,12 @@ export default defineType({
   type: 'object',
   fields: [
     {
-      name: 'metaTitle',
-      type: 'seo.metaTitle',
+      name: 'title',
+      type: 'seo.title',
     },
     {
-      name: 'metaDescription',
-      type: 'seo.metaDescription',
+      name: 'description',
+      type: 'seo.description',
     },
     {
       name: 'noIndex',

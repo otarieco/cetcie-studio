@@ -14,11 +14,11 @@ const COLORS = {
   positive: '#0EA34A',
 };
 
-const CustomMetaTitleField = ({title, description, value, ...props}: StringFieldProps) => {
+const CustomMetaDescriptionField = ({title, description, value, ...props}: StringFieldProps) => {
   const CURRENT_STATUS =
-    !value || value.length < 3 || value.length > 70
+    !value || value.length < 50 || value.length > 160
       ? STATUS.CRITICAL
-      : value.length < 15
+      : value.length < 70
         ? STATUS.CAUTION
         : STATUS.POSITIVE;
 
@@ -37,7 +37,7 @@ const CustomMetaTitleField = ({title, description, value, ...props}: StringField
       <Inline>
         <Card padding={1} border={true} radius={2} tone={CURRENT_STATUS}>
           <Text size={1} weight="medium" style={{color: COLORS[CURRENT_STATUS]}}>
-            {value?.length || 0} / 70
+            {value?.length || 0} / 160
           </Text>
         </Card>
       </Inline>
@@ -47,13 +47,14 @@ const CustomMetaTitleField = ({title, description, value, ...props}: StringField
 };
 
 export default {
-  name: 'seo.metaTitle',
-  title: 'Seo Meta Title',
-  description: 'Titre utilisé par les moteurs de recherche. Idéalement entre 15 et 70 caractères.',
+  name: 'seo.description',
+  title: 'Seo Description',
+  description:
+    'Facultatif mais fortement encouragé car il vous aidera à convertir plus de visiteurs de Google et des réseaux sociaux. Idéalement entre 70 et 160 caractères.',
   // description:
-  //   'Make it as enticing as possible to convert users in socials feeds and Google. Ideally between 15 and 70 characters.',
-  type: 'string',
+  //   "Optional but highly encouraged as it'll help you convert more visitors from Google & social. Ideally between 70 and 160 characters.",
+  type: 'text',
   components: {
-    field: CustomMetaTitleField,
+    field: CustomMetaDescriptionField,
   },
 };

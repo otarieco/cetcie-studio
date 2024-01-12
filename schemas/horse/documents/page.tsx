@@ -73,11 +73,11 @@ export default defineType({
       };
 
       const seoStatus = () => {
-        if (!seo?.metaTitle || seo?.metaTitle?.length < 15) {
+        if (!seo?.title || seo?.title?.length < 15) {
           return SEO_STATUS.INVALID;
         }
 
-        if (!seo?.metaDescription || seo?.metaDescription?.length < 70) {
+        if (!seo?.description || seo?.description?.length < 70) {
           return SEO_STATUS.INVALID;
         }
 
