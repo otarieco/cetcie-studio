@@ -84,4 +84,5 @@ export enum SHOPIFY_DOCUMENTS {
   PRODUCT = 'product',
   COLLECTION = 'collection',
   COLLECTION_EDITORIAL = 'collection.editorial',
+  PRODUCT_EDITORIAL = 'product.editorial',
 }

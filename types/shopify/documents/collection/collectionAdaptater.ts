@@ -1,5 +1,5 @@
 import type {RawCollection} from './rawCollection';
-import {SHOPIFY_DOCUMENTS} from '../../sanity.schemas';
+import {SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 import type {Slug} from 'sanity';
 import type {Collection} from './collection';
 

@@ -1,9 +1,9 @@
 import type {SanityDocument, Slug} from 'sanity';
-import {SHOPIFY_DOCUMENTS} from '../../sanity.schemas';
-import {type RichTextRegular} from '../../shared/objects/richTextRegular';
-import {type Image} from '../../shared/objects/image';
-import {type Seo} from '../../shared/objects/seo';
-import type {Locale} from '../../shared/locale';
+import {SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
+import {type RichTextRegular} from '../../../shared/objects/richTextRegular';
+import {type Image} from '../../../shared/objects/image';
+import {type Seo} from '../../../shared/objects/seo';
+import type {Locale} from '../../../shared/locale';
 
 /**
  * Type used in front-end

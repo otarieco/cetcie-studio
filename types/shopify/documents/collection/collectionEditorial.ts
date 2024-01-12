@@ -1,5 +1,5 @@
-import {type RichTextRegular, RichTextRegularProjection} from '../../shared/objects/richTextRegular';
-import {type Image, ImageProjection} from '../../shared/objects/image';
+import {type RichTextRegular, RichTextRegularProjection} from '../../../shared/objects/richTextRegular';
+import {type Image, ImageProjection} from '../../../shared/objects/image';
 
 /**
  * Custom fields to enhance Shopify collection

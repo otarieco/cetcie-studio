@@ -59,35 +59,13 @@ export default defineType({
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     }),
-    defineField({
-      name: 'advice',
-      title: "Conseils d'utilisation",
-      type: 'object',
-
-      fields: [
-        {
-          name: 'label',
-          title: 'Label',
-          type: 'string',
-        },
-        {
-          name: 'title',
-          title: 'Titre',
-          type: 'string',
-        },
-        {
-          name: 'description',
-          title: 'Description',
-          type: 'text',
-        },
-        {
-          name: 'media',
-          title: 'Media',
-          type: SANITY_FIELDS.MEDIA,
-        },
-      ],
+    // Product Editorial
+    {
+      name: 'editorial',
+      title: 'Produit',
+      type: SHOPIFY_DOCUMENTS.PRODUCT_EDITORIAL,
       group: 'editorial',
-    }),
+    },
     defineField({
       name: 'store',
       title: 'Shopify',

@@ -64,9 +64,7 @@ export default defineType({
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     }),
-    /**
-     * Collection Editorial
-     */
+    // Collection Editorial
     {
       name: 'editorial',
       title: 'Collection',

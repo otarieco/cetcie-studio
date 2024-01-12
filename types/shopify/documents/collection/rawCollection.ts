@@ -1,7 +1,7 @@
 import type {SanityDocument} from 'sanity';
 import {type CollectionEditorial, CollectionEditorialProjection} from './collectionEditorial';
-import type {Locale} from '../../shared/locale';
-import {type Seo, SeoProjection} from '../../shared/objects/seo';
+import type {Locale} from '../../../shared/locale';
+import {type Seo, SeoProjection} from '../../../shared/objects/seo';
 import {type CollectionStore, CollectionStoreProjection} from './collectionStore';
 
 /**
