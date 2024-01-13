@@ -12,4 +12,5 @@ export const productAdaptater = (rawProduct: RawProduct): Product => ({
   locale: rawProduct?.locale,
   slug: rawProduct?.store?.slug as Slug,
   title: rawProduct?.editorial?.title,
+  description: rawProduct?.editorial?.description,
 });

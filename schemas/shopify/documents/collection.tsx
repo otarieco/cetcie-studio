@@ -1,17 +1,17 @@
 import React from 'react';
 import {defineField, defineType} from 'sanity';
-import pluralize from 'pluralize-esm';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
 import {MagnifyingGlass, Package, PencilSimpleLine} from 'phosphor-react';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
+import {seoPreview} from '../../../utils/seo.preview';
 
 const GROUPS = [
   {
-    default: true,
     name: 'editorial',
     title: 'Editorial',
+    default: true,
     icon: () => <PencilSimpleLine />,
   },
   {
@@ -113,15 +113,16 @@ export default defineType({
     select: {
       imageUrl: 'store.imageUrl',
       isDeleted: 'store.isDeleted',
-      rules: 'store.rules',
       title: 'store.title',
+      slug: 'store.slug.current',
+      media: 'editorial.image.asset',
+      seo: 'seo',
     },
     prepare(selection) {
-      const {imageUrl, isDeleted, rules, title} = selection;
-      const ruleCount = rules?.length || 0;
+      const {imageUrl, isDeleted, title, slug, media, seo} = selection;
 
       return {
-        media: (
+        media: media || (
           <ShopifyDocumentStatus
             isDeleted={isDeleted}
             type="collection"
@@ -129,8 +130,8 @@ export default defineType({
             title={title}
           />
         ),
-        subtitle: ruleCount > 0 ? `Automated (${pluralize('rule', ruleCount, true)})` : 'Manual',
         title,
+        subtitle: `${slug} ${seoPreview(seo)}`,
       };
     },
   },

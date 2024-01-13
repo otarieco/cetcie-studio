@@ -12,6 +12,12 @@ export default defineType({
       type: 'string',
     },
     {
+      name: 'slugProxy',
+      title: 'Slug',
+      type: 'proxyString',
+      options: {field: 'store.slug.current'},
+    },
+    {
       name: 'description',
       title: 'Description',
       type: SANITY_FIELDS.RICHTEXT_REGULAR,

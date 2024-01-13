@@ -4,19 +4,27 @@ import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import ProductHiddenInput from '../../../utils/shopify/components/inputs/ProductHidden';
 import {getPriceRange} from '../../../utils/shopify/getPriceRange';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {Tag} from 'phosphor-react';
+import {MagnifyingGlass, PencilSimpleLine, Tag} from 'phosphor-react';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
+import React from 'react';
+import {seoPreview} from '../../../utils/seo.preview';
 
 const GROUPS = [
   {
     name: 'editorial',
     title: 'Editorial',
     default: true,
+    icon: () => <PencilSimpleLine />,
   },
   {
     name: 'shopifySync',
     title: 'Shopify sync',
     icon: ShopifyIcon,
+  },
+  {
+    name: 'seo',
+    title: 'Seo',
+    icon: () => <MagnifyingGlass />,
   },
 ];
 
@@ -73,6 +81,13 @@ export default defineType({
       description: 'Product data from Shopify (read-only)',
       group: 'shopifySync',
     }),
+    // Seo
+    {
+      name: 'seo',
+      title: 'Seo',
+      type: SANITY_FIELDS.SEO,
+      group: 'seo',
+    },
   ],
   orderings: [
     {
@@ -104,10 +119,13 @@ export default defineType({
       priceRange: 'store.priceRange',
       status: 'store.status',
       title: 'store.title',
+      slug: 'store.slug.current',
       variants: 'store.variants',
+      seo: 'seo',
     },
     prepare(selection) {
-      const {isDeleted, options, previewImageUrl, priceRange, status, title, variants} = selection;
+      const {isDeleted, options, previewImageUrl, priceRange, status, title, variants, slug, seo} =
+        selection;
 
       const optionCount = options?.length;
       const variantCount = variants?.length;
@@ -117,17 +135,17 @@ export default defineType({
         optionCount ? pluralize('option', optionCount, true) : 'No options',
       ];
 
-      let subtitle = getPriceRange(priceRange);
+      let price = getPriceRange(priceRange);
       if (status !== 'active') {
-        subtitle = '(Unavailable in Shopify)';
+        price = '(Unavailable in Shopify)';
       }
       if (isDeleted) {
-        subtitle = '(Deleted from Shopify)';
+        price = '(Deleted from Shopify)';
       }
 
       return {
         description: description.join(' / '),
-        subtitle,
+        subtitle: `${slug} ${seoPreview(seo)}`,
         title,
         media: (
           <ShopifyDocumentStatus

@@ -7,7 +7,7 @@ import type {Media} from '../../../shared/objects/media';
 
 /**
  * Type used in front-end
- * Transformation step (CollectionRaw -> Collection)
+ * Transformation step (ProductRaw -> Product)
  */
 export type Product = SanityDocument & {
   _type: SHOPIFY_DOCUMENTS.PRODUCT;

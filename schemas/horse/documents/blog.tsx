@@ -2,6 +2,7 @@ import {defineType} from 'sanity';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Article, FlagBanner, MagnifyingGlass, PencilSimpleLine} from 'phosphor-react';
 import type {Blog} from '../../../types/horse/documents/blog';
+import {seoPreview} from '../../../utils/seo.preview';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_BLOG,
@@ -74,32 +75,10 @@ export default defineType({
     prepare(selection) {
       const {title, date, seo}: Pick<Blog, 'title' | 'date' | 'status' | 'seo'> = selection;
 
-      enum SEO_STATUS {
-        VALID = 'valid',
-        INVALID = 'invalid',
-      }
-
-      const EMOJIS = {
-        valid: '',
-        invalid: ' | SEO: 🚩',
-      };
-
-      const seoStatus = () => {
-        if (!seo?.title || seo?.title?.length < 15) {
-          return SEO_STATUS.INVALID;
-        }
-
-        if (!seo?.description || seo?.description?.length < 70) {
-          return SEO_STATUS.INVALID;
-        }
-
-        return SEO_STATUS.VALID;
-      };
-
       return {
         media: selection.media,
         title,
-        subtitle: date ? `le ${date} ${EMOJIS[seoStatus()]}` : `${EMOJIS[seoStatus()]}`,
+        subtitle: date ? `le ${date}  ${seoPreview(seo)}` : `${seoPreview(seo)}`,
       };
     },
   },

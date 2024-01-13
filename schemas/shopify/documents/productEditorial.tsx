@@ -1,5 +1,7 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
+import {CaretCircleDown} from 'phosphor-react';
+import {blocksToText} from '../../../utils/blocksToText';
 
 export default defineType({
   name: SHOPIFY_DOCUMENTS.PRODUCT_EDITORIAL,
@@ -10,6 +12,12 @@ export default defineType({
       name: 'title',
       title: 'Titre',
       type: 'string',
+    },
+    {
+      name: 'slugProxy',
+      title: 'Slug',
+      type: 'proxyString',
+      options: {field: 'store.slug.current'},
     },
     {
       name: 'description',
@@ -49,6 +57,19 @@ export default defineType({
               type: SANITY_FIELDS.RICHTEXT_REGULAR,
             },
           ],
+          preview: {
+            select: {
+              title: 'title',
+              subtitle: 'content',
+            },
+            prepare({title, subtitle}: any) {
+              return {
+                title,
+                subtitle: blocksToText(subtitle),
+                media: <CaretCircleDown />,
+              };
+            },
+          },
         },
       ],
     },

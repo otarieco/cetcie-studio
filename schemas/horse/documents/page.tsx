@@ -3,6 +3,7 @@ import {Browser, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 import type {Page} from '../../../types/horse/documents/page';
+import {seoPreview} from '../../../utils/seo.preview';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_PAGE,
@@ -57,38 +58,15 @@ export default defineType({
       title: 'title',
       slug: 'slug',
       seo: 'seo',
-      status: 'status',
     },
     prepare(selection) {
-      const {title, slug, status, seo}: Pick<Page, 'title' | 'slug' | 'status' | 'seo'> = selection;
-
-      enum SEO_STATUS {
-        VALID = 'valid',
-        INVALID = 'invalid',
-      }
-
-      const EMOJIS = {
-        valid: '',
-        invalid: ' | SEO: 🚩',
-      };
-
-      const seoStatus = () => {
-        if (!seo?.title || seo?.title?.length < 15) {
-          return SEO_STATUS.INVALID;
-        }
-
-        if (!seo?.description || seo?.description?.length < 70) {
-          return SEO_STATUS.INVALID;
-        }
-
-        return SEO_STATUS.VALID;
-      };
+      const {title, slug, seo}: Pick<Page, 'title' | 'slug' | 'seo'> = selection;
 
       return {
         title,
         subtitle: slug?.current
-          ? `${slug?.current} ${EMOJIS[seoStatus()]}`
-          : `⛔️ NO SLUG ${EMOJIS[seoStatus()]}`,
+          ? `${slug?.current} ${seoPreview(seo)}`
+          : `⛔️ NO SLUG ${seoPreview(seo)}`,
       };
     },
   },
