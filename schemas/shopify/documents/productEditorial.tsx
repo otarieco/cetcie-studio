@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
+import {SANITY_FIELDS, SHOPIFY_DOCUMENTS, SHOPIFY_SECTIONS} from '../../../types/sanity.schemas';
 import {CaretCircleDown} from 'phosphor-react';
 import {blocksToText} from '../../../utils/blocksToText';
 
@@ -74,33 +74,12 @@ export default defineType({
       ],
     },
     {
-      name: 'advice',
-      title: "Conseils d'utilisation",
-      type: 'object',
-      options: {
-        collapsible: true,
-      },
-      fields: [
-        {
-          name: 'label',
-          title: 'Label',
-          type: 'string',
-        },
-        {
-          name: 'title',
-          title: 'Titre',
-          type: 'string',
-        },
-        {
-          name: 'description',
-          title: 'Description',
-          type: 'text',
-        },
-        {
-          name: 'media',
-          title: 'Media',
-          type: SANITY_FIELDS.MEDIA,
-        },
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        {type: SHOPIFY_SECTIONS.PRODUCT_ADVICE},
+        {type: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS},
       ],
     },
   ],

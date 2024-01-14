@@ -3,7 +3,8 @@ import {defineField, defineType} from 'sanity';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import ProductVariantHiddenInput from '../../../utils/shopify/components/inputs/ProductVariantHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {Stack} from 'phosphor-react';
+import {PencilSimpleLine, Stack} from 'phosphor-react';
+import {SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: 'productVariant',
@@ -11,6 +12,12 @@ export default defineType({
   type: 'document',
   icon: () => <Stack width="1em" height="1em" />,
   groups: [
+    {
+      name: 'editorial',
+      title: 'Editorial',
+      default: true,
+      icon: () => <PencilSimpleLine />,
+    },
     {
       name: 'shopifySync',
       title: 'Shopify sync',
@@ -46,6 +53,13 @@ export default defineType({
       type: 'shopifyProductVariant',
       group: 'shopifySync',
     }),
+    // Product Editorial
+    {
+      name: 'editorial',
+      title: 'Produit',
+      type: SHOPIFY_DOCUMENTS.PRODUCT_VARIANT_EDITORIAL,
+      group: 'editorial',
+    },
   ],
   preview: {
     select: {

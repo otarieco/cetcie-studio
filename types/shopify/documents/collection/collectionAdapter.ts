@@ -3,7 +3,7 @@ import {SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 import type {Slug} from 'sanity';
 import type {Collection} from './collection';
 
-export const collectionAdaptater = (rawCollection: RawCollection): Collection => ({
+export const collectionAdapter = (rawCollection: RawCollection): Collection => ({
   _createdAt: rawCollection?._createdAt,
   _updatedAt: rawCollection?._updatedAt,
   _rev: rawCollection?._rev,

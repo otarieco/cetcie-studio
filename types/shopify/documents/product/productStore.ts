@@ -15,18 +15,14 @@ export type ProductStore = {
   };
   options?: {
     values?: {
-      _type?: string;
       name?: string;
+      values?: string[];
       _key?: string;
+      _type?: 'option';
     };
   }[];
   isDeleted?: boolean;
-  variants: {
-    _weak?: boolean;
-    _ref?: string;
-    _type?: string;
-    _key?: string;
-  }[];
+  variants: ProductStoreVariant[];
   tags?: string[];
   previewImageUrl?: string;
   priceRange?: {
@@ -36,6 +32,44 @@ export type ProductStore = {
   descriptionHtml?: string;
 };
 
-export const CollectionStoreProjection = `
-  ...
+export type ProductStoreVariant =
+  | {
+      _ref?: string;
+      _weak?: string;
+      _key?: string;
+      _type?: 'reference';
+    }
+  | {
+      _id?: string;
+      _updatedAt?: string;
+      _createdAt?: string;
+      _rev?: string;
+      _type?: 'productVariant';
+      store?: {
+        id?: number;
+        productId?: number;
+        createdAt?: string;
+        gid?: string;
+        productGid?: string;
+        sku?: string;
+        title?: string;
+        price?: number;
+        compareAtPrice?: number;
+        option1?: string;
+        option2?: string;
+        option3?: string;
+        status?: string;
+        isDeleted?: boolean;
+        inventory?: {
+          isAvailable?: boolean;
+          management?: string;
+          policy?: string;
+        };
+        previewImageUrl?: string;
+      };
+    };
+
+export const ProductStoreProjection = `
+  ...,
+  variants[]->,
 `;

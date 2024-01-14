@@ -1,5 +1,8 @@
 import {type RichTextRegular, RichTextRegularProjection} from '../../../shared/objects/richTextRegular';
 import {type Media, MediaProjection} from '../../../shared/objects/media';
+import {SHOPIFY_SECTIONS} from '../../../sanity.schemas';
+import {type Advice, AdviceProjection} from '../../sections/product/advice';
+import {type RelatedProducts, RelatedProductsProjection} from '../../sections/product/relatedProducts';
 
 /**
  * Custom fields to enhance Shopify product
@@ -12,12 +15,7 @@ export type ProductEditorial = {
     title?: string;
     content?: RichTextRegular;
   }[];
-  advice?: {
-    label?: string;
-    title?: string;
-    description?: string;
-    media?: Media;
-  };
+  sections?: (Advice | RelatedProducts)[];
 };
 
 export const ProductEditorialProjection = `
@@ -30,8 +28,12 @@ export const ProductEditorialProjection = `
     ...,
     ${RichTextRegularProjection},
   },
-  advice{
-    ...,
-    media{${MediaProjection}},
+  sections[]{
+    _type == "${SHOPIFY_SECTIONS.PRODUCT_ADVICE}" => {
+      ${AdviceProjection}
+    },
+   _type == "${SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS}" => {
+      ${RelatedProductsProjection}
+    },
   }
 `;

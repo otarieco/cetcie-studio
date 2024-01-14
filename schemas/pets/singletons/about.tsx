@@ -1,6 +1,7 @@
 import {defineType} from 'sanity';
-import {FlagBanner, MagnifyingGlass, Person, Stack} from 'phosphor-react';
+import {FlagBanner, MagnifyingGlass, Person, SlidersHorizontal, Stack} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
+import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 
 export default defineType({
   name: SANITY_SINGLETONS.$PETS_ABOUT,
@@ -8,7 +9,8 @@ export default defineType({
   type: 'document',
   icon: () => <Person width="1em" height="1em" />,
   groups: [
-    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />, default: true},
+    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
+    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />},
     {name: 'sections', title: 'Sections', icon: () => <Stack />},
     {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
   ],
@@ -16,7 +18,25 @@ export default defineType({
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['hero', 'sections', 'seo'],
+      group: ['settings', 'hero', 'sections', 'seo'],
+    },
+    {
+      name: 'title',
+      title: 'Titre',
+      type: 'string',
+      group: 'settings',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 96,
+        isUnique: isUniqueAcrossAllDocuments,
+      },
+      group: 'settings',
     },
     {
       name: 'hero',
