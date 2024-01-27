@@ -11,6 +11,6 @@ export type AboutCollaborations = {
 
 export const AboutCollaborationsProjection = `
   ...,
-  description{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
   image{${ImageProjection}}
 `;

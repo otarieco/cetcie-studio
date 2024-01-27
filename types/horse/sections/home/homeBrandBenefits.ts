@@ -14,6 +14,6 @@ export const HomeBrandBenefitsProjection = `
   ...,
   benefits[]{
     icon{${ImageProjection}}, 
-    label{${RichTextLiteProjection}}
+    label[]{${RichTextLiteProjection}}
   }
 `;

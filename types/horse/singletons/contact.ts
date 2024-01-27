@@ -18,7 +18,6 @@ export const ContactProjection = `
   ...,
   hero{${ContactHeroProjection}},
   sections[]{
-    ...
   },
   seo{${SeoProjection}},  
 `;

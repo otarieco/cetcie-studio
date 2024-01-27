@@ -14,7 +14,7 @@ export type HomeHero = {
 
 export const HomeHeroProjection = `
   ...,
-  description{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
   media1{${MediaProjection}},
   media2{${MediaProjection}}
 `;

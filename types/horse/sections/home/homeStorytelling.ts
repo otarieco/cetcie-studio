@@ -12,7 +12,7 @@ export type HomeStorytelling = {
 
 export const HomeStorytellingProjection = `
   ...,
-  description{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
   image{${ImageProjection}},
   link{${LinkProjection}}
 `;

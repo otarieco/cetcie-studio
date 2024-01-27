@@ -14,8 +14,8 @@ export type AboutIndependent = {
 
 export const AboutIndependentProjection = `
   ...,
-  description{${RichTextLiteProjection}},
-  extraDescription{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
+  extraDescription[]{${RichTextLiteProjection}},
   image{${ImageProjection}},
   link{${LinkProjection}}
 `;

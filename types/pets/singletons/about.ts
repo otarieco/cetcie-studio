@@ -18,7 +18,6 @@ export const AboutProjection = `
   ...,
   hero{${AboutHeroProjection}},
   sections[]{
-    ...
   },
   seo{${SeoProjection}},  
 `;

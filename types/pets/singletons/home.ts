@@ -17,7 +17,6 @@ export const HomeProjection = `
   ...,
   hero{${HomeHeroProjection}},
   sections[]{
-    ...
   },
   seo{${SeoProjection}},  
 `;

@@ -1,8 +1,8 @@
-import type { SanityDocument, Slug } from 'sanity';
-import { SANITY_DOCUMENTS } from '../../sanity.schemas';
-import type { Locale } from '../../shared/locale';
-import { type Hero, HeroProjection } from '../sections/page/hero';
-import { type Seo, SeoProjection } from '../../shared/objects/seo';
+import type {SanityDocument, Slug} from 'sanity';
+import {SANITY_DOCUMENTS, SANITY_SECTIONS} from '../../sanity.schemas';
+import type {Locale} from '../../shared/locale';
+import {type Hero, HeroProjection} from '../sections/page/hero';
+import {type Seo, SeoProjection} from '../../shared/objects/seo';
 
 export type Page = SanityDocument & {
   _type: SANITY_DOCUMENTS.$PETS_PAGE;
@@ -16,7 +16,9 @@ export type Page = SanityDocument & {
 export const PageProjection = `
   ...,
   sections[]{
-    ${HeroProjection},
+    _type == "${SANITY_SECTIONS.$PETS_HERO}" => {
+      ${HeroProjection}
+    },
   },
   seo{${SeoProjection}},
 `;

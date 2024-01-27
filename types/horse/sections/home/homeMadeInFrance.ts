@@ -11,6 +11,6 @@ export type HomeMadeInFrance = {
 
 export const HomeMadeInFranceProjection = `
   ...,
-  description{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
   image{${ImageProjection}}
 `;

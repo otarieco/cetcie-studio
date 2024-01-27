@@ -13,6 +13,6 @@ export type AboutPortrait = {
 
 export const AboutPortraitProjection = `
   ...,
-  description{${RichTextLiteProjection}},
+  description[]{${RichTextLiteProjection}},
   image{${ImageProjection}}
 `;

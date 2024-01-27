@@ -1,5 +1,5 @@
 import type {SanityDocument, Slug} from 'sanity';
-import {SANITY_SINGLETONS} from '../../sanity.schemas';
+import {SANITY_SECTIONS, SANITY_SINGLETONS} from '../../sanity.schemas';
 import type {Locale} from '../../shared/locale';
 import {type AboutHero, AboutHeroProjection} from '../sections/about/aboutHero';
 import {type Seo, SeoProjection} from '../../shared/objects/seo';
@@ -27,10 +27,15 @@ export const AboutProjection = `
   ...,
   hero{${AboutHeroProjection}},
   sections[]{
-    ...,
-    ${AboutIndependentProjection},
-    ${AboutCollaborationsProjection},
-    ${AboutPortraitProjection},
+    _type == "${SANITY_SECTIONS.$HORSE_ABOUT_INDEPENDENT}" => {
+      ${AboutIndependentProjection},
+    },
+     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_COLLABORATIONS}" => {
+      ${AboutCollaborationsProjection},
+    },
+     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT}" => {
+      ${AboutPortraitProjection},
+    },
   },
   seo{${SeoProjection}},  
 `;
