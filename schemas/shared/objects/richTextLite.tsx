@@ -1,6 +1,7 @@
 import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
+import {TextItalic} from 'phosphor-react';
 
 export const CustomRichTextInput = (props: ArrayOfObjectsInputProps) => {
   return <Stack className="richText richText--lite">{props.renderDefault(props)}</Stack>;
@@ -20,8 +21,9 @@ export default defineType({
       options: {},
       styles: [{title: 'Paragraphe', value: 'normal'}],
       lists: [],
+
       marks: {
-        decorators: [],
+        decorators: [{title: 'Italique', value: 'em', icon: TextItalic}],
         annotations: [],
       },
     },

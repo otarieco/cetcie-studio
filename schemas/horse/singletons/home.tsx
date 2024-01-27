@@ -36,9 +36,15 @@ export default defineType({
       title: 'Sections',
       type: 'array',
       options: {
-        sortable: false,
+        sortable: true,
       },
-      of: [],
+      of: [
+        {type: SANITY_SECTIONS.$HORSE_HOME_ESSENTIALS},
+        {type: SANITY_SECTIONS.$HORSE_HOME_BRAND_BENEFITS},
+        {type: SANITY_SECTIONS.$HORSE_HOME_MADE_IN_FRANCE},
+        {type: SANITY_SECTIONS.$HORSE_HOME_VISIT_STORE},
+        {type: SANITY_SECTIONS.$HORSE_HOME_STORYTELLING},
+      ],
       group: 'sections',
     },
     {

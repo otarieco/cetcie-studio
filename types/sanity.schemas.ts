@@ -53,6 +53,11 @@ export enum SANITY_SECTIONS {
 
   // home
   $HORSE_HOME_HERO = 'section.horse_home_hero',
+  $HORSE_HOME_ESSENTIALS = 'section.horse_home_essentials',
+  $HORSE_HOME_BRAND_BENEFITS = 'section.horse_home_brand_benefits',
+  $HORSE_HOME_MADE_IN_FRANCE = 'section.horse_home_made_in_france',
+  $HORSE_HOME_VISIT_STORE = 'section.horse_home_visit_store',
+  $HORSE_HOME_STORYTELLING = 'section.horse_home_storytelling',
 
   // about
   $HORSE_ABOUT_HERO = 'section.horse_about_hero',

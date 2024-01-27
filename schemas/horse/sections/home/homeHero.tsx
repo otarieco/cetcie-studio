@@ -19,6 +19,16 @@ export default defineType({
       type: 'string',
     },
     {
+      name: 'description',
+      title: 'Description',
+      type: SANITY_FIELDS.RICHTEXT_LITE,
+    },
+    {
+      name: 'headline',
+      title: 'Gros titre',
+      type: 'string',
+    },
+    {
       name: 'media1',
       title: 'Média 1',
       type: SANITY_FIELDS.MEDIA,
