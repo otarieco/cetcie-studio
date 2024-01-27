@@ -30,6 +30,11 @@ export default defineStructure<ListItemBuilder>((S, context) =>
           S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_SOCIAL)
             .title('Socials')
             .icon(() => <UsersThree width="1em" height="1em" />),
+
+          // FEATURE FLAGS SINGLETON
+          S.documentListItem()
+            .schemaType(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS)
+            .id(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS),
         ]),
     ),
 );

@@ -1,12 +1,12 @@
 import {defineType} from 'sanity';
-import {Rectangle} from 'phosphor-react';
+import {SquareHalfBottom} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$PETS_FOOTER,
   title: 'Footer',
   type: 'document',
-  icon: () => <Rectangle width="1em" height="1em" />,
+  icon: () => <SquareHalfBottom width="1em" height="1em" />,
   fields: [
     {
       name: 'locale',

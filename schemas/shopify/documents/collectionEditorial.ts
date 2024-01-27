@@ -20,7 +20,7 @@ export default defineType({
     {
       name: 'description',
       title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_REGULAR,
+      type: SANITY_FIELDS.RICHTEXT_COLLECTION,
     },
     {
       name: 'image',

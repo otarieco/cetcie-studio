@@ -22,7 +22,7 @@ export default defineType({
     {
       name: 'description',
       title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_REGULAR,
+      type: SANITY_FIELDS.RICHTEXT_PRODUCT,
     },
     {
       name: 'medias',
@@ -47,25 +47,25 @@ export default defineType({
           type: 'object',
           fields: [
             {
-              name: 'title',
-              title: 'Title',
+              name: 'label',
+              title: 'Label',
               type: 'string',
             },
             {
-              name: 'content',
-              title: 'Contenu',
-              type: SANITY_FIELDS.RICHTEXT_REGULAR,
+              name: 'value',
+              title: 'Value',
+              type: SANITY_FIELDS.RICHTEXT_PRODUCT,
             },
           ],
           preview: {
             select: {
-              title: 'title',
-              subtitle: 'content',
+              label: 'label',
+              value: 'value',
             },
-            prepare({title, subtitle}: any) {
+            prepare({label, value}: any) {
               return {
-                title,
-                subtitle: blocksToText(subtitle),
+                title: label,
+                subtitle: blocksToText(value),
                 media: <CaretCircleDown />,
               };
             },

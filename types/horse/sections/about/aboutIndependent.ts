@@ -1,6 +1,5 @@
 import {SANITY_SECTIONS} from '../../../sanity.schemas';
 import {type Image, ImageProjection} from '../../../shared/objects/image';
-import {LinkProjection} from '../../../shared/objects/link';
 import {type RichTextLite, RichTextLiteProjection} from '../../../shared/objects/richTextLite';
 
 export type AboutIndependent = {
@@ -16,6 +15,5 @@ export const AboutIndependentProjection = `
   ...,
   description[]{${RichTextLiteProjection}},
   extraDescription[]{${RichTextLiteProjection}},
-  image{${ImageProjection}},
-  link{${LinkProjection}}
+  image{${ImageProjection}}
 `;

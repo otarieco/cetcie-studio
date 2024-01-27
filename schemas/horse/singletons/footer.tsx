@@ -1,30 +1,30 @@
 import {defineType} from 'sanity';
-import {Rectangle} from 'phosphor-react';
+import {SquareHalfBottom} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_FOOTER,
   title: 'Footer',
   type: 'document',
-  icon: () => <Rectangle width="1em" height="1em" />,
+  icon: () => <SquareHalfBottom width="1em" height="1em" />,
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
     },
     {
-      name: 'logo',
-      title: 'Logo',
-      type: SANITY_FIELDS.IMAGE,
+      name: 'navigationMain',
+      title: 'Navigation Principale',
+      type: 'array',
+      of: [
+        {
+          type: SANITY_FIELDS.NAV_SECTION,
+        },
+      ],
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
-    },
-    {
-      name: 'navigation',
-      title: 'Navigation',
+      name: 'navigationBottom',
+      title: 'Navigation Bas',
       type: 'array',
       of: [
         {

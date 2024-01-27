@@ -29,28 +29,6 @@ div.richText--lite {
 
 
 /**
- * Regular
- */
-div.richText--regular {
-
-    & div[data-testid="pt-editor"] {
-        height: unset !important;
-        min-height: 10em !important;
-    }
-}
-
-/**
- * Complex
- */
-div.richText--complex {
-
-    & div[data-testid="pt-editor"] {
-        height: unset !important;
-        min-height: 10em !important;
-    }
-}
-
-/**
  * Blog
  */
 div.richText--blog {
@@ -58,6 +36,28 @@ div.richText--blog {
     & div[data-testid="pt-editor"] {
         height: unset !important;
         min-height: 35em !important;
+    }
+}
+
+/**
+ * Product
+ */
+div.richText--product {
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 10em !important;
+    }
+}
+
+/**
+ * Collection
+ */
+div.richText--collection {
+
+    & div[data-testid="pt-editor"] {
+        height: unset !important;
+        min-height: 10em !important;
     }
 }
 

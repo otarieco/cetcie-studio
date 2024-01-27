@@ -1,75 +1,23 @@
-import type {Slug} from 'sanity';
 import {SANITY_FIELDS} from '../../sanity.schemas';
-import type {Home as HorseHome} from '../../horse/singletons/home';
-import {type Image, ImageProjection} from './image';
-import {ProductProjection, type RawProduct} from '../../shopify/documents/product/rawProduct';
-import {
-  CollectionProjection,
-  type RawCollection,
-} from '../../shopify/documents/collection/rawCollection';
-import type {Home as PetsHome} from '../../pets/singletons/home';
-import type {About as HorseAbout} from '../../horse/singletons/about';
-import type {About as PetsAbout} from '../../pets/singletons/about';
-import type {Contact as HorseContact} from '../../horse/singletons/contact';
-import type {Contact as PetsContact} from '../../pets/singletons/contact';
-import type {Page as HorsePage} from '../../horse/documents/page';
-import type {Page as PetsPage} from '../../pets/documents/page';
-import type {Product} from '../../shopify/documents/product/product';
-import type {Collection} from '../../shopify/documents/collection/collection';
-import type {Blog as HorseBlog} from '../../horse/documents/blog';
-import type {Blog as PetsBlog} from '../../pets/documents/blog';
+import {type PageLink, PageLinkProjection} from './link/page.link';
+import {type BlogLink, BlogLinkProjection} from './link/blog.link';
+import {type ProductLink, ProductLinkProjection} from './link/product.link';
+import {type CollectionLink, CollectionLinkProjection} from './link/collection.link';
 
-type PageDocRef = {
-  _id: string;
-  _type:
-    | HorseHome['_type']
-    | PetsHome['_type']
-    | HorseAbout['_type']
-    | PetsAbout['_type']
-    | HorseContact['_type']
-    | PetsContact['_type']
-    | HorsePage['_type']
-    | PetsPage['_type']
-    | HorseBlog['_type'];
-  locale?: string;
-  title?: string;
-  slug?: Slug;
-};
+export type LinkDocRef = PageLink | BlogLink | ProductLink | CollectionLink | null;
 
-type BlogDocRef = {
-  _id: string;
-  _type: HorseBlog['_type'] | PetsBlog['_type'];
-  locale?: string;
-  title?: string;
-  slug?: Slug;
-  date?: string;
-  coverImage?: Image;
-};
-
-type ProductDocRef = {
-  _id: string;
-  _type: Product['_type'];
-  locale?: string;
-  title?: string;
-  slug?: Slug;
-  product?: RawProduct;
-};
-
-type CollectionDocRef = {
-  _id: string;
-  _type: Collection['_type'];
-  locale?: string;
-  title?: string;
-  slug?: Slug;
-  collection?: RawCollection;
-};
-
-export type LinkDocRef = PageDocRef | BlogDocRef | ProductDocRef | CollectionDocRef | null;
+export enum LinkType {
+  page = 'page',
+  external = 'external',
+  blog = 'blog',
+  product = 'product',
+  collection = 'collection',
+}
 
 export type Link = {
   _type: SANITY_FIELDS.LINK;
   title?: string;
-  linkType?: 'page' | 'external' | 'blog' | 'product' | 'collection';
+  linkType?: LinkType;
   doc?: LinkDocRef;
   url?: string;
 };
@@ -79,19 +27,19 @@ export const LinkProjection = `
   title,
   linkType,
   
-  linkType == "external" => {
+  linkType == "${LinkType.external}" => {
      url,
   },
-  linkType == "page" => {
-     doc->{_id, _type, locale, title, slug}
+  linkType == "${LinkType.page}" => {
+     doc->{${PageLinkProjection}}
   },
-  linkType == "blog" => {
-     doc->{_id, _type, locale, title, slug, date, coverImage{${ImageProjection}}}
+  linkType == "${LinkType.blog}" => {
+     doc->{${BlogLinkProjection}}
   },
-  linkType == "product" => {
-     doc->{${ProductProjection}}
+  linkType == "${LinkType.product}" => {
+     doc->{${ProductLinkProjection}}
   },
-  linkType == "collection" => {
-     doc->{${CollectionProjection}}
+  linkType == "${LinkType.collection}" => {
+     doc->{${CollectionLinkProjection}}
   },  
 `;

@@ -22,18 +22,24 @@ export default defineType({
       title: 'Url',
       type: SANITY_FIELDS.URL,
     },
+    {
+      name: 'icon',
+      title: 'Icon',
+      type: SANITY_FIELDS.IMAGE,
+    },
   ],
   preview: {
     select: {
       title: 'title',
       url: 'url',
+      icon: 'icon',
     },
     prepare(selection: any) {
-      const {title, url} = selection;
+      const {title, url, icon} = selection;
       return {
         title,
         subtitle: url,
-        media: <Link />,
+        media: icon || <Link />,
       };
     },
   },

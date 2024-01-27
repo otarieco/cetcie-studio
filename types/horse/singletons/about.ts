@@ -37,5 +37,5 @@ export const AboutProjection = `
       ${AboutPortraitProjection},
     },
   },
-  seo{${SeoProjection}},  
+  seo{${SeoProjection}}  
 `;

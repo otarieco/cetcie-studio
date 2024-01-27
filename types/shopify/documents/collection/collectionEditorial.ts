@@ -1,4 +1,4 @@
-import {type RichTextRegular, RichTextRegularProjection} from '../../../shared/objects/richTextRegular';
+import {type RichTextProduct, RichTextProductProjection} from '../../../shared/objects/richTextProduct';
 import {type Image, ImageProjection} from '../../../shared/objects/image';
 
 /**
@@ -6,14 +6,14 @@ import {type Image, ImageProjection} from '../../../shared/objects/image';
  */
 export type CollectionEditorial = {
   title?: string;
-  description?: RichTextRegular;
+  description?: RichTextProduct;
   image?: Image;
 };
 
 export const CollectionEditorialProjection = `
    ...,
    description[]{
-    ${RichTextRegularProjection},
+    ${RichTextProductProjection},
    },
    image{${ImageProjection}},
 `;

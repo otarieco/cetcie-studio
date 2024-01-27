@@ -23,8 +23,21 @@ export default defineType({
       type: SANITY_FIELDS.IMAGE,
     },
     {
-      name: 'navigation',
-      title: 'Navigation',
+      name: 'navigationLeft',
+      title: 'Navigation Gauche',
+      type: 'array',
+      of: [
+        {
+          type: SANITY_FIELDS.LINK,
+        },
+        {
+          type: SANITY_FIELDS.NAV_SECTION,
+        },
+      ],
+    },
+    {
+      name: 'navigationRight',
+      title: 'Navigation Droite',
       type: 'array',
       of: [
         {

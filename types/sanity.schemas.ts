@@ -18,6 +18,7 @@ export enum SANITY_SINGLETONS {
   $HORSE_HEADER = 'horse_site_header',
   $HORSE_FOOTER = 'horse_site_footer',
   $HORSE_INFORMATION = 'horse_site_information',
+  $HORSE_FEATURE_FLAGS = 'horse_site_feature_flags',
 
   /* PETS */
   $PETS_HOME = 'pets_page_home',
@@ -30,9 +31,9 @@ export enum SANITY_SINGLETONS {
 
 export enum SANITY_FIELDS {
   RICHTEXT_LITE = 'field.richTextLite',
-  RICHTEXT_REGULAR = 'field.richTextRegular',
-  RICHTEXT_COMPLEX = 'field.richTextComplex',
   RICHTEXT_BLOG = 'field.richTextBlog',
+  RICHTEXT_PRODUCT = 'field.richTextProduct',
+  RICHTEXT_COLLECTION = 'field.richTextCollection',
   IMAGE = 'field.image',
   MUX_VIDEO = 'mux.video',
   MEDIA = 'field.media',

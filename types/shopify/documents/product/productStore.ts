@@ -1,3 +1,5 @@
+import {type ProductVariantEditorial, ProductVariantEditorialProjection} from './productVariantEditorial';
+
 /**
  * Data synced from Shopify and stored in Sanity
  */
@@ -14,12 +16,10 @@ export type ProductStore = {
     _type: 'slug';
   };
   options?: {
-    values?: {
-      name?: string;
-      values?: string[];
-      _key?: string;
-      _type?: 'option';
-    };
+    name?: string;
+    values?: string[];
+    _key?: string;
+    _type?: 'option';
   }[];
   isDeleted?: boolean;
   variants: ProductStoreVariant[];
@@ -67,9 +67,13 @@ export type ProductStoreVariant =
         };
         previewImageUrl?: string;
       };
+      editorial?: ProductVariantEditorial;
     };
 
 export const ProductStoreProjection = `
   ...,
-  variants[]->,
+  variants[]->{
+    ...,
+    ${ProductVariantEditorialProjection},
+   },
 `;

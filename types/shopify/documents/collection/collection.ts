@@ -8,12 +8,14 @@ import type {CollectionEditorial} from './collectionEditorial';
  * Type used in front-end
  * Transformation step (CollectionRaw -> Collection)
  */
-export type Collection = SanityDocument &
-  CollectionEditorial & {
-    _type: SHOPIFY_DOCUMENTS.COLLECTION;
-    locale?: Locale;
-    slug?: Slug;
-    seo?: Seo;
-  };
+export type Collection = SanityDocument & {
+  _type: SHOPIFY_DOCUMENTS.COLLECTION;
+  locale?: Locale;
+  slug?: Slug;
+  title?: CollectionEditorial['title'];
+  description?: CollectionEditorial['description'];
+  image?: CollectionEditorial['image'];
+  seo?: Seo;
+};
 
-// CollectionProjection on shopify > documents > collection
+// CollectionProjection on shopify > documents > collection > rawCollection
