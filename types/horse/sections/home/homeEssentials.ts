@@ -13,5 +13,5 @@ export type HomeEssentials = {
 export const HomeEssentialsProjection = `
   ...,
   description{${RichTextLiteProjection}},
-  products[]{${ProductProjection}},
+  products[]{${ProductProjection}}
 `;

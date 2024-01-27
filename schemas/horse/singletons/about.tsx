@@ -49,9 +49,13 @@ export default defineType({
       title: 'Sections',
       type: 'array',
       options: {
-        sortable: false,
+        sortable: true,
       },
-      of: [],
+      of: [
+        {type: SANITY_SECTIONS.$HORSE_ABOUT_INDEPENDENT},
+        {type: SANITY_SECTIONS.$HORSE_ABOUT_COLLABORATIONS},
+        {type: SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT},
+      ],
       group: 'sections',
     },
     {

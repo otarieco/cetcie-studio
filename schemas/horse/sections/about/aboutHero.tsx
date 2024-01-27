@@ -9,19 +9,24 @@ export default defineType({
   icon: () => <FlagBanner width="1em" height="1em" />,
   fields: [
     {
-      name: 'surtitle',
-      title: "Titre d'entête",
-      type: 'string',
-    },
-    {
       name: 'title',
       title: 'Titre principal',
       type: 'string',
     },
     {
-      name: 'media',
-      title: 'Média',
-      type: SANITY_FIELDS.MEDIA,
+      name: 'description',
+      title: 'Description',
+      type: SANITY_FIELDS.RICHTEXT_LITE,
+    },
+    {
+      name: 'videoLabel',
+      title: 'Label vidéo',
+      type: 'string',
+    },
+    {
+      name: 'video',
+      title: 'Vidéo',
+      type: SANITY_FIELDS.MUX_VIDEO,
     },
   ],
 });
