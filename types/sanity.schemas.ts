@@ -3,6 +3,7 @@ export enum SANITY_DOCUMENTS {
   $HORSE_PAGE = 'horse_page',
   $HORSE_BLOG = 'horse_blog',
   $HORSE_SOCIAL = 'horse_site_social',
+  $HORSE_REUSABLE_CONTENT = 'horse_reusable_content',
 
   /* PETS */
   $PETS_PAGE = 'pets_page',
@@ -55,7 +56,6 @@ export enum SANITY_SECTIONS {
   // home
   $HORSE_HOME_HERO = 'section.horse_home_hero',
   $HORSE_HOME_ESSENTIALS = 'section.horse_home_essentials',
-  $HORSE_HOME_BRAND_BENEFITS = 'section.horse_home_brand_benefits',
   $HORSE_HOME_MADE_IN_FRANCE = 'section.horse_home_made_in_france',
   $HORSE_HOME_VISIT_STORE = 'section.horse_home_visit_store',
   $HORSE_HOME_STORYTELLING = 'section.horse_home_storytelling',
@@ -70,7 +70,9 @@ export enum SANITY_SECTIONS {
   $HORSE_CONTACT_HERO = 'section.horse_contact_hero',
 
   // pages
+  $HORSE_REUSABLE_CONTENT = 'section.horse_reusable_content',
   $HORSE_HERO = 'section.horse_hero',
+  $HORSE_BRAND_BENEFITS = 'section.horse_brand_benefits',
 
   /**
    * PETS

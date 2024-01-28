@@ -1,14 +1,14 @@
 import {SHOPIFY_SECTIONS} from '../../../sanity.schemas';
-import {ProductProjection, type RawProduct} from '../../documents/product/rawProduct';
+import {type ProductLink, ProductLinkProjection} from '../../../shared/objects/link/product.link';
 
 export type RelatedProducts = {
   _type: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS;
   label?: string;
   title?: string;
-  products?: RawProduct[];
+  products?: ProductLink[];
 };
 
 export const RelatedProductsProjection = `
   ...,
-  products[]{${ProductProjection}}
+  products[]->{${ProductLinkProjection}}
 `;

@@ -1,6 +1,6 @@
 import defineStructure from '../../utils/defineStructure';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../../types/sanity.schemas';
-import {Browser, Stack} from 'phosphor-react';
+import {ArrowsClockwise, Browser, Stack} from 'phosphor-react';
 import type {ListItemBuilder} from 'sanity/lib/exports/desk';
 
 export default defineStructure<ListItemBuilder>((S, context) =>
@@ -33,6 +33,11 @@ export default defineStructure<ListItemBuilder>((S, context) =>
           S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_PAGE)
             .title('Pages')
             .icon(() => <Stack width="1em" height="1em" />),
+
+          // REUSABLE CONTENT DOCUMENTS
+          S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_REUSABLE_CONTENT)
+            .title('Contenu réutilisable')
+            .icon(() => <ArrowsClockwise width="1em" height="1em" />),
         ]),
     ),
 );

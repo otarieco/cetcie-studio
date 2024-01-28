@@ -4,7 +4,7 @@ import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';
 
 export default defineType({
-  name: SANITY_SECTIONS.$HORSE_HOME_BRAND_BENEFITS,
+  name: SANITY_SECTIONS.$HORSE_BRAND_BENEFITS,
   title: 'Bénéfices',
   type: 'object',
   icon: () => <Medal width="1em" height="1em" />,

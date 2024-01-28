@@ -4,13 +4,13 @@ import type {Locale} from '../../shared/locale';
 import {type HomeHero, HomeHeroProjection} from '../sections/home/homeHero';
 import {type Seo, SeoProjection} from '../../shared/objects/seo';
 import {type HomeEssentials, HomeEssentialsProjection} from '../sections/home/homeEssentials';
-import {
-  type HomeBrandBenefits,
-  HomeBrandBenefitsProjection,
-} from '../sections/home/homeBrandBenefits';
 import {type HomeMadeInFrance, HomeMadeInFranceProjection} from '../sections/home/homeMadeInFrance';
 import {type HomeVisitStore, HomeVisitStoreProjection} from '../sections/home/homeVisitStore';
 import {type HomeStorytelling, HomeStorytellingProjection} from '../sections/home/homeStorytelling';
+import {
+  type ReusableContentSection,
+  ReusableContentSectionProjection,
+} from '../sections/page/reusableContent';
 
 export type Home = SanityDocument & {
   _type: SANITY_SINGLETONS.$HORSE_HOME;
@@ -19,10 +19,10 @@ export type Home = SanityDocument & {
   hero?: HomeHero;
   sections?: (
     | HomeEssentials
-    | HomeBrandBenefits
     | HomeMadeInFrance
     | HomeVisitStore
     | HomeStorytelling
+    | ReusableContentSection
   )[];
   seo?: Seo;
 };
@@ -34,9 +34,6 @@ export const HomeProjection = `
     _type == "${SANITY_SECTIONS.$HORSE_HOME_ESSENTIALS}" => {
       ${HomeEssentialsProjection},
     },
-    _type == "${SANITY_SECTIONS.$HORSE_HOME_BRAND_BENEFITS}" => {
-      ${HomeBrandBenefitsProjection},
-    },
     _type == "${SANITY_SECTIONS.$HORSE_HOME_MADE_IN_FRANCE}" => {
       ${HomeMadeInFranceProjection},
     },
@@ -45,6 +42,9 @@ export const HomeProjection = `
     },
     _type == "${SANITY_SECTIONS.$HORSE_HOME_STORYTELLING}" => {
       ${HomeStorytellingProjection},
+    },
+    _type == "${SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT}" => {
+      ${ReusableContentSectionProjection},
     },
   },
   seo{${SeoProjection}},  

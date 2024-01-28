@@ -43,7 +43,7 @@ export default defineType({
       name: 'sections',
       title: 'Sections',
       type: 'array',
-      of: [{type: SANITY_SECTIONS.$HORSE_HERO}],
+      of: [{type: SANITY_SECTIONS.$HORSE_HERO}, {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT}],
       group: 'sections',
     },
     {

@@ -40,10 +40,10 @@ export default defineType({
       },
       of: [
         {type: SANITY_SECTIONS.$HORSE_HOME_ESSENTIALS},
-        {type: SANITY_SECTIONS.$HORSE_HOME_BRAND_BENEFITS},
         {type: SANITY_SECTIONS.$HORSE_HOME_MADE_IN_FRANCE},
         {type: SANITY_SECTIONS.$HORSE_HOME_VISIT_STORE},
         {type: SANITY_SECTIONS.$HORSE_HOME_STORYTELLING},
+        {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT},
       ],
       group: 'sections',
     },
