@@ -80,6 +80,8 @@ export default defineType({
       of: [
         {type: SHOPIFY_SECTIONS.PRODUCT_ADVICE},
         {type: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS},
+        {type: SHOPIFY_SECTIONS.PRODUCT_LARGE_DESCRIPTION},
+        {type: SHOPIFY_SECTIONS.PRODUCT_FULL_VIDEO},
       ],
     },
   ],

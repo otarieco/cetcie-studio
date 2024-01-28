@@ -3,6 +3,7 @@ import {SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 import {type Seo} from '../../../shared/objects/seo';
 import type {Locale} from '../../../shared/locale';
 import type {CollectionEditorial} from './collectionEditorial';
+import type {ProductLink} from '../../../shared/objects/link/product.link';
 
 /**
  * Type used in front-end
@@ -15,6 +16,7 @@ export type Collection = SanityDocument & {
   title?: CollectionEditorial['title'];
   description?: CollectionEditorial['description'];
   image?: CollectionEditorial['image'];
+  products?: ProductLink[];
   seo?: Seo;
 };
 
