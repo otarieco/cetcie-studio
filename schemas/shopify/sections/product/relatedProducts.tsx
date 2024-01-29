@@ -4,20 +4,10 @@ import {SHOPIFY_DOCUMENTS, SHOPIFY_SECTIONS} from '../../../../types/sanity.sche
 
 export default defineType({
   name: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS,
-  title: 'Produits liés',
+  title: 'Produits complémentaires',
   type: 'object',
   icon: () => <ListPlus width="1em" height="1em" />,
   fields: [
-    {
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-    },
-    {
-      name: 'title',
-      title: 'Titre',
-      type: 'string',
-    },
     {
       name: 'products',
       title: 'Produits',
@@ -37,14 +27,16 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'label',
-      subtitle: 'title',
+      products: 'products',
     },
     prepare(selection: any) {
-      const {title, subtitle} = selection;
+      const {products} = selection;
       return {
-        title,
-        subtitle,
+        title: 'Produits complémentaires',
+        subtitle:
+          products.length > 1
+            ? `${products.length} produits sélectionnés`
+            : `${products.length} produit sélectionné`,
       };
     },
   },

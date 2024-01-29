@@ -7,16 +7,10 @@ export default defineType({
   type: 'object',
   fields: [
     {
-      name: 'medias',
-      title: 'Medias',
+      name: 'images',
+      title: 'Images',
       type: 'array',
-      of: [
-        {
-          name: 'media',
-          title: 'Media',
-          type: SANITY_FIELDS.MEDIA,
-        },
-      ],
+      of: [{type: SANITY_FIELDS.IMAGE}],
     },
   ],
 });

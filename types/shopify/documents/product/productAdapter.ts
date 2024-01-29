@@ -18,8 +18,14 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
     minVariantPrice: rawProduct?.store?.priceRange?.minVariantPrice,
     maxVariantPrice: rawProduct?.store?.priceRange?.maxVariantPrice,
   },
-  medias: rawProduct?.editorial?.medias,
-  tabs: rawProduct?.editorial?.tabs,
+  mediaMain: rawProduct?.editorial?.mediaMain,
+  mediaHover: rawProduct?.editorial?.mediaHover,
+  mediaBanner: rawProduct?.editorial?.mediaBanner,
+  metadata: {
+    activeIngredientsAndProperties: rawProduct?.editorial?.metadata?.activeIngredientsAndProperties,
+    composition: rawProduct?.editorial?.metadata?.composition,
+    usageInstructions: rawProduct?.editorial?.metadata?.usageInstructions,
+  },
   sections: rawProduct?.editorial?.sections,
   options: rawProduct?.store?.options?.map((option) => ({
     key: option?._key,
@@ -47,7 +53,7 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
           },
           [],
         ),
-        medias: variant?.editorial?.medias,
+        images: variant?.editorial?.images,
       });
     }
     return acc;

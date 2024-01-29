@@ -1,7 +1,5 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS, SHOPIFY_SECTIONS} from '../../../types/sanity.schemas';
-import {CaretCircleDown} from 'phosphor-react';
-import {blocksToText} from '../../../utils/blocksToText';
 
 export default defineType({
   name: SHOPIFY_DOCUMENTS.PRODUCT_EDITORIAL,
@@ -25,51 +23,39 @@ export default defineType({
       type: SANITY_FIELDS.RICHTEXT_PRODUCT,
     },
     {
-      name: 'medias',
-      title: 'Medias',
-      type: 'array',
-      of: [
-        {
-          name: 'media',
-          title: 'Media',
-          type: SANITY_FIELDS.MEDIA,
-        },
-      ],
+      name: 'mediaMain',
+      title: 'Media Principal',
+      type: SANITY_FIELDS.MEDIA,
     },
     {
-      name: 'tabs',
-      title: 'Tabs',
-      type: 'array',
-      of: [
+      name: 'mediaHover',
+      title: 'Media de survol',
+      type: SANITY_FIELDS.MEDIA,
+    },
+    {
+      name: 'mediaBanner',
+      title: 'Bannière',
+      type: SANITY_FIELDS.MEDIA,
+    },
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'object',
+      fields: [
         {
-          name: 'tab',
-          title: 'Tab',
-          type: 'object',
-          fields: [
-            {
-              name: 'label',
-              title: 'Label',
-              type: 'string',
-            },
-            {
-              name: 'value',
-              title: 'Value',
-              type: SANITY_FIELDS.RICHTEXT_PRODUCT,
-            },
-          ],
-          preview: {
-            select: {
-              label: 'label',
-              value: 'value',
-            },
-            prepare({label, value}: any) {
-              return {
-                title: label,
-                subtitle: blocksToText(value),
-                media: <CaretCircleDown />,
-              };
-            },
-          },
+          name: 'activeIngredientsAndProperties',
+          title: 'Actifs & propriétés',
+          type: SANITY_FIELDS.RICHTEXT_LITE,
+        },
+        {
+          name: 'composition',
+          title: 'Composition',
+          type: SANITY_FIELDS.RICHTEXT_LITE,
+        },
+        {
+          name: 'usageInstructions',
+          title: "Conseils d'utilisation",
+          type: SANITY_FIELDS.RICHTEXT_LITE,
         },
       ],
     },
@@ -78,7 +64,6 @@ export default defineType({
       title: 'Sections',
       type: 'array',
       of: [
-        {type: SHOPIFY_SECTIONS.PRODUCT_ADVICE},
         {type: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS},
         {type: SHOPIFY_SECTIONS.PRODUCT_LARGE_DESCRIPTION},
         {type: SHOPIFY_SECTIONS.PRODUCT_FULL_VIDEO},

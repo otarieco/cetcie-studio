@@ -1,10 +1,10 @@
 import {type RichTextProduct, RichTextProductProjection} from '../../../shared/objects/richTextProduct';
 import {type Media, MediaProjection} from '../../../shared/objects/media';
 import {SHOPIFY_SECTIONS} from '../../../sanity.schemas';
-import {type Advice, AdviceProjection} from '../../sections/product/advice';
 import {type RelatedProducts, RelatedProductsProjection} from '../../sections/product/relatedProducts';
 import {type LargeDescription, LargeDescriptionProjection} from '../../sections/product/largeDescription';
 import {type FullVideo, FullVideoProjection} from '../../sections/product/fullVideo';
+import {type RichTextLite, RichTextLiteProjection} from '../../../shared/objects/richTextLite';
 
 /**
  * Custom fields to enhance Shopify product
@@ -12,26 +12,29 @@ import {type FullVideo, FullVideoProjection} from '../../sections/product/fullVi
 export type ProductEditorial = {
   title?: string;
   description?: RichTextProduct;
-  medias?: Media[];
-  tabs?: {
-    label?: string;
-    value?: RichTextProduct;
-  }[];
-  sections?: (Advice | RelatedProducts | LargeDescription | FullVideo)[];
+  mediaMain?: Media;
+  mediaHover?: Media;
+  mediaBanner?: Media;
+  metadata?: {
+    activeIngredientsAndProperties?: RichTextLite;
+    composition?: RichTextLite;
+    usageInstructions?: RichTextLite;
+  };
+  sections?: (RelatedProducts | LargeDescription | FullVideo)[];
 };
 
 export const ProductEditorialProjection = `
   ...,
   description[]{${RichTextProductProjection}},
-  medias[]{${MediaProjection}},
-  tabs[]{
-    label,
-    value[]{${RichTextProductProjection}},
+  mediaMain{${MediaProjection}},
+  mediaHover{${MediaProjection}},
+  mediaBanner{${MediaProjection}},
+  metadata{
+    activeIngredientsAndProperties[]{${RichTextLiteProjection}},
+    composition[]{${RichTextLiteProjection}},
+    usageInstructions[]{${RichTextLiteProjection}},
   },
   sections[]{
-    _type == "${SHOPIFY_SECTIONS.PRODUCT_ADVICE}" => {
-      ${AdviceProjection}
-    },
     _type == "${SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS}" => {
       ${RelatedProductsProjection}
     },

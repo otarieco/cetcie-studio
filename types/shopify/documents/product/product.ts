@@ -22,8 +22,10 @@ export type Product = SanityDocument & {
   };
   options?: {key?: string; values?: string[]}[];
   variants?: ProductVariant[];
-  medias?: ProductEditorial['medias'];
-  tabs?: ProductEditorial['tabs'];
+  mediaMain?: ProductEditorial['mediaMain'];
+  mediaHover?: ProductEditorial['mediaHover'];
+  mediaBanner?: ProductEditorial['mediaBanner'];
+  metadata?: ProductEditorial['metadata'];
   sections?: ProductEditorial['sections'];
   seo?: Seo;
 };
@@ -35,7 +37,7 @@ export type ProductVariant = {
   price?: number;
   compareAtPrice?: number;
   options?: {key?: string; value?: string}[];
-  medias?: ProductVariantEditorial['medias'];
+  images?: ProductVariantEditorial['images'];
 };
 
 // ProductProjection on shopify > documents > product > rawProduct

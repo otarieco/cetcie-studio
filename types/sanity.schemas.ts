@@ -101,7 +101,6 @@ export enum SHOPIFY_DOCUMENTS {
 
 export enum SHOPIFY_SECTIONS {
   // products
-  PRODUCT_ADVICE = 'section.product_advice',
   PRODUCT_RELATED_PRODUCTS = 'section.product_related_products',
   PRODUCT_LARGE_DESCRIPTION = 'section.product_large_description',
   PRODUCT_FULL_VIDEO = 'section.product_full_video',

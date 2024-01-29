@@ -3,8 +3,6 @@ import {type ProductLink, ProductLinkProjection} from '../../../shared/objects/l
 
 export type RelatedProducts = {
   _type: SHOPIFY_SECTIONS.PRODUCT_RELATED_PRODUCTS;
-  label?: string;
-  title?: string;
   products?: ProductLink[];
 };
 

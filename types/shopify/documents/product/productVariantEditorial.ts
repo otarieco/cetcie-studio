@@ -1,10 +1,10 @@
-import {type Media, MediaProjection} from '../../../shared/objects/media';
+import {type Image, ImageProjection} from '../../../shared/objects/image';
 
 export type ProductVariantEditorial = {
-  medias?: Media[];
+  images?: Image[];
 };
 
 export const ProductVariantEditorialProjection = `
   ...,
-  medias[]{${MediaProjection}}
+  images[]{${ImageProjection}}
 `;
