@@ -12,6 +12,7 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
   locale: rawProduct?.locale,
   slug: rawProduct?.store?.slug as Slug,
   productId: rawProduct?.store?.id,
+  productGid: rawProduct?.store?.gid,
   title: rawProduct?.editorial?.title,
   description: rawProduct?.editorial?.description,
   priceRange: {
@@ -35,6 +36,7 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
     if (variant._type === 'productVariant') {
       acc.push({
         variantId: variant?.store?.id,
+        variantGid: variant?.store?.gid,
         title: variant?.store?.title,
         isAvailable: variant?.store?.inventory?.isAvailable,
         compareAtPrice: variant?.store?.compareAtPrice,

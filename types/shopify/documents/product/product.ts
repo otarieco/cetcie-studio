@@ -14,6 +14,7 @@ export type Product = SanityDocument & {
   locale?: Locale;
   slug?: Slug;
   productId?: number;
+  productGid?: string;
   title?: ProductEditorial['title'];
   description?: ProductEditorial['description'];
   priceRange?: {
@@ -32,6 +33,7 @@ export type Product = SanityDocument & {
 
 export type ProductVariant = {
   variantId?: number;
+  variantGid?: string;
   title?: string;
   isAvailable?: boolean;
   price?: number;

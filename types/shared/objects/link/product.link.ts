@@ -1,16 +1,18 @@
-import type {Product, ProductVariant} from '../../../shopify/documents/product/product';
-import type {Slug} from 'sanity';
-import type {Locale} from '../../locale';
+import type {Product} from '../../../shopify/documents/product/product';
+import {ImageProjection} from '../image';
 import {MediaProjection} from '../media';
 
 export type ProductLink = {
-  _id: string;
+  _id: Product['_id'];
   _type: Product['_type'];
-  locale?: Locale;
-  title?: string;
-  slug?: Slug;
-  productId?: number;
-  variants?: ProductVariant[];
+  locale?: Product['locale'];
+  title?: Product['title'];
+  slug?: Product['slug'];
+  productId?: Product['productId'];
+  productGid?: Product['productGid'];
+  mediaMain?: Product['mediaMain'];
+  mediaHover?: Product['mediaHover'];
+  variants?: Product['variants'];
 };
 
 /**
@@ -23,14 +25,18 @@ export const ProductLinkProjection = `
   "locale": locale,
   "title": editorial.title, 
   "slug": store.slug,
-  "productId": store.id,
+  "productId": store.id, 
+  "productGid": store.gid,
+  "mediaMain": editorial.mediaMain{${MediaProjection}},
+  "mediaHover": editorial.mediaHover{${MediaProjection}},
   "variants": store.variants[]->{
     "variantId": store.id,
+    "variantGid": store.gid,
     "title": store.title,
     "isAvailable": store.inventory.isAvailable,
     "compareAtPrice": store.compareAtPrice,
     "price": store.price,
     "option1": store.option1,
-    "medias": editorial.medias[]{${MediaProjection}},
+    "images": editorial.images[]{${ImageProjection}},
   }
 `;

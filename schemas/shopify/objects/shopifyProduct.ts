@@ -1,4 +1,4 @@
-import {defineField} from 'sanity'
+import {defineField} from 'sanity';
 
 export default defineField({
   name: 'shopifyProduct',
@@ -90,6 +90,10 @@ export default defineField({
       title: 'Slug',
       type: 'slug',
       description: 'Shopify Product handle',
+      options: {
+        // TODO : return true if current product id for multi locales store
+        isUnique: () => true,
+      },
     }),
     // Description
     defineField({
@@ -159,4 +163,4 @@ export default defineField({
       ],
     }),
   ],
-})
+});
