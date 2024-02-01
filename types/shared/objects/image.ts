@@ -1,5 +1,5 @@
-import { SANITY_FIELDS } from '../../sanity.schemas';
-import type { SanityAssetSource } from '@sanity/asset-utils';
+import {SANITY_FIELDS} from '../../sanity.schemas';
+import type {SanityAssetSource} from '@sanity/asset-utils';
 
 export type Image = {
   _type: SANITY_FIELDS.IMAGE;
@@ -7,13 +7,13 @@ export type Image = {
   alt?: string;
 } | null;
 
-export const ImageProjection = `
+export const ImageProjection = /* groq */ `
   ...,
   asset->{
-    _id, 
-    url,
+    _id,
     metadata{
-      palette
+      palette{muted{background}}
     }
-  }
+  },
+  "ratio": asset->metadata.dimensions.aspectRatio,
 `;

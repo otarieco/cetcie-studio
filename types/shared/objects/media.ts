@@ -10,9 +10,7 @@ export type Media = {
 };
 
 export const VideoProjection = `
-  asset{
-    playbackId,
-  }
+  "id": asset->playbackId
 `;
 
 export const MediaProjection = `
