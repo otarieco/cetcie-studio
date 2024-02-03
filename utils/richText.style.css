@@ -25,6 +25,18 @@ div.richText--lite {
     & div[data-testid="pt-editor__toolbar-card"] > div > div:last-child {
         display: none !important;
     }
+
+    &.richText--with_icon {
+        & legend {
+            transform: translateX(27px);
+        }
+
+        & i {
+            position: absolute;
+            left: 0;
+            transform: translateY(-1px);
+        }
+    }
 }
 
 

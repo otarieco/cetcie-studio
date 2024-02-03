@@ -1,8 +1,9 @@
 import type {SanityDocument} from 'sanity';
-import {type CollectionEditorial, CollectionEditorialProjection} from './collectionEditorial';
 import type {Locale} from '../../../shared/locale';
 import {type Seo, SeoProjection} from '../../../shared/objects/seo';
 import {type CollectionStore, CollectionStoreProjection} from './collectionStore';
+import {type RichTextProduct, RichTextProductProjection} from '../../../shared/objects/richTextProduct';
+import {type Image, ImageProjection} from '../../../shared/objects/image';
 
 /**
  * CollectionRaw is the collection type stored in Sanity
@@ -10,17 +11,28 @@ import {type CollectionStore, CollectionStoreProjection} from './collectionStore
  */
 export type RawCollection = SanityDocument & {
   locale?: Locale;
-  editorial?: CollectionEditorial;
+
+  /* Details */
+  title?: string;
+  description?: RichTextProduct;
+  image?: Image;
+
+  /* Shopify */
   store?: CollectionStore;
+
+  /* Seo */
   seo?: Seo;
 };
 
 /**
- * CollectionProjection fetch for RawCollection format
+ * RawCollectionProjection fetch for RawCollection format
  */
-export const CollectionProjection = `
+export const RawCollectionProjection = `
    ...,
-   editorial{${CollectionEditorialProjection}},
+   description[]{
+    ${RichTextProductProjection},
+   },
+   image{${ImageProjection}},
    store{${CollectionStoreProjection}},
    seo{${SeoProjection}},
 `;

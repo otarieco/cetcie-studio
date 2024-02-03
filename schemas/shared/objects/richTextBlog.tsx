@@ -7,7 +7,7 @@ const HighlightDecorator = (props: any) => (
   <span style={{backgroundColor: 'yellow'}}>{props.children}</span>
 );
 
-export const CustomRichTextInput = (props: ArrayOfObjectsInputProps) => {
+export const CustomRichTextBlog = (props: ArrayOfObjectsInputProps) => {
   return <Stack className="richText richText--blog">{props.renderDefault(props)}</Stack>;
 };
 
@@ -16,7 +16,7 @@ export default defineType({
   title: 'RichText Blog',
   type: 'array',
   components: {
-    input: CustomRichTextInput,
+    input: CustomRichTextBlog,
   },
   of: [
     {

@@ -1,4 +1,4 @@
-import {type ProductVariantEditorial, ProductVariantEditorialProjection} from './productVariantEditorial';
+import {type Image, ImageProjection} from '../../../shared/objects/image';
 
 /**
  * Data synced from Shopify and stored in Sanity
@@ -67,13 +67,17 @@ export type ProductStoreVariant =
         };
         previewImageUrl?: string;
       };
-      editorial?: ProductVariantEditorial;
+
+      /**
+       * SANITY - PRODUCT VARIANT MEDIAS
+       */
+      images?: Image[];
     };
 
 export const ProductStoreProjection = `
   ...,
   variants[]->{
     ...,
-    ${ProductVariantEditorialProjection},
-   },
+    images[]{${ImageProjection}}
+  },
 `;

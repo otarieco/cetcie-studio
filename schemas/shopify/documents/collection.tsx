@@ -1,22 +1,22 @@
 import React from 'react';
-import {defineField, defineType} from 'sanity';
+import {defineType} from 'sanity';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {MagnifyingGlass, Package, PencilSimpleLine} from 'phosphor-react';
+import {ListBullets, MagnifyingGlass, Package} from 'phosphor-react';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 import {seoPreview} from '../../../utils/seo.preview';
 
 const GROUPS = [
   {
-    name: 'editorial',
-    title: 'Editorial',
+    name: 'details',
+    title: 'Détails',
     default: true,
-    icon: () => <PencilSimpleLine />,
+    icon: () => <ListBullets />,
   },
   {
     name: 'shopifySync',
-    title: 'Shopify sync',
+    title: 'Shopify',
     icon: ShopifyIcon,
   },
   {
@@ -33,13 +33,8 @@ export default defineType({
   icon: () => <Package width="1em" height="1em" />,
   groups: GROUPS,
   fields: [
+    // Collection hidden status
     {
-      name: 'locale',
-      type: SANITY_FIELDS.LOCALE,
-      group: ['editorial', 'shopifySync'],
-    },
-    // Product hidden status
-    defineField({
       name: 'hidden',
       type: 'string',
       components: {
@@ -49,30 +44,54 @@ export default defineType({
         const isDeleted = parent?.store?.isDeleted;
         return !isDeleted;
       },
-    }),
-    // Title (proxy)
-    defineField({
-      name: 'titleProxy',
-      title: 'Title',
-      type: 'proxyString',
-      options: {field: 'store.title'},
-    }),
-    // Slug (proxy)
-    defineField({
+    },
+    {
+      name: 'locale',
+      type: SANITY_FIELDS.LOCALE,
+      group: ['details', 'shopifySync', 'seo'],
+    },
+    /**
+     * SANITY - COLLECTION DETAILS
+     */
+    {
+      name: 'title',
+      title: 'Titre',
+      type: 'string',
+      group: 'details',
+    },
+    {
       name: 'slugProxy',
       title: 'Slug',
       type: 'proxyString',
       options: {field: 'store.slug.current'},
-    }),
-    // Collection Editorial
-    {
-      name: 'editorial',
-      title: 'Collection',
-      type: SHOPIFY_DOCUMENTS.COLLECTION_EDITORIAL,
-      group: 'editorial',
+      group: 'details',
     },
+    {
+      name: 'description',
+      title: 'Description',
+      type: SANITY_FIELDS.RICHTEXT_COLLECTION,
+      group: 'details',
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: SANITY_FIELDS.IMAGE,
+      group: 'details',
+    },
+    /**
+     * SANITY - COLLECTION SEO
+     */
+    {
+      name: 'seo',
+      title: 'Seo',
+      type: SANITY_FIELDS.SEO,
+      group: 'seo',
+    },
+    /**
+     * SHOPIFY SYNC STORE
+     */
     // Show hero
-    defineField({
+    {
       name: 'showHero',
       title: 'Show hero',
       type: 'boolean',
@@ -80,21 +99,13 @@ export default defineType({
       readOnly: true,
       hidden: false,
       group: 'shopifySync',
-    }),
-    // Shopify collection
-    defineField({
+    },
+    {
       name: 'store',
-      title: 'Shopify',
+      title: 'Store',
       type: 'shopifyCollection',
       description: 'Collection data from Shopify (read-only)',
       group: 'shopifySync',
-    }),
-    // Seo
-    {
-      name: 'seo',
-      title: 'Seo',
-      type: SANITY_FIELDS.SEO,
-      group: 'seo',
     },
   ],
   orderings: [
@@ -115,7 +126,7 @@ export default defineType({
       isDeleted: 'store.isDeleted',
       title: 'store.title',
       slug: 'store.slug.current',
-      media: 'editorial.image.asset',
+      media: 'image.asset',
       seo: 'seo',
     },
     prepare(selection) {

@@ -3,7 +3,7 @@ import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
 import {TextBolder, TextItalic} from 'phosphor-react';
 
-export const CustomRichTextInput = (props: ArrayOfObjectsInputProps) => {
+export const CustomRichTextCollection = (props: ArrayOfObjectsInputProps) => {
   return <Stack className="richText richText--collection">{props.renderDefault(props)}</Stack>;
 };
 
@@ -12,7 +12,7 @@ export default defineType({
   title: 'RichText Collection',
   type: 'array',
   components: {
-    input: CustomRichTextInput,
+    input: CustomRichTextCollection,
   },
   of: [
     {

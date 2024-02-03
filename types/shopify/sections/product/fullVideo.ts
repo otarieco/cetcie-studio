@@ -1,10 +1,9 @@
 import {SHOPIFY_SECTIONS} from '../../../sanity.schemas';
-import type {MuxAsset} from 'sanity-plugin-mux-input/src/util/types';
-import {VideoProjection} from '../../../shared/objects/media';
+import {type Video, VideoProjection} from '../../../shared/objects/video';
 
 export type FullVideo = {
   _type: SHOPIFY_SECTIONS.PRODUCT_FULL_VIDEO;
-  video?: MuxAsset;
+  video?: Video;
 };
 
 export const FullVideoProjection = `

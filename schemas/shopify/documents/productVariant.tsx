@@ -1,10 +1,10 @@
 import React from 'react';
-import {defineField, defineType} from 'sanity';
+import {defineType} from 'sanity';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import ProductVariantHiddenInput from '../../../utils/shopify/components/inputs/ProductVariantHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {PencilSimpleLine, Stack} from 'phosphor-react';
-import {SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
+import {Image, Stack} from 'phosphor-react';
+import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: 'productVariant',
@@ -13,20 +13,20 @@ export default defineType({
   icon: () => <Stack width="1em" height="1em" />,
   groups: [
     {
-      name: 'editorial',
-      title: 'Editorial',
+      name: 'medias',
+      title: 'Médias',
+      icon: () => <Image />,
       default: true,
-      icon: () => <PencilSimpleLine />,
     },
     {
       name: 'shopifySync',
-      title: 'Shopify sync',
+      title: 'Shopify',
       icon: ShopifyIcon,
     },
   ],
   fields: [
     // Product variant hidden status
-    defineField({
+    {
       name: 'hidden',
       type: 'string',
       components: {
@@ -34,31 +34,28 @@ export default defineType({
       },
       hidden: ({parent}) => {
         const isDeleted = parent?.store?.isDeleted;
-
         return !isDeleted;
       },
-    }),
-    // Title (proxy)
-    defineField({
-      title: 'Title',
-      name: 'titleProxy',
-      type: 'proxyString',
-      options: {field: 'store.title'},
-    }),
-    // Shopify product variant
-    defineField({
+    },
+    /**
+     * SANITY - PRODUCT VARIRANT MEDIAS
+     */
+    {
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{type: SANITY_FIELDS.IMAGE}],
+      group: 'medias',
+    },
+    /**
+     * SHOPIFY SYNC STORE
+     */
+    {
       name: 'store',
-      title: 'Shopify',
+      title: 'Store',
       description: 'Variant data from Shopify (read-only)',
       type: 'shopifyProductVariant',
       group: 'shopifySync',
-    }),
-    // Product Editorial
-    {
-      name: 'editorial',
-      title: 'Produit',
-      type: SHOPIFY_DOCUMENTS.PRODUCT_VARIANT_EDITORIAL,
-      group: 'editorial',
     },
   ],
   preview: {

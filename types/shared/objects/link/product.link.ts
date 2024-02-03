@@ -23,12 +23,12 @@ export const ProductLinkProjection = `
   "_id": _id,
   "_type": _type,
   "locale": locale,
-  "title": editorial.title, 
+  "title": title, 
   "slug": store.slug,
   "productId": store.id, 
   "productGid": store.gid,
-  "mediaMain": editorial.mediaMain{${MediaProjection}},
-  "mediaHover": editorial.mediaHover{${MediaProjection}},
+  "mediaMain": mediaMain{${MediaProjection}},
+  "mediaHover": mediaHover{${MediaProjection}},
   "variants": store.variants[]->{
     "variantId": store.id,
     "variantGid": store.gid,
@@ -37,6 +37,6 @@ export const ProductLinkProjection = `
     "compareAtPrice": store.compareAtPrice,
     "price": store.price,
     "option1": store.option1,
-    "images": editorial.images[]{${ImageProjection}},
+    "images": images[]{${ImageProjection}},
   }
 `;

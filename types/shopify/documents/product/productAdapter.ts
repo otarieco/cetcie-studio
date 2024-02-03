@@ -13,21 +13,20 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
   slug: rawProduct?.store?.slug as Slug,
   productId: rawProduct?.store?.id,
   productGid: rawProduct?.store?.gid,
-  title: rawProduct?.editorial?.title,
-  description: rawProduct?.editorial?.description,
+  title: rawProduct?.title,
+  description: rawProduct?.description,
+  animalTypes: rawProduct?.animalTypes,
   priceRange: {
     minVariantPrice: rawProduct?.store?.priceRange?.minVariantPrice,
     maxVariantPrice: rawProduct?.store?.priceRange?.maxVariantPrice,
   },
-  mediaMain: rawProduct?.editorial?.mediaMain,
-  mediaHover: rawProduct?.editorial?.mediaHover,
-  mediaBanner: rawProduct?.editorial?.mediaBanner,
-  metadata: {
-    activeIngredientsAndProperties: rawProduct?.editorial?.metadata?.activeIngredientsAndProperties,
-    composition: rawProduct?.editorial?.metadata?.composition,
-    usageInstructions: rawProduct?.editorial?.metadata?.usageInstructions,
-  },
-  sections: rawProduct?.editorial?.sections,
+  mediaMain: rawProduct?.mediaMain,
+  mediaHover: rawProduct?.mediaHover,
+  mediaBanner: rawProduct?.mediaBanner,
+  activeIngredientsAndProperties: rawProduct?.activeIngredientsAndProperties,
+  composition: rawProduct?.composition,
+  usageInstructions: rawProduct?.usageInstructions,
+  sections: rawProduct?.sections,
   options: rawProduct?.store?.options?.map((option) => ({
     key: option?._key,
     values: option?.values,
@@ -55,7 +54,7 @@ export const productAdapter = (rawProduct: RawProduct): Product => ({
           },
           [],
         ),
-        images: variant?.editorial?.images,
+        images: variant?.images,
       });
     }
     return acc;

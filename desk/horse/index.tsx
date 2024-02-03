@@ -4,6 +4,9 @@ import page from './page';
 import settings from './settings';
 import blog from './blog';
 import type {ListItemBuilder} from 'sanity/lib/exports/desk';
+import domain from './domain';
+import animal from './animalType';
+import faq from './faq';
 
 export default defineStructure<ListItemBuilder>((S, context) =>
   S.listItem()
@@ -12,6 +15,13 @@ export default defineStructure<ListItemBuilder>((S, context) =>
     .child(
       S.list()
         .title('Cheval')
-        .items([page(S, context), blog(S, context), settings(S, context)]),
+        .items([
+          page(S, context),
+          blog(S, context),
+          faq(S, context),
+          settings(S, context),
+          domain(S, context),
+          animal(S, context),
+        ]),
     ),
 );

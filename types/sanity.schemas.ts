@@ -1,9 +1,13 @@
 export enum SANITY_DOCUMENTS {
   /* HORSE */
+  $HORSE_DOMAIN = 'horse_domain',
+  $HORSE_CATEGORY = 'horse_category',
   $HORSE_PAGE = 'horse_page',
   $HORSE_BLOG = 'horse_blog',
   $HORSE_SOCIAL = 'horse_site_social',
   $HORSE_REUSABLE_CONTENT = 'horse_reusable_content',
+  $HORSE_ANIMAL_TYPE = 'horse_animal_type',
+  $HORSE_FAQ = 'horse_faq',
 
   /* PETS */
   $PETS_PAGE = 'pets_page',
@@ -93,10 +97,7 @@ export enum SANITY_SECTIONS {
 
 export enum SHOPIFY_DOCUMENTS {
   PRODUCT = 'product',
-  PRODUCT_EDITORIAL = 'product.editorial',
-  PRODUCT_VARIANT_EDITORIAL = 'product.variant_editorial',
   COLLECTION = 'collection',
-  COLLECTION_EDITORIAL = 'collection.editorial',
 }
 
 export enum SHOPIFY_SECTIONS {
@@ -104,4 +105,5 @@ export enum SHOPIFY_SECTIONS {
   PRODUCT_RELATED_PRODUCTS = 'section.product_related_products',
   PRODUCT_LARGE_DESCRIPTION = 'section.product_large_description',
   PRODUCT_FULL_VIDEO = 'section.product_full_video',
+  PRODUCT_FAQ = 'section.product_faq',
 }

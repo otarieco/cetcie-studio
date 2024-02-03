@@ -15,7 +15,7 @@ export const CollectionLinkProjection = `
   "_id": _id,
   "_type": _type,
   "locale": locale,
-  "title": editorial.title, 
+  "title": title, 
   "slug": store.slug,
-  "image": editorial.image{${ImageProjection}}
+  "image": image{${ImageProjection}}
 `;

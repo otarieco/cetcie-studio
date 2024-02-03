@@ -2,8 +2,8 @@ import {SHOPIFY_DOCUMENTS} from '../../../sanity.schemas';
 import type {SanityDocument, Slug} from 'sanity';
 import type {Locale} from '../../../shared/locale';
 import type {Seo} from '../../../shared/objects/seo';
-import type {ProductVariantEditorial} from './productVariantEditorial';
-import type {ProductEditorial} from './productEditorial';
+import type {RawProduct} from './rawProduct';
+import type {Image} from '../../../shared/objects/image';
 
 /**
  * Type used in front-end
@@ -15,19 +15,22 @@ export type Product = SanityDocument & {
   slug?: Slug;
   productId?: number;
   productGid?: string;
-  title?: ProductEditorial['title'];
-  description?: ProductEditorial['description'];
+  title?: RawProduct['title'];
+  description?: RawProduct['description'];
+  animalTypes?: RawProduct['animalTypes'];
   priceRange?: {
     minVariantPrice?: number;
     maxVariantPrice?: number;
   };
+  activeIngredientsAndProperties?: RawProduct['activeIngredientsAndProperties'];
+  composition?: RawProduct['composition'];
+  usageInstructions?: RawProduct['usageInstructions'];
+  mediaMain?: RawProduct['mediaMain'];
+  mediaHover?: RawProduct['mediaHover'];
+  mediaBanner?: RawProduct['mediaBanner'];
+  sections?: RawProduct['sections'];
   options?: {key?: string; values?: string[]}[];
   variants?: ProductVariant[];
-  mediaMain?: ProductEditorial['mediaMain'];
-  mediaHover?: ProductEditorial['mediaHover'];
-  mediaBanner?: ProductEditorial['mediaBanner'];
-  metadata?: ProductEditorial['metadata'];
-  sections?: ProductEditorial['sections'];
   seo?: Seo;
 };
 
@@ -39,7 +42,5 @@ export type ProductVariant = {
   price?: number;
   compareAtPrice?: number;
   options?: {key?: string; value?: string}[];
-  images?: ProductVariantEditorial['images'];
+  images?: Image[];
 };
-
-// ProductProjection on shopify > documents > product > rawProduct

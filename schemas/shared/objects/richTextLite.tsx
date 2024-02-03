@@ -3,8 +3,21 @@ import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
 import {TextBolder, TextItalic} from 'phosphor-react';
 
-export const CustomRichTextInput = (props: ArrayOfObjectsInputProps) => {
-  return <Stack className="richText richText--lite">{props.renderDefault(props)}</Stack>;
+export const CustomRichTextLite = ({
+  props,
+  icon,
+}: {
+  props: ArrayOfObjectsInputProps;
+  icon?: string;
+}) => {
+  return (
+    <Stack className={['richText', 'richText--lite', icon ? 'richText--with_icon' : ''].join(' ')}>
+      <>
+        {icon && <i dangerouslySetInnerHTML={{__html: icon}}></i>}
+        {props.renderDefault(props)}
+      </>
+    </Stack>
+  );
 };
 
 export default defineType({
@@ -12,7 +25,7 @@ export default defineType({
   title: 'RichText Lite',
   type: 'array',
   components: {
-    input: CustomRichTextInput,
+    input: (props: ArrayOfObjectsInputProps) => CustomRichTextLite({props}),
   },
   of: [
     {
