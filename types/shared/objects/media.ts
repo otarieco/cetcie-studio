@@ -1,12 +1,14 @@
 import {SANITY_FIELDS} from '../../sanity.schemas';
-import type {MuxAsset} from 'sanity-plugin-mux-input/src/util/types';
 import {type Image, ImageProjection} from './image';
+import type {VideoAssetDocument} from 'sanity-plugin-mux-input';
 
 export type Media = {
   _type: SANITY_FIELDS.MEDIA;
   mediaType?: 'image' | 'video';
   image?: Image;
-  video?: MuxAsset;
+  video?: {
+    id?: VideoAssetDocument['playbackId'];
+  };
 };
 
 export const VideoProjection = `
