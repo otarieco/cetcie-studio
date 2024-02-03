@@ -45,7 +45,10 @@ export default defineType({
             icon: HighlighterCircle,
             component: HighlightDecorator,
           },
-          {title: 'Strike', value: 'strike-through'},
+          {
+            title: 'Strike',
+            value: 'strike-through',
+          },
         ],
         annotations: [
           {

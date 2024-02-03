@@ -11,6 +11,13 @@ export type ProductFaq = {
 };
 
 export const ProductFaqProjection = `
-   ...,
-   questions[]{${FaqProjection}}
+   _type,
+   questions[]{
+    _type == "generalQuestion" => @->{
+      ${FaqProjection}
+    },
+    _type == "specificQuestion" => @{
+      ${FaqProjection}
+    },
+   } 
 `;

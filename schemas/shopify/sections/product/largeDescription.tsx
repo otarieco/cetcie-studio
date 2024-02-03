@@ -12,7 +12,7 @@ export default defineType({
     {
       name: 'description',
       title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
+      type: SANITY_FIELDS.RICHTEXT_PRODUCT_LARGE_DESCRIPTION,
     },
   ],
   preview: {

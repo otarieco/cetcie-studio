@@ -7,13 +7,14 @@ import {
   type ReusableContentSection,
   ReusableContentSectionProjection,
 } from '../sections/page/reusableContent';
+import {type PageFaq, PageFaqProjection} from '../sections/page/pageFaq';
 
 export type Page = SanityDocument & {
   _type: SANITY_DOCUMENTS.$HORSE_PAGE;
   locale?: Locale;
   title?: string;
   slug?: Slug;
-  sections?: (Hero | ReusableContentSection)[];
+  sections?: (Hero | PageFaq | ReusableContentSection)[];
   seo?: Seo;
 };
 
@@ -22,6 +23,9 @@ export const PageProjection = `
   sections[]{
     _type == "${SANITY_SECTIONS.$HORSE_HERO}" => {
       ${HeroProjection}
+    },
+    _type == "${SANITY_SECTIONS.$HORSE_FAQ}" => {
+      ${PageFaqProjection}
     },
     _type == "${SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT}" => {
       ${ReusableContentSectionProjection},

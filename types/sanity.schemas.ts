@@ -38,10 +38,12 @@ export enum SANITY_FIELDS {
   RICHTEXT_LITE = 'field.richTextLite',
   RICHTEXT_BLOG = 'field.richTextBlog',
   RICHTEXT_PRODUCT = 'field.richTextProduct',
+  RICHTEXT_PRODUCT_LARGE_DESCRIPTION = 'field.richTextProductLargeDescription',
   RICHTEXT_COLLECTION = 'field.richTextCollection',
   IMAGE = 'field.image',
   MUX_VIDEO = 'mux.video',
   MEDIA = 'field.media',
+  MEDIA_EXTRA = 'field.media_extra',
   URL = 'field.url',
   SEO = 'field.seo',
   LINK = 'field.link',
@@ -77,6 +79,7 @@ export enum SANITY_SECTIONS {
   $HORSE_REUSABLE_CONTENT = 'section.horse_reusable_content',
   $HORSE_HERO = 'section.horse_hero',
   $HORSE_BRAND_BENEFITS = 'section.horse_brand_benefits',
+  $HORSE_FAQ = 'section.horse_faq',
 
   /**
    * PETS

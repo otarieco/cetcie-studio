@@ -23,7 +23,11 @@ export default defineType({
       lists: [],
       marks: {
         decorators: [
-          {title: 'Italique', value: 'em', icon: TextItalic},
+          {
+            title: 'Italique',
+            value: 'em',
+            icon: TextItalic,
+          },
           {
             title: 'Strong',
             value: 'strong',
