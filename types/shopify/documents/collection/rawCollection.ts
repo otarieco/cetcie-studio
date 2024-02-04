@@ -2,8 +2,11 @@ import type {SanityDocument} from 'sanity';
 import type {Locale} from '../../../shared/locale';
 import {type Seo, SeoProjection} from '../../../shared/objects/seo';
 import {type CollectionStore, CollectionStoreProjection} from './collectionStore';
-import {type RichTextProduct, RichTextProductProjection} from '../../../shared/objects/richTextProduct';
+import {type RichTextProduct} from '../../../shared/objects/richTextProduct';
 import {type Image, ImageProjection} from '../../../shared/objects/image';
+import {type RichTextLite, RichTextLiteProjection} from '../../../shared/objects/richTextLite';
+import {RichTextCollectionProjection} from '../../../shared/objects/richTextCollection';
+import {type ProductLink, ProductLinkProjection} from '../../../shared/objects/link/product.link';
 
 /**
  * CollectionRaw is the collection type stored in Sanity
@@ -14,8 +17,10 @@ export type RawCollection = SanityDocument & {
 
   /* Details */
   title?: string;
-  description?: RichTextProduct;
+  description?: RichTextLite;
   image?: Image;
+  extraDescription?: RichTextProduct;
+  collectionEssentials?: ProductLink[];
 
   /* Shopify */
   store?: CollectionStore;
@@ -29,10 +34,10 @@ export type RawCollection = SanityDocument & {
  */
 export const RawCollectionProjection = `
    ...,
-   description[]{
-    ${RichTextProductProjection},
-   },
+   description[]{${RichTextLiteProjection}},
    image{${ImageProjection}},
+   extraDescription[]{${RichTextCollectionProjection}},
+   collectionEssentials[]->{${ProductLinkProjection}},
    store{${CollectionStoreProjection}},
    seo{${SeoProjection}},
 `;

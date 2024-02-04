@@ -69,13 +69,38 @@ export default defineType({
     {
       name: 'description',
       title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_COLLECTION,
+      type: SANITY_FIELDS.RICHTEXT_LITE,
       group: 'details',
     },
     {
       name: 'image',
       title: 'Image',
       type: SANITY_FIELDS.IMAGE,
+      group: 'details',
+    },
+    {
+      name: 'extraDescription',
+      title: 'Extra Description',
+      type: SANITY_FIELDS.RICHTEXT_COLLECTION,
+      group: 'details',
+    },
+    {
+      name: 'collectionEssentials',
+      title: 'Les indispensables',
+      type: 'array',
+      of: [
+        {
+          name: 'product',
+          title: 'Produit',
+          type: 'reference',
+          to: [{type: SHOPIFY_DOCUMENTS.PRODUCT}],
+          options: {
+            disableNew: true,
+            // Unable to filter products by collection as this information is stored on Shopify.
+            // filter: '$collection == ^._id',
+          },
+        },
+      ],
       group: 'details',
     },
     /**

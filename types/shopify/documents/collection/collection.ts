@@ -15,7 +15,9 @@ export type Collection = SanityDocument & {
   slug?: Slug;
   title?: RawCollection['title'];
   description?: RawCollection['description'];
+  extraDescription?: RawCollection['extraDescription'];
   image?: RawCollection['image'];
+  collectionEssentials?: RawCollection['collectionEssentials'];
   products?: ProductLink[];
   seo?: Seo;
 };

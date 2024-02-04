@@ -17,7 +17,9 @@ export const collectionAdapter = (
   slug: rawCollection?.store?.slug as Slug,
   title: rawCollection?.title,
   description: rawCollection?.description,
+  extraDescription: rawCollection?.extraDescription,
   image: rawCollection?.image,
+  collectionEssentials: rawCollection?.collectionEssentials,
   products,
   seo: rawCollection?.seo,
 });

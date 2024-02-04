@@ -5,7 +5,7 @@ import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocume
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_DOMAIN,
-  title: 'Domaine',
+  title: 'Domaines',
   type: 'document',
   icon: () => <TreeStructure width="1em" height="1em" />,
   fields: [
