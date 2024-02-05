@@ -25,8 +25,8 @@ export default defineType({
     },
     {
       name: 'video',
-      title: 'Vidéo',
-      type: SANITY_FIELDS.MUX_VIDEO,
+      title: 'Vidéo Youtube',
+      type: 'string',
     },
   ],
 });
