@@ -4,7 +4,7 @@ import { type NavSubSection, NavSubSectionProjection } from './navSubSection';
 import { SANITY_FIELDS } from '../../sanity.schemas';
 
 export type NavSection = {
-  _type: SANITY_FIELDS.LINK;
+  _type: SANITY_FIELDS.NAV_SECTION;
   title?: string;
   image?: Image;
   links?: (Link | NavSubSection)[];
