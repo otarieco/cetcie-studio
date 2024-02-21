@@ -115,16 +115,6 @@ export default defineType({
     /**
      * SHOPIFY SYNC STORE
      */
-    // Show hero
-    {
-      name: 'showHero',
-      title: 'Show hero',
-      type: 'boolean',
-      description: 'If disabled, page title will be displayed instead',
-      readOnly: true,
-      hidden: false,
-      group: 'shopifySync',
-    },
     {
       name: 'store',
       title: 'Store',
@@ -149,16 +139,17 @@ export default defineType({
     select: {
       imageUrl: 'store.imageUrl',
       isDeleted: 'store.isDeleted',
-      title: 'store.title',
+      titleStore: 'store.title',
+      title: 'title',
       slug: 'store.slug.current',
       media: 'image.asset',
       seo: 'seo',
     },
     prepare(selection) {
-      const {imageUrl, isDeleted, title, slug, media, seo} = selection;
+      const {imageUrl, isDeleted, title, titleStore, slug, seo} = selection;
 
       return {
-        media: media || (
+        media: (
           <ShopifyDocumentStatus
             isDeleted={isDeleted}
             type="collection"
@@ -166,7 +157,7 @@ export default defineType({
             title={title}
           />
         ),
-        title,
+        title: title || titleStore,
         subtitle: `${slug} ${seoPreview(seo)}`,
       };
     },
