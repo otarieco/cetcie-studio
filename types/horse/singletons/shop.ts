@@ -6,6 +6,8 @@ import {type LinkInternal, LinkProjection} from '../../shared/objects/linkIntern
 
 
 type CollectionsOrPagesGroup = {
+  _type: 'group';
+  _key: string;
   title: string;
   list: LinkInternal[];
 }
@@ -35,12 +37,12 @@ export const ShopProjection = /* groq */ `
       image{${ImageProjection}}
     },
     list[]{
-      _type,
-      _key,
       _type == "link.internal" => {
         ${LinkProjection}
       },
       _type == 'group' => {
+        _type,
+        _key,
         title,
         list[]{
           _key,
