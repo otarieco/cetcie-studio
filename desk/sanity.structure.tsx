@@ -1,7 +1,7 @@
-import type {DefaultDocumentNodeResolver} from 'sanity/desk';
+import type {DefaultDocumentNodeResolver} from 'sanity/structure';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../types/sanity.schemas';
 import {EditView, IframeView} from '../sanity.views';
-import type {StructureResolver} from 'sanity/lib/exports/desk';
+import type {StructureResolver} from 'sanity/lib/exports/structure';
 import horse from './horse';
 import pets from './pets';
 import product from './shopify/product';
@@ -20,12 +20,12 @@ export const structure: StructureResolver = (S, context) =>
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
   // Conditionally return a different configuration based on the schema type
-  if (
-    [...Object.values(SANITY_SINGLETONS), ...Object.values(SANITY_DOCUMENTS)].includes(
-      schemaType as SANITY_SINGLETONS | SANITY_DOCUMENTS,
-    )
-  ) {
-    return S.document().views([EditView(S), IframeView(S)]);
-  }
+  // if (
+  //   [...Object.values(SANITY_SINGLETONS), ...Object.values(SANITY_DOCUMENTS)].includes(
+  //     schemaType as SANITY_SINGLETONS | SANITY_DOCUMENTS,
+  //   )
+  // ) {
+  //   return S.document().views([EditView(S), IframeView(S)]);
+  // }
   return S.document().views([]);
 };

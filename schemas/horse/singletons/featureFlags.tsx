@@ -1,12 +1,12 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
-import {Flag} from 'phosphor-react';
+import {Globe} from 'phosphor-react';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS,
-  title: 'Fonctionnalités',
+  title: 'Global',
   type: 'document',
-  icon: () => <Flag width="1em" height="1em" />,
+  icon: Globe,
   fields: [
     {
       name: 'locale',
@@ -14,7 +14,7 @@ export default defineType({
     },
     {
       name: 'notificationBar',
-      title: 'Bar de notifications',
+      title: 'Bandeau de notifications',
       description: 'Texte promotionnel se situant tout en haut du site',
       type: 'object',
       fields: [

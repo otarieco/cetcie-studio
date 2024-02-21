@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {Browser, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
+import {File, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 import type {Page} from '../../../types/horse/documents/page';
@@ -9,7 +9,7 @@ export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_PAGE,
   title: 'Page',
   type: 'document',
-  icon: () => <Browser width="1em" height="1em" />,
+  icon: File,
   groups: [
     {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
     {name: 'sections', title: 'Sections', icon: () => <Stack />},

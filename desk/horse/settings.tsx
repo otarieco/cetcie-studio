@@ -1,7 +1,8 @@
 import defineStructure from '../../utils/defineStructure';
-import {GearSix, UsersThree} from 'phosphor-react';
+import {ArrowsClockwise, GearSix, UsersThree} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../../types/sanity.schemas';
 import type {ListItemBuilder} from 'sanity/lib/exports/desk';
+import animal from './animalType';
 
 export default defineStructure<ListItemBuilder>((S, context) =>
   S.listItem()
@@ -11,30 +12,33 @@ export default defineStructure<ListItemBuilder>((S, context) =>
       S.list()
         .title('Paramètres')
         .items([
-          // HEADER SINGLETON
+          // FEATURE FLAGS SINGLETON
           S.documentListItem()
-            .schemaType(SANITY_SINGLETONS.$HORSE_HEADER)
-            .id(SANITY_SINGLETONS.$HORSE_HEADER),
+            .schemaType(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS)
+            .id(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS)
+            .title('Site'),
+
+          // INFORMATION SINGLETON
+            S.documentListItem()
+              .schemaType(SANITY_SINGLETONS.$HORSE_INFORMATION)
+              .id(SANITY_SINGLETONS.$HORSE_INFORMATION),
 
           // FOOTER SINGLETON
           S.documentListItem()
             .schemaType(SANITY_SINGLETONS.$HORSE_FOOTER)
             .id(SANITY_SINGLETONS.$HORSE_FOOTER),
 
-          // INFORMATION SINGLETON
-          S.documentListItem()
-            .schemaType(SANITY_SINGLETONS.$HORSE_INFORMATION)
-            .id(SANITY_SINGLETONS.$HORSE_INFORMATION),
-
           // SOCIALS DOCUMENTS
           S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_SOCIAL)
-            .title('Socials')
-            .icon(() => <UsersThree width="1em" height="1em" />),
+            .title('Réseaux sociaux')
+            .icon(UsersThree),
 
-          // FEATURE FLAGS SINGLETON
-          S.documentListItem()
-            .schemaType(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS)
-            .id(SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS),
+          animal(S, context),
+
+          // REUSABLE CONTENT DOCUMENTS
+          S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_REUSABLE_CONTENT)
+            .title('Contenu réutilisable')
+            .icon(ArrowsClockwise),
         ]),
     ),
 );
