@@ -31,7 +31,7 @@ export const ShopProjection = /* groq */ `
   types[]{
     _key,
     title,
-    image{${ImageProjection},
+    image{${ImageProjection}},
     collection{
       "slug": coalesce(slug.current, store.slug.current),
       image{${ImageProjection}}
