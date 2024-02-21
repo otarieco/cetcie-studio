@@ -11,6 +11,7 @@ export type LinkDocRef = PageLink | BlogLink | ProductLink | CollectionLink | nu
 
 export type LinkInternal = {
   _type: SANITY_FIELDS.LINK_INTERNAL;
+  _key: string;
   title?: string;
   doc?: {
     _type: PageLink['_type'] | BlogLink['_type'] | ProductLink['_type'] | CollectionLink['_type'];
@@ -19,6 +20,8 @@ export type LinkInternal = {
 };
 
 export const LinkProjection = /* groq */ `
+  _type,
+  _key,
   "title": coalesce(title, doc->title, doc->store.title),
   doc->{_type, "slug": coalesce(slug.current, store.slug.current) }
 `;
