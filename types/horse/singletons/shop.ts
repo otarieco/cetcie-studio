@@ -32,7 +32,7 @@ export const ShopProjection = /* groq */ `
     _key,
     title,
     image{${ImageProjection}},
-    collection{
+    collection->{
       "slug": coalesce(slug.current, store.slug.current),
       image{${ImageProjection}}
     },
