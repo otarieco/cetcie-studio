@@ -11,6 +11,7 @@ type CollectionsOrPagesGroup = {
 }
 
 export type TypeDeProduit = {
+  _key: string;
   title: string;
   image: Image;
   collection: {
@@ -20,11 +21,19 @@ export type TypeDeProduit = {
   list: (CollectionsOrPagesGroup | LinkInternal)[];
 };
 
+export type Shop = {
+  types?: TypeDeProduit[];
+}
+
 export const ShopProjection = /* groq */ `
   types[]{
     _key,
     title,
-    image,
+    image{${ImageProjection},
+    collection{
+      "slug": coalesce(slug.current, store.slug.current),
+      image{${ImageProjection}}
+    },
     list[]{
       _type,
       _key,
