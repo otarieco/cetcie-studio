@@ -6,9 +6,9 @@ import {seoPreview} from '../../../utils/seo.preview';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_BLOG,
-  title: 'Blogs',
+  title: 'Article',
   type: 'document',
-  icon: () => <PencilSimpleLine width="1em" height="1em" />,
+  icon: PencilSimpleLine,
   groups: [
     {name: 'hero', title: 'Hero', icon: () => <FlagBanner />, default: true},
     {name: 'body', title: 'Body', icon: () => <Article />},

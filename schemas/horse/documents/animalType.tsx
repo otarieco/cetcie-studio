@@ -1,12 +1,12 @@
 import {defineType} from '@sanity/types';
-import {TagChevron} from 'phosphor-react';
+import {Horse} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_ANIMAL_TYPE,
-  title: "Types d'animaux",
+  title: "Type d'animal",
   type: 'document',
-  icon: () => <TagChevron width="1em" height="1em" />,
+  icon: Horse,
   fields: [
     {
       name: 'locale',

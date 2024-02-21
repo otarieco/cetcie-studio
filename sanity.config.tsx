@@ -1,5 +1,6 @@
+import {theme} from 'https://themer.sanity.build/api/hues?default=333335;600&primary=d2c4bd;300&transparent=333335;600&positive=43d675;300&caution=fbd024;200&lightest=f9f9fa&darkest=111';
 import {defineConfig} from 'sanity';
-import {deskTool} from 'sanity/desk';
+import {structureTool} from 'sanity/structure';
 import {visionTool} from '@sanity/vision';
 import {schemaTypes} from './schemas';
 import {media} from 'sanity-plugin-media';
@@ -16,23 +17,33 @@ import Flag from 'react-world-flags';
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
+const langues: {
+  [key: string]: string;
+} = {
+  fr: 'Français',
+  en: 'Anglais',
+};
+
 const singletonTypes = new Set(Object.values(SANITY_SINGLETONS));
+
 export default defineConfig({
   name: 'default',
   title: 'Compagnons & Cie',
+  theme,
   projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_DATASET!,
   icon: Horse,
   plugins: [
-    deskTool({structure, defaultDocumentNode}),
+    structureTool({structure, defaultDocumentNode}),
     documentInternationalization({
       supportedLanguages: i18n.locales.map((locale) => ({
         id: locale,
-        title: (
-          <span>
-            {locale.toLocaleUpperCase()} <Flag code={localesFlags[locale]} height="13" />
-          </span>
-        ) as unknown as string,
+        title: langues[locale],
+        // title: (
+        //   <span>
+        //     {locale.toLocaleUpperCase()} <Flag code={localesFlags[locale]} height="13" />
+        //   </span>
+        // ) as unknown as string,
       })),
       schemaTypes: [
         ...Object.values(SANITY_DOCUMENTS),
@@ -55,8 +66,25 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
     // Filter out singleton types from the global “New document” menu options
-    templates: (templates) =>
-      templates.filter(({schemaType}) => !singletonTypes.has(schemaType as SANITY_SINGLETONS)),
+    templates: (templates) => {
+      // const schemaTypesWithLocale = new Set(
+      //   templates.map(({schemaType, value}) => value?.locale && schemaType).filter(Boolean),
+      // );
+
+      return templates.filter(
+        ({schemaType, value}) =>
+          !singletonTypes.has(schemaType as SANITY_SINGLETONS) && !value?.locale,
+      );
+      // .map((template) => ({
+      //   ...template,
+      //   value: schemaTypesWithLocale.has(template.schemaType)
+      //     ? {
+      //         locale: i18n.defaultLocale,
+      //         ...(template.value || {}),
+      //       }
+      //     : template.value,
+      // }))
+    },
   },
   document: {
     // For singleton types, filter out actions that are not explicitly included
