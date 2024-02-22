@@ -76,7 +76,7 @@ div.richText--collection {
 /**
  * Adding a little more margin to following paragraphs
  */
-.pt-text-block + .pt-text-block {
+.pt-text-block + .pt-text-block:not(.pt-list-item-bullet) {
     margin-top: 0.7em;
 }
 

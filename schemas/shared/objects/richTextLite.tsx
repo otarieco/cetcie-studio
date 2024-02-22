@@ -33,7 +33,10 @@ export default defineType({
       type: 'block',
       options: {},
       styles: [{title: 'Paragraphe', value: 'normal'}],
-      lists: [],
+      lists: [
+        {title: 'Puce', value: 'bullet'},
+        {title: 'Liste', value: 'number'},
+      ],
 
       marks: {
         decorators: [
