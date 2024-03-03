@@ -25,6 +25,7 @@ export enum SANITY_SINGLETONS {
   $HORSE_FOOTER = 'horse_site_footer',
   $HORSE_INFORMATION = 'horse_site_information',
   $HORSE_FEATURE_FLAGS = 'horse_site_feature_flags',
+  $HORSE_BIOGRAPHY = 'horse_page_biography',
 
   /* PETS */
   $PETS_HOME = 'pets_page_home',
@@ -78,6 +79,10 @@ export enum SANITY_SECTIONS {
 
   // contact
   $HORSE_CONTACT_HERO = 'section.horse_contact_hero',
+
+  // biography
+  $HORSE_BIOGRAPHY_LONG_TEXT = 'section.horse_biography_long_text',
+  $HORSE_BIOGRAPHY_FULL_SCREEN_IMAGE = 'section.horse_biography_full_screen_image',
 
   // pages
   $HORSE_REUSABLE_CONTENT = 'section.horse_reusable_content',

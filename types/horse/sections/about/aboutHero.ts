@@ -9,7 +9,7 @@ export type AboutHero = {
   video?: string;
 };
 
-export const AboutHeroProjection = `
+export const AboutHeroProjection = /* groq */ `
   ...,
   description[]{${RichTextLiteProjection}}
 `;

@@ -31,15 +31,15 @@ export const AboutProjection = `
     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_INDEPENDENT}" => {
       ${AboutIndependentProjection},
     },
-     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_COLLABORATIONS}" => {
+    _type == "${SANITY_SECTIONS.$HORSE_ABOUT_COLLABORATIONS}" => {
       ${AboutCollaborationsProjection},
     },
-     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT}" => {
+    _type == "${SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT}" => {
       ${AboutPortraitProjection},
     },
     _type == "${SANITY_SECTIONS.$HORSE_ABOUT_QUOTE}" => {
       ${AboutQuoteProjection},
-    },
+    }
   },
   seo{${SeoProjection}}  
 `;

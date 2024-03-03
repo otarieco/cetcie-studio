@@ -16,6 +16,11 @@ export default defineStructure<ListItemBuilder>((S, context) =>
             .schemaType(SANITY_SINGLETONS.$HORSE_ABOUT)
             .id(SANITY_SINGLETONS.$HORSE_ABOUT),
 
+          // BIOGRAPHY PAGE SINGLETON
+          S.documentListItem()
+            .schemaType(SANITY_SINGLETONS.$HORSE_BIOGRAPHY)
+            .id(SANITY_SINGLETONS.$HORSE_BIOGRAPHY),
+
           // CONTACT PAGE SINGLETON
           S.documentListItem()
             .schemaType(SANITY_SINGLETONS.$HORSE_CONTACT)

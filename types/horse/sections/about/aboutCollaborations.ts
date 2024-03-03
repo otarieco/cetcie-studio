@@ -9,7 +9,7 @@ export type AboutCollaborations = {
   image?: Image;
 };
 
-export const AboutCollaborationsProjection = `
+export const AboutCollaborationsProjection = /* groq */ `
   ...,
   description[]{${RichTextLiteProjection}},
   image{${ImageProjection}}

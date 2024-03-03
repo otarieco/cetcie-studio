@@ -29,7 +29,7 @@ export const PageProjection = `
     },
     _type == "${SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT}" => {
       ${ReusableContentSectionProjection},
-    },
+    }
   },
-  seo{${SeoProjection}},
+  seo{${SeoProjection}}
 `;
