@@ -55,6 +55,7 @@ export default defineType({
         {type: SANITY_SECTIONS.$HORSE_ABOUT_INDEPENDENT},
         {type: SANITY_SECTIONS.$HORSE_ABOUT_COLLABORATIONS},
         {type: SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT},
+        {type: SANITY_SECTIONS.$HORSE_ABOUT_QUOTE},
       ],
       group: 'sections',
     },

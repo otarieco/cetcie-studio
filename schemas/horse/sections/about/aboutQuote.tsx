@@ -4,21 +4,11 @@ import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';
 
 export default defineType({
-  name: SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT,
-  title: 'Portrait',
+  name: SANITY_SECTIONS.$HORSE_ABOUT_QUOTE,
+  title: 'Citation',
   type: 'object',
   icon: () => <UserRectangle width="1em" height="1em" />,
   fields: [
-    {
-      name: 'title',
-      title: 'Titre principal',
-      type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
-    },
     {
       name: 'image',
       title: 'Image',
@@ -30,15 +20,15 @@ export default defineType({
       type: 'text',
     },
     {
-      name: 'link',
-      title: 'Lien',
-      type: SANITY_FIELDS.LINK,
+      name: 'author',
+      title: 'Auteur',
+      type: 'string',
     },
   ],
   preview: {
     select: {
-      title: 'title',
-      description: 'description',
+      title: 'author',
+      description: 'quote',
     },
     prepare({title, description}) {
       return {

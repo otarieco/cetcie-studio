@@ -74,6 +74,7 @@ export enum SANITY_SECTIONS {
   $HORSE_ABOUT_INDEPENDENT = 'section.horse_about_independent',
   $HORSE_ABOUT_COLLABORATIONS = 'section.horse_about_collaborations',
   $HORSE_ABOUT_PORTRAIT = 'section.horse_about_portrait',
+  $HORSE_ABOUT_QUOTE = 'section.horse_about_quote',
 
   // contact
   $HORSE_CONTACT_HERO = 'section.horse_contact_hero',

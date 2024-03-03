@@ -7,6 +7,7 @@ import {
   type AboutIndependent,
   AboutIndependentProjection,
 } from '../sections/about/aboutIndependent';
+import {type AboutQuote, AboutQuoteProjection} from '../sections/about/aboutQuote';
 import {
   type AboutCollaborations,
   AboutCollaborationsProjection,
@@ -19,7 +20,7 @@ export type About = SanityDocument & {
   title?: string;
   slug?: Slug;
   hero?: AboutHero;
-  sections?: (AboutIndependent | AboutCollaborations | AboutPortrait)[];
+  sections?: (AboutIndependent | AboutCollaborations | AboutPortrait | AboutQuote)[];
   seo?: Seo;
 };
 
@@ -35,6 +36,9 @@ export const AboutProjection = `
     },
      _type == "${SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT}" => {
       ${AboutPortraitProjection},
+    },
+    _type == "${SANITY_SECTIONS.$HORSE_ABOUT_QUOTE}" => {
+      ${AboutQuoteProjection},
     },
   },
   seo{${SeoProjection}}  
