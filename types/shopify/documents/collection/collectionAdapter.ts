@@ -4,10 +4,7 @@ import type {Slug} from 'sanity';
 import type {Collection} from './collection';
 import type {ProductLink} from '../../../shared/objects/link/product.link';
 
-export const collectionAdapter = (
-  rawCollection: RawCollection,
-  products: ProductLink[],
-): Collection => ({
+export const collectionAdapter = (rawCollection: RawCollection): Collection => ({
   _createdAt: rawCollection?._createdAt,
   _updatedAt: rawCollection?._updatedAt,
   _rev: rawCollection?._rev,
@@ -15,11 +12,10 @@ export const collectionAdapter = (
   _id: rawCollection?._id,
   locale: rawCollection?.locale,
   slug: rawCollection?.store?.slug as Slug,
-  title: rawCollection?.title,
+  title: rawCollection?.title ?? rawCollection?.store?.title,
   description: rawCollection?.description,
   extraDescription: rawCollection?.extraDescription,
   image: rawCollection?.image,
   collectionEssentials: rawCollection?.collectionEssentials,
-  products,
   seo: rawCollection?.seo,
 });
