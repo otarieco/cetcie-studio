@@ -2,6 +2,13 @@
     Custom css for RichTextLite Editor
  */
 
+ @font-face {
+    font-family: script;
+    src: url('/static/friendlist-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+ }
+
 /**
  * Lite
  */

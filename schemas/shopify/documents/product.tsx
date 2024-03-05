@@ -108,14 +108,14 @@ export default defineType({
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Description courte',
       type: SANITY_FIELDS.RICHTEXT_PRODUCT,
       group: 'details',
     },
     {
       name: 'activeIngredientsAndProperties',
       title: 'Actifs & propriétés',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
+      type: SANITY_FIELDS.RICHTEXT_PRODUCT,
       group: 'details',
       components: {
         field: (props) => CustomRichTextLite({props, icon: FlowerIcon}),
@@ -124,7 +124,7 @@ export default defineType({
     {
       name: 'composition',
       title: 'Composition',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
+      type: SANITY_FIELDS.RICHTEXT_PRODUCT,
       group: 'details',
       components: {
         field: (props) => CustomRichTextLite({props, icon: DropWaterIcon}),
@@ -133,7 +133,7 @@ export default defineType({
     {
       name: 'usageInstructions',
       title: "Conseils d'utilisation",
-      type: SANITY_FIELDS.RICHTEXT_LITE,
+      type: SANITY_FIELDS.RICHTEXT_PRODUCT,
       group: 'details',
       components: {
         field: (props) => CustomRichTextLite({props, icon: ChatBubbleIcon}),
