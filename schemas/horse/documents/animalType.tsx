@@ -1,6 +1,7 @@
 import {defineType} from '@sanity/types';
 import {Horse} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
+import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_ANIMAL_TYPE,
@@ -16,6 +17,17 @@ export default defineType({
       name: 'name',
       title: 'Nom',
       type: 'string',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'name',
+        maxLength: 96,
+        isUnique: isUniqueAcrossAllDocuments,
+      },
     },
   ],
   preview: {
