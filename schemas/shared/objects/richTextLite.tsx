@@ -20,19 +20,28 @@ export const CustomRichTextLite = ({
   );
 };
 
+const Manuscrit = (props: any) => (
+  <span style={{fontFamily: 'script', fontSize: '2rem'}}>
+    {props.children}
+  </span>
+)
+
 export default defineType({
   name: SANITY_FIELDS.RICHTEXT_LITE,
   title: 'RichText Lite',
   type: 'array',
-  components: {
-    input: (props: ArrayOfObjectsInputProps) => CustomRichTextLite({props}),
-  },
+  // components: {
+  //   input: (props: ArrayOfObjectsInputProps) => CustomRichTextLite({props}),
+  // },
   of: [
     {
       title: 'Block',
       type: 'block',
       options: {},
-      styles: [{title: 'Paragraphe', value: 'normal'}],
+      styles: [
+        {title: 'Paragraphe', value: 'normal'},
+        {title: 'Manuscrit', value: 'handwritten', component: Manuscrit},
+      ],
       lists: [
         {title: 'Puce', value: 'bullet'},
         {title: 'Liste', value: 'number'},
@@ -40,13 +49,13 @@ export default defineType({
 
       marks: {
         decorators: [
+          // {
+          //   title: 'Italique',
+          //   value: 'em',
+          //   icon: TextItalic,
+          // },
           {
-            title: 'Italique',
-            value: 'em',
-            icon: TextItalic,
-          },
-          {
-            title: 'Strong',
+            title: 'Gras',
             value: 'strong',
             icon: TextBolder,
           },

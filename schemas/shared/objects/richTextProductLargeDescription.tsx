@@ -31,7 +31,7 @@ const TextSizes = (props: any) => {
 
   if (props.value === 'handwritten') {
     return (
-      <span style={{fontFamily: 'serif', fontSize: '1.2em', fontWeight: 500}}>
+      <span style={{ fontFamily: 'script', fontSize: '2rem' }}>
         {props.children}
       </span>
     );
@@ -44,9 +44,9 @@ export default defineType({
   name: SANITY_FIELDS.RICHTEXT_PRODUCT_LARGE_DESCRIPTION,
   title: 'RichText Product Large Description',
   type: 'array',
-  components: {
-    input: CustomRichTextProduct,
-  },
+  // components: {
+  //   input: CustomRichTextProduct,
+  // },
   of: [
     {
       title: 'Block',
@@ -56,20 +56,20 @@ export default defineType({
         {title: 'Paragraphe', value: 'normal'},
         {title: 'Large', value: 'large', component: TextSizes},
         {title: 'Manuscrit', value: 'handwritten', component: TextSizes},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
+        // {title: 'H2', value: 'h2'},
+        // {title: 'H3', value: 'h3'},
+        // {title: 'H4', value: 'h4'},
       ],
       lists: [],
       marks: {
         decorators: [
+          // {
+          //   title: 'Italique',
+          //   value: 'em',
+          //   icon: TextItalic,
+          // },
           {
-            title: 'Italique',
-            value: 'em',
-            icon: TextItalic,
-          },
-          {
-            title: 'Strong',
+            title: 'Gras',
             value: 'strong',
             icon: TextBolder,
           },

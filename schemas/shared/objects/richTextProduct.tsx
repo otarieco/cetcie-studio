@@ -11,25 +11,28 @@ export default defineType({
   name: SANITY_FIELDS.RICHTEXT_PRODUCT,
   title: 'RichText Product',
   type: 'array',
-  components: {
-    input: CustomRichTextProduct,
-  },
+  // components: {
+  //   input: CustomRichTextProduct,
+  // },
   of: [
     {
       title: 'Block',
       type: 'block',
       options: {},
       styles: [{title: 'Paragraphe', value: 'normal'}],
-      lists: [],
+      lists: [
+        {title: 'Puce', value: 'bullet'},
+        {title: 'Liste', value: 'number'},
+      ],
       marks: {
         decorators: [
+          // {
+          //   title: 'Italique',
+          //   value: 'em',
+          //   icon: TextItalic,
+          // },
           {
-            title: 'Italique',
-            value: 'em',
-            icon: TextItalic,
-          },
-          {
-            title: 'Strong',
+            title: 'Gras',
             value: 'strong',
             icon: TextBolder,
           },
