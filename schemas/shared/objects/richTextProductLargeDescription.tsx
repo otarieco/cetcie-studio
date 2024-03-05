@@ -53,8 +53,8 @@ export default defineType({
       type: 'block',
       options: {},
       styles: [
+        {title: 'Large', value: 'large', component: (props) => <span style={{ fontFamily: 'ui-serif, serif', fontSize: '1.3em' }}>{props.children}</span>,},
         {title: 'Paragraphe', value: 'normal'},
-        {title: 'Large', value: 'large', component: TextSizes},
         {title: 'Manuscrit', value: 'handwritten', component: TextSizes},
         // {title: 'H2', value: 'h2'},
         // {title: 'H3', value: 'h3'},

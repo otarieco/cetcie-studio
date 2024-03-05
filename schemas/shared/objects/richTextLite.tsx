@@ -1,6 +1,6 @@
 import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {Stack} from '@sanity/ui';
+import {Stack, Text} from '@sanity/ui';
 import {TextBolder, TextItalic} from 'phosphor-react';
 
 export const CustomRichTextLite = ({
@@ -20,12 +20,6 @@ export const CustomRichTextLite = ({
   );
 };
 
-const Manuscrit = (props: any) => (
-  <span style={{fontFamily: 'script', fontSize: '2rem'}}>
-    {props.children}
-  </span>
-)
-
 export default defineType({
   name: SANITY_FIELDS.RICHTEXT_LITE,
   title: 'RichText Lite',
@@ -40,7 +34,18 @@ export default defineType({
       options: {},
       styles: [
         {title: 'Paragraphe', value: 'normal'},
-        {title: 'Manuscrit', value: 'handwritten', component: Manuscrit},
+        {
+          title: 'Large',
+          value: 'large',
+          component: (props) => <span style={{ fontFamily: 'ui-serif, serif', fontSize: '1.3em' }}>{props.children}</span>,
+        },
+        {
+          title: 'Manuscrit',
+          value: 'handwritten',
+          component: (props: any) => (
+            <span style={{fontFamily: 'script', fontSize: '2rem'}}>{props.children}</span>
+          ),
+        },
       ],
       lists: [
         {title: 'Puce', value: 'bullet'},
