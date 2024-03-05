@@ -29,6 +29,7 @@ export const ProductLinkProjection = `
   "productGid": store.gid,
   "mediaMain": mediaMain{${MediaProjection}},
   "mediaHover": mediaHover{${MediaProjection}},
+  "animalTypes": animalTypes[]->{_id, slug, name},
   "variants": store.variants[]->{
     "variantId": store.id,
     "variantGid": store.gid,
