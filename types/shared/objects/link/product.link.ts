@@ -12,6 +12,7 @@ export type ProductLink = {
   productGid?: Product['productGid'];
   mediaMain?: Product['mediaMain'];
   mediaHover?: Product['mediaHover'];
+  animalTypes?: Product['animalTypes'];
   variants?: Product['variants'];
 };
 
