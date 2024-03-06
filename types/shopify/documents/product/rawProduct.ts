@@ -47,6 +47,7 @@ export type RawProduct = SanityDocument & {
  */
 export const RawProductProjection = `
   ...,
+  "title": coalesce(title, store.title),
   
   // Details 
   description[]{${RichTextProductProjection}},
