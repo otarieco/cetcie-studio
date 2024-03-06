@@ -17,6 +17,7 @@ export type RawCollection = SanityDocument & {
 
   /* Details */
   title?: string;
+  subtitle?: string;
   description?: RichTextLite;
   image?: Image;
   extraDescription?: RichTextProduct;

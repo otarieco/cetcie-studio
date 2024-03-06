@@ -13,6 +13,7 @@ export const collectionAdapter = (rawCollection: RawCollection): Collection => (
   locale: rawCollection?.locale,
   slug: rawCollection?.store?.slug as Slug,
   title: rawCollection?.title ?? rawCollection?.store?.title,
+  subtitle: rawCollection?.subtitle,
   description: rawCollection?.description,
   extraDescription: rawCollection?.extraDescription,
   image: rawCollection?.image,

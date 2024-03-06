@@ -60,6 +60,12 @@ export default defineType({
       group: 'details',
     },
     {
+      name: 'subtitle',
+      title: 'Sous-titre',
+      type: 'string',
+      group: 'details',
+    },
+    {
       name: 'slugProxy',
       title: 'Slug',
       type: 'proxyString',
@@ -68,16 +74,16 @@ export default defineType({
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Description courte',
       type: SANITY_FIELDS.RICHTEXT_LITE,
       group: 'details',
     },
-    {
-      name: 'image',
-      title: 'Image',
-      type: SANITY_FIELDS.IMAGE,
-      group: 'details',
-    },
+    // {
+    //   name: 'image',
+    //   title: 'Image',
+    //   type: SANITY_FIELDS.IMAGE,
+    //   group: 'details',
+    // },
     {
       name: 'extraDescription',
       title: 'Extra Description',
