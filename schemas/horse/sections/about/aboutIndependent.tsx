@@ -25,11 +25,6 @@ export default defineType({
       type: SANITY_FIELDS.RICHTEXT_LITE,
     },
     {
-      name: 'extraDescription',
-      title: 'Extra Description',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
-    },
-    {
       name: 'image',
       title: 'Image',
       type: SANITY_FIELDS.IMAGE,

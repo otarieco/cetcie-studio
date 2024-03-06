@@ -7,13 +7,11 @@ export type AboutIndependent = {
   surtitle?: string;
   title?: string;
   description?: RichTextLite;
-  extraDescription?: RichTextLite;
   image?: Image;
 };
 
 export const AboutIndependentProjection = `
   ...,
   description[]{${RichTextLiteProjection}},
-  extraDescription[]{${RichTextLiteProjection}},
   image{${ImageProjection}}
 `;
