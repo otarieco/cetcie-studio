@@ -23,7 +23,7 @@ export const ProductLinkProjection = `
   "_id": _id,
   "_type": _type,
   "locale": locale,
-  "title": title, 
+  "title": coalesce(title, store.title),
   "slug": store.slug,
   "productId": store.id, 
   "productGid": store.gid,
