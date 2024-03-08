@@ -19,7 +19,10 @@ export default defineType({
       title: 'Block',
       type: 'block',
       options: {},
-      styles: [{title: 'Paragraphe', value: 'normal'}],
+      styles: [
+        {title: 'Paragraphe', value: 'normal'},
+        {title: 'Encadré', value: 'blockquote'},
+      ],
       lists: [
         {title: 'Puce', value: 'bullet'},
         {title: 'Liste', value: 'number'},

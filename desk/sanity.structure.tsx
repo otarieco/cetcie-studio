@@ -7,7 +7,7 @@ import collection from './shopify/collection';
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
-    .title('Categories')
+    .title('Studio')
     .items([
       horse(S, context),
       pets(S, context),

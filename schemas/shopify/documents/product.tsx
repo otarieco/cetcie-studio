@@ -111,6 +111,7 @@ export default defineType({
       title: 'Description courte',
       type: SANITY_FIELDS.RICHTEXT_PRODUCT,
       group: 'details',
+      validation: (Rule: any) => Rule.required().warning('N‘oublie pas de renseigner une courte description'),
     },
     {
       name: 'activeIngredientsAndProperties',
