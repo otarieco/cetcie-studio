@@ -14,6 +14,7 @@ export type Collection = SanityDocument & {
   locale?: Locale;
   slug?: Slug;
   title?: RawCollection['title'];
+  subtitle?: RawCollection['subtitle'];
   description?: RawCollection['description'];
   extraDescription?: RawCollection['extraDescription'];
   image?: RawCollection['image'];
