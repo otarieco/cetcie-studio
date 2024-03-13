@@ -22,6 +22,7 @@ export type Page = SanityDocument & {
 
 export const PageProjection = `
   ...,
+  content[],
   sections[]{
     _type == "${SANITY_SECTIONS.$HORSE_HERO}" => {
       ${HeroProjection}

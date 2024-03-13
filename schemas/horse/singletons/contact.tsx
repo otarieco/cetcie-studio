@@ -1,7 +1,6 @@
 import {defineType} from 'sanity';
 import {
   FlagBanner,
-  MagnifyingGlass,
   PaperPlaneTilt,
   SlidersHorizontal,
   Stack,
@@ -15,28 +14,41 @@ export default defineType({
   type: 'document',
   icon: () => <PaperPlaneTilt width="1em" height="1em" />,
   groups: [
-    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
-    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />},
-    {name: 'sections', title: 'Sections', icon: () => <Stack />},
-    {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
+    {name: 'content', title: 'Contenu', icon: () => <Stack />, default: true},
+    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />},
   ],
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['settings', 'hero', 'sections', 'seo'],
+      group: ['content', 'settings'],
     },
     {
       name: 'title',
       title: 'Titre',
       type: 'string',
-      group: 'settings',
+      group: 'content',
+    },
+    {
+      name: 'intro',
+      title: 'Intro',
+      description: 'Texte introductif',
+      type: 'text',
+      rows: 3,
+      group: 'content',
+    },
+    {
+      name: 'media',
+      title: 'Image / Vidéo',
+      type: SANITY_FIELDS.MEDIA,
+      group: 'content',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
+      readOnly: true,
       options: {
         source: 'title',
         maxLength: 96,
@@ -45,34 +57,14 @@ export default defineType({
       group: 'settings',
     },
     {
-      name: 'hero',
-      title: 'Hero',
-      type: SANITY_SECTIONS.$HORSE_CONTACT_HERO,
-      group: 'hero',
-    },
-    {
-      name: 'sections',
-      title: 'Sections',
-      type: 'array',
-      options: {
-        sortable: false,
-      },
-      of: [],
-      group: 'sections',
-    },
-    {
       name: 'seo',
       title: 'Seo',
       type: SANITY_FIELDS.SEO,
-      group: 'seo',
+      group: 'settings',
     },
   ],
   preview: {
-    select: {
-      title: 'hero.title',
-      subtitle: 'hero.surtitle',
-    },
-    prepare({title, subtitle}) {
+    prepare() {
       return {
         title: 'Contact',
       };

@@ -1,13 +1,13 @@
 import defineStructure from '../../utils/defineStructure';
 import {ArrowsClockwise, GearSix, UsersThree} from 'phosphor-react';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../../types/sanity.schemas';
-import type {ListItemBuilder} from 'sanity/lib/exports/desk';
+import faq from './faq';
 import animal from './animalType';
 
-export default defineStructure<ListItemBuilder>((S, context) =>
+export default defineStructure((S, context) =>
   S.listItem()
     .title('Paramètres')
-    .icon(() => <GearSix width="1em" height="1em" />)
+    .icon(GearSix)
     .child(
       S.list()
         .title('Paramètres')
@@ -19,9 +19,9 @@ export default defineStructure<ListItemBuilder>((S, context) =>
             .title('Site'),
 
           // INFORMATION SINGLETON
-            S.documentListItem()
-              .schemaType(SANITY_SINGLETONS.$HORSE_INFORMATION)
-              .id(SANITY_SINGLETONS.$HORSE_INFORMATION),
+          // S.documentListItem()
+          //   .schemaType(SANITY_SINGLETONS.$HORSE_INFORMATION)
+          //   .id(SANITY_SINGLETONS.$HORSE_INFORMATION),
 
           // FOOTER SINGLETON
           S.documentListItem()
@@ -29,10 +29,13 @@ export default defineStructure<ListItemBuilder>((S, context) =>
             .id(SANITY_SINGLETONS.$HORSE_FOOTER),
 
           // SOCIALS DOCUMENTS
-          S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_SOCIAL)
-            .title('Réseaux sociaux')
-            .icon(UsersThree),
+          // S.documentTypeListItem(SANITY_DOCUMENTS.$HORSE_SOCIAL)
+          //   .title('Réseaux sociaux')
+          //   .icon(UsersThree),
 
+          S.divider(),
+
+          faq(S, context),
           animal(S, context),
 
           // REUSABLE CONTENT DOCUMENTS

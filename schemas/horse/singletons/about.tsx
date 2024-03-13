@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {FlagBanner, MagnifyingGlass, Person, SlidersHorizontal, Stack} from 'phosphor-react';
+import {FlagBanner, Person, SlidersHorizontal, Stack} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 
@@ -7,18 +7,17 @@ export default defineType({
   name: SANITY_SINGLETONS.$HORSE_ABOUT,
   title: 'A propos',
   type: 'document',
-  icon: () => <Person width="1em" height="1em" />,
+  icon: Person,
   groups: [
-    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
-    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />},
-    {name: 'sections', title: 'Sections', icon: () => <Stack />},
-    {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
+    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />, default: true},
+    {name: 'content', title: 'Contenu', icon: () => <Stack />},
+    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />},
   ],
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['settings', 'hero', 'sections', 'seo'],
+      group: ['hero', 'content', 'settings'],
     },
     {
       name: 'title',
@@ -31,6 +30,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
+      readOnly: true,
       options: {
         source: 'title',
         maxLength: 96,
@@ -57,23 +57,19 @@ export default defineType({
         {type: SANITY_SECTIONS.$HORSE_ABOUT_PORTRAIT},
         {type: SANITY_SECTIONS.$HORSE_ABOUT_QUOTE},
       ],
-      group: 'sections',
+      group: 'content',
     },
     {
       name: 'seo',
       title: 'Seo',
       type: SANITY_FIELDS.SEO,
-      group: 'seo',
+      group: 'settings',
     },
   ],
   preview: {
-    select: {
-      title: 'hero.title',
-      subtitle: 'hero.surtitle',
-    },
-    prepare({title, subtitle}) {
+    prepare() {
       return {
-        title: 'A propos',
+        title: 'À propos',
       };
     },
   },

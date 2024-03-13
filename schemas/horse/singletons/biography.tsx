@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {MagnifyingGlass, Scroll, SlidersHorizontal, Stack} from 'phosphor-react';
+import {Scroll, SlidersHorizontal, Stack} from 'phosphor-react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 
@@ -9,15 +9,14 @@ export default defineType({
   type: 'document',
   icon: () => <Scroll width="1em" height="1em" />,
   groups: [
-    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
-    {name: 'sections', title: 'Sections', icon: () => <Stack />},
-    {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
+    {name: 'content', title: 'Contenu', icon: () => <Stack />, default: true},
+    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />},
   ],
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['settings', 'sections', 'seo'],
+      group: ['content', 'settings'],
     },
     {
       name: 'title',
@@ -30,6 +29,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
+      readOnly: true,
       options: {
         source: 'title',
         maxLength: 96,
@@ -48,24 +48,19 @@ export default defineType({
         {type: SANITY_SECTIONS.$HORSE_BIOGRAPHY_FULL_SCREEN_IMAGE},
         {type: SANITY_SECTIONS.$HORSE_BIOGRAPHY_LONG_TEXT},
       ],
-      group: 'sections',
+      group: 'content',
     },
     {
       name: 'seo',
       title: 'Seo',
       type: SANITY_FIELDS.SEO,
-      group: 'seo',
+      group: 'settings',
     },
   ],
   preview: {
-    select: {
-      title: 'title',
-      subtitle: 'slug.current',
-    },
-    prepare({title, subtitle}) {
+    prepare() {
       return {
         title: 'Notre histoire',
-        //subtitle,
       };
     },
   },

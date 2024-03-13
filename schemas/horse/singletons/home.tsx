@@ -6,18 +6,17 @@ export default defineType({
   name: SANITY_SINGLETONS.$HORSE_HOME,
   title: 'Home',
   type: 'document',
-  icon: () => <House width="1em" height="1em" />,
+  icon: House,
   groups: [
-    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
-    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />},
-    {name: 'sections', title: 'Sections', icon: () => <Stack />},
-    {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
+    {name: 'hero', title: 'Hero', icon: () => <FlagBanner />, default: true},
+    {name: 'content', title: 'Contenu', icon: () => <Stack />},
+    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />},
   ],
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['settings', 'hero', 'sections', 'seo'],
+      group: ['hero', 'content', 'settings'],
     },
     {
       name: 'title',
@@ -45,21 +44,17 @@ export default defineType({
         {type: SANITY_SECTIONS.$HORSE_HOME_STORYTELLING},
         {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT},
       ],
-      group: 'sections',
+      group: 'content',
     },
     {
       name: 'seo',
       title: 'Seo',
       type: SANITY_FIELDS.SEO,
-      group: 'seo',
+      group: 'settings',
     },
   ],
   preview: {
-    select: {
-      title: 'hero.title',
-      subtitle: 'hero.surtitle',
-    },
-    prepare({title, subtitle}) {
+    prepare() {
       return {
         title: 'Accueil',
       };
