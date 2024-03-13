@@ -21,8 +21,8 @@ export default defineType({
     },
     {
       name: 'link',
-      title: 'Lien',
-      type: SANITY_FIELDS.LINK_INTERNAL,
+      title: 'Lien interne',
+      type: SANITY_FIELDS.LINK,
     },
   ],
   preview: {

@@ -5,10 +5,10 @@ import {type LinkExternal, LinkProjection as LinkExternalProjection} from './lin
 export type Link = LinkInternal | LinkExternal;
 
 export const LinkProjection = `
-  _type == "${SANITY_FIELDS.LINK_EXTERNAL}" => {
+  external == true || _type == "${SANITY_FIELDS.LINK_EXTERNAL}" => {
      ${LinkExternalProjection}
   },
-  _type == "${SANITY_FIELDS.LINK_INTERNAL}" => {
+  external != true || _type == "${SANITY_FIELDS.LINK_INTERNAL}" => {
      ${LinkInternalProjection}
   }
 `;

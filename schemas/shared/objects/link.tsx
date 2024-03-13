@@ -6,7 +6,6 @@ import {
   SHOPIFY_DOCUMENTS,
 } from '../../../types/sanity.schemas';
 import {Link as LinkIcon} from 'phosphor-react';
-import type {Link} from '../../../types/shared/objects/link';
 
 export default defineType({
   name: SANITY_FIELDS.LINK,
@@ -19,24 +18,43 @@ export default defineType({
   },
   fields: [
     {
+      name: 'title',
+      title: 'Titre',
+      type: 'string',
+    },
+    {
       name: 'external',
       title: 'Lien externe ?',
       type: 'boolean',
       initialValue: false,
     },
     {
-      name: 'externalLink',
-      title: 'Lien url',
-      description: 'Url externe au site',
-      type: SANITY_FIELDS.LINK_EXTERNAL,
-      hidden: ({parent}) => !parent?.external,
+      title: 'Page / Collection',
+      name: 'doc',
+      type: 'reference',
+      to: [
+        ...Array.from([
+          ...Object.values(SANITY_SINGLETONS).filter((doc) => doc.includes('_page_')),
+          ...Object.values(SANITY_DOCUMENTS).filter(
+            (doc) => doc.endsWith('page') || doc.endsWith('blog'),
+          ),
+          SHOPIFY_DOCUMENTS.PRODUCT,
+          SHOPIFY_DOCUMENTS.COLLECTION,
+        ]).map((singleton) => ({
+          type: singleton,
+        })),
+      ],
+      options: {
+        disableNew: true,
+      },
+      hidden: ({parent}) => !!parent?.external,
     },
     {
-      name: 'internalLink',
-      title: 'Page / Collection',
-      description: 'Page interne du site',
-      type: SANITY_FIELDS.LINK_INTERNAL,
-      hidden: ({parent}) => !!parent?.external,
+      name: 'url',
+      title: 'Url',
+      description: 'Url externe au site',
+      type: SANITY_FIELDS.URL,
+      hidden: ({parent}) => !parent?.external,
     },
   ],
   // preview: {

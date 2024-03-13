@@ -12,10 +12,10 @@ export default defineType({
   title: 'Page / Collection',
   type: 'object',
   icon: File,
-  options: {
-    collapsible: true,
-    collapsed: true,
-  },
+  // options: {
+  //   collapsible: true,
+  //   collapsed: true,
+  // },
   fields: [
     {
       title: 'Page / Collection',
