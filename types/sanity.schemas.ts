@@ -10,9 +10,9 @@ export enum SANITY_DOCUMENTS {
   $HORSE_FAQ = 'horse_faq',
 
   /* PETS */
-  $PETS_PAGE = 'pets_page',
-  $PETS_BLOG = 'pets_blog',
-  $PETS_SOCIAL = 'pets_site_social',
+  // $PETS_PAGE = 'pets_page',
+  // $PETS_BLOG = 'pets_blog',
+  // $PETS_SOCIAL = 'pets_site_social',
 }
 
 export enum SANITY_SINGLETONS {
@@ -21,19 +21,18 @@ export enum SANITY_SINGLETONS {
   $HORSE_ABOUT = 'horse_page_about',
   $HORSE_CONTACT = 'horse_page_contact',
   $HORSE_SHOP = 'horse_site_shop',
-  $HORSE_HEADER = 'horse_site_header',
   $HORSE_FOOTER = 'horse_site_footer',
   $HORSE_INFORMATION = 'horse_site_information',
   $HORSE_FEATURE_FLAGS = 'horse_site_feature_flags',
   $HORSE_BIOGRAPHY = 'horse_page_biography',
 
   /* PETS */
-  $PETS_HOME = 'pets_page_home',
-  $PETS_ABOUT = 'pets_page_about',
-  $PETS_CONTACT = 'pets_page_contact',
-  $PETS_HEADER = 'pets_site_header',
-  $PETS_FOOTER = 'pets_site_footer',
-  $PETS_INFORMATION = 'pets_site_information',
+  // $PETS_HOME = 'pets_page_home',
+  // $PETS_ABOUT = 'pets_page_about',
+  // $PETS_CONTACT = 'pets_page_contact',
+  // $PETS_HEADER = 'pets_site_header',
+  // $PETS_FOOTER = 'pets_site_footer',
+  // $PETS_INFORMATION = 'pets_site_information',
 }
 
 export enum SANITY_FIELDS {
@@ -52,8 +51,8 @@ export enum SANITY_FIELDS {
   LINK = 'field.link',
   LINK_INTERNAL = 'link.internal',
   LINK_EXTERNAL = 'link.external',
-  NAV_SECTION = 'field.navSection',
-  NAV_SUB_SECTION = 'field.navSubSection',
+  // NAV_SECTION = 'field.navSection',
+  // NAV_SUB_SECTION = 'field.navSubSection',
   LOCALE = 'field.locale',
 }
 
@@ -96,16 +95,16 @@ export enum SANITY_SECTIONS {
    */
 
   // home
-  $PETS_HOME_HERO = 'section.pets_home_hero',
+  // $PETS_HOME_HERO = 'section.pets_home_hero',
 
   // about
-  $PETS_ABOUT_HERO = 'section.pets_about_hero',
+  // $PETS_ABOUT_HERO = 'section.pets_about_hero',
 
   // contact
-  $PETS_CONTACT_HERO = 'section.pets_contact_hero',
+  // $PETS_CONTACT_HERO = 'section.pets_contact_hero',
 
   // pages
-  $PETS_HERO = 'section.pets_hero',
+  // $PETS_HERO = 'section.pets_hero',
 }
 
 export enum SHOPIFY_DOCUMENTS {

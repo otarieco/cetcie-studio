@@ -1,7 +1,7 @@
 import type {DefaultDocumentNodeResolver} from 'sanity/structure';
 import type {StructureResolver} from 'sanity/lib/exports/structure';
 import horse from './horse';
-import pets from './pets';
+// import pets from './pets';
 import product from './shopify/product';
 import collection from './shopify/collection';
 
@@ -10,7 +10,7 @@ export const structure: StructureResolver = (S, context) =>
     .title('Studio')
     .items([
       horse(S, context),
-      pets(S, context),
+      // pets(S, context),
       S.divider(),
       product(S, context),
       collection(S, context),
