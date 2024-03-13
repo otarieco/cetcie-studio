@@ -8,12 +8,14 @@ import {
   ReusableContentSectionProjection,
 } from '../sections/page/reusableContent';
 import {type PageFaq, PageFaqProjection} from '../sections/page/pageFaq';
+import { type RichTextPage } from '../../shared/objects/richTextPage';
 
 export type Page = SanityDocument & {
   _type: SANITY_DOCUMENTS.$HORSE_PAGE;
   locale?: Locale;
   title?: string;
   slug?: Slug;
+  content?: RichTextPage;
   sections?: (Hero | PageFaq | ReusableContentSection)[];
   seo?: Seo;
 };

@@ -38,6 +38,7 @@ export enum SANITY_SINGLETONS {
 
 export enum SANITY_FIELDS {
   RICHTEXT_LITE = 'field.richTextLite',
+  RICHTEXT_PAGE = 'field.richTextPage',
   RICHTEXT_BLOG = 'field.richTextBlog',
   RICHTEXT_PRODUCT = 'field.richTextProduct',
   RICHTEXT_PRODUCT_LARGE_DESCRIPTION = 'field.richTextProductLargeDescription',

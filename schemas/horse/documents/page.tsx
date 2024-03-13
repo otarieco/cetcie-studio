@@ -11,21 +11,38 @@ export default defineType({
   type: 'document',
   icon: File,
   groups: [
-    {name: 'settings', title: 'Paramètres', icon: () => <SlidersHorizontal />, default: true},
-    {name: 'sections', title: 'Sections', icon: () => <Stack />},
-    {name: 'seo', title: 'Seo', icon: () => <MagnifyingGlass />},
+    {name: 'content', title: 'Contenu', icon: Stack, default: true},
+    {name: 'settings', title: 'Paramètres', icon: SlidersHorizontal},
+    {name: 'seo', title: 'Seo', icon: MagnifyingGlass},
   ],
   fields: [
     {
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
-      group: ['settings', 'sections', 'seo'],
+      group: ['settings', 'content', 'seo'],
     },
     {
       name: 'title',
       title: 'Titre',
       type: 'string',
       group: 'settings',
+    },
+    {
+      name: 'content',
+      title: 'Contenu',
+      type: SANITY_FIELDS.RICHTEXT_PAGE,
+      group: 'content',
+    },
+    {
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        {type: SANITY_SECTIONS.$HORSE_HERO},
+        {type: SANITY_SECTIONS.$HORSE_FAQ},
+        {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT},
+      ],
+      group: 'content',
     },
     {
       name: 'slug',
@@ -38,17 +55,6 @@ export default defineType({
         isUnique: isUniqueAcrossAllDocuments,
       },
       group: 'settings',
-    },
-    {
-      name: 'sections',
-      title: 'Sections',
-      type: 'array',
-      of: [
-        {type: SANITY_SECTIONS.$HORSE_HERO},
-        {type: SANITY_SECTIONS.$HORSE_FAQ},
-        {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT},
-      ],
-      group: 'sections',
     },
     {
       name: 'seo',
