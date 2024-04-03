@@ -1,6 +1,6 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {TextBolder} from 'phosphor-react';
+import {TextBolder, FileArrowUp, Link} from 'phosphor-react';
 
 export default defineType({
   name: SANITY_FIELDS.RICHTEXT_PAGE,
@@ -56,7 +56,10 @@ export default defineType({
             icon: TextBolder,
           },
         ],
-        annotations: [],
+        annotations: [
+          {name: 'file', title: 'Fichier', type: 'file', icon: FileArrowUp},
+          {name: 'link', title: 'Lien', type: SANITY_FIELDS.LINK, icon: Link},
+        ],
       },
     },
   ],

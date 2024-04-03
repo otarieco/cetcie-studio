@@ -32,8 +32,8 @@ export default defineStructure((S, context) =>
           S.documentListItem()
             .schemaType(SANITY_SINGLETONS.$HORSE_CONTACT)
             .id(SANITY_SINGLETONS.$HORSE_CONTACT),
-          page(S, context),
           S.divider(),
+          page(S, context),
           blog(S, context),
         ]),
     ),

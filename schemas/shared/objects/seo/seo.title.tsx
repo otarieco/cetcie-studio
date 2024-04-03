@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import {Card, Inline, Stack, Text} from '@sanity/ui';
+import {Card, Stack} from '@sanity/ui';
 import type {StringFieldProps} from 'sanity';
 
 enum STATUS {
@@ -8,13 +8,25 @@ enum STATUS {
   POSITIVE = 'positive',
 }
 
-const COLORS = {
-  critical: '#A30E0E',
-  caution: '#D5AB01',
-  positive: '#0EA34A',
+const STYLES = {
+  critical: {
+    color: '#CE2C31',
+    background: '#FFF7F7',
+    border: '1px solid #FDBDBE',
+  },
+  caution: {
+    color: '#AB6400',
+    background: '#FEFBE9',
+    border: '1px solid #F3D673',
+  },
+  positive: {
+    color: '#2A7E3B',
+    background: '#F5FBF5',
+    border: '1px solid #B2DDB5',
+  },
 };
 
-const CustomMetaTitleField = ({title, description, value, ...props}: StringFieldProps) => {
+const CustomInput = ({title, description, value, ...props}: StringFieldProps) => {
   const CURRENT_STATUS =
     !value || value.length < 3 || value.length > 70
       ? STATUS.CRITICAL
@@ -23,25 +35,23 @@ const CustomMetaTitleField = ({title, description, value, ...props}: StringField
         : STATUS.POSITIVE;
 
   return (
-    <Stack space={2}>
-      <Card>
-        <Text size={1} weight="semibold">
-          {title}
-        </Text>
-      </Card>
-      <Card marginBottom={2}>
-        <Text size={1} muted>
-          {description}
-        </Text>
-      </Card>
-      <Inline>
-        <Card padding={1} border={true} radius={2} tone={CURRENT_STATUS}>
-          <Text size={1} weight="medium" style={{color: COLORS[CURRENT_STATUS]}}>
-            {value?.length || 0} / 70
-          </Text>
-        </Card>
-      </Inline>
+    <Stack space={1}>
       <Card>{props.renderDefault(props as any)}</Card>
+      <Card>
+        <div
+          style={{
+            ...STYLES[CURRENT_STATUS],
+            width: 'max-content',
+            fontSize: '0.675rem',
+            fontWeight: '500',
+            padding: '0 2px',
+            borderRadius: '0.25rem',
+            marginTop: '4px',
+          }}
+        >
+          {value?.length || 0} / 70
+        </div>
+      </Card>
     </Stack>
   );
 };
@@ -50,10 +60,8 @@ export default {
   name: 'seo.title',
   title: 'Seo Title',
   description: 'Titre utilisé par les moteurs de recherche. Idéalement entre 15 et 70 caractères.',
-  // description:
-  //   'Make it as enticing as possible to convert users in socials feeds and Google. Ideally between 15 and 70 characters.',
   type: 'string',
   components: {
-    field: CustomMetaTitleField,
+    input: CustomInput,
   },
 };

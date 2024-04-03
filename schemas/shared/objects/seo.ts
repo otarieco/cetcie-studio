@@ -9,13 +9,15 @@ export default defineType({
     {
       name: 'title',
       type: 'seo.title',
+      validation: (Rule) => Rule.required().min(3).warning('Titre manquant'),
     },
     {
       name: 'description',
       type: 'seo.description',
+      validation: (Rule) => Rule.required().min(3).warning('Description manquante'),
     },
     {
-      name: 'noIndex',
+      name: 'noindex',
       type: 'seo.noIndex',
     },
     {
@@ -23,4 +25,5 @@ export default defineType({
       type: 'seo.keywords',
     },
   ],
+  validation: (Rule) => Rule.required().warning('SEO manquant'),
 });
