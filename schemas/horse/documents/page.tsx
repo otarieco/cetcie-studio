@@ -19,6 +19,7 @@ export default defineType({
       name: 'locale',
       type: SANITY_FIELDS.LOCALE,
       group: ['settings', 'content'],
+      validation: (Rule: any) => Rule.required().error('Veuillez défnir une langue.'),
     },
     {
       name: 'title',
@@ -47,13 +48,19 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule: any) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
         isUnique: isUniqueAcrossAllDocuments,
       },
       group: 'settings',
+      validation: (Rule: any) =>
+        Rule.custom((slug: { current: string } | undefined) => {
+          if (!slug?.current) return 'Slug obligatoire, veuillez en créer un.';
+          if (!/^([a-z][a-z0-9-\/]*[a-z0-9])$/.test(slug.current))
+            return 'Erreur de format du slug. Peut contenir uniquement des lettres, des chiffres et des tirets. Et ne peut commencer ni se terminer par un tiret.';
+          return true;
+        }),
     },
     {
       name: 'seo',

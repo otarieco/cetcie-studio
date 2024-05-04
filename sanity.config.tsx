@@ -54,7 +54,7 @@ export default defineConfig({
       languageField: 'locale',
     }),
     media(),
-    muxInput(),
+    muxInput({mp4_support: 'standard'}),
     visionTool(),
     imageHotspotArrayPlugin(),
     plausible({
@@ -73,7 +73,9 @@ export default defineConfig({
 
       return templates.filter(
         ({schemaType, value}) =>
-          !singletonTypes.has(schemaType as SANITY_SINGLETONS) && !value?.locale,
+          !singletonTypes.has(schemaType as SANITY_SINGLETONS) &&
+          !value?.locale &&
+          !['media.tag', 'translation.metadata'].includes(schemaType),
       );
       // .map((template) => ({
       //   ...template,
