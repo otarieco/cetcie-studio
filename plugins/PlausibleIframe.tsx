@@ -14,11 +14,16 @@ export default function ({tool}: any) {
     );
 
   return (
-    <div style={{height: '100%'}}>
+    <div style={{height: '100%', overflow: 'hidden'}}>
       <iframe
         plausible-embed="true"
         src={`https://plausible.io/share/${tool?.options?.website}?auth=${tool?.options?.auth}&embed=true&theme=light`}
-        style={{overflow: 'hidden', border: '0px', minWidth: '100%', height: '100%'}}
+        style={{
+          overflow: 'hidden',
+          border: '0px',
+          minWidth: 'calc(100% - 1px)',
+          height: 'calc(100vh - 50px)',
+        }}
       ></iframe>
       <script async src="https://plausible.io/js/embed.host.js"></script>
     </div>

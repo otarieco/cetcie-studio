@@ -4,6 +4,8 @@ import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/s
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 import type {Page} from '../../../types/horse/documents/page';
 import {seoPreview} from '../../../utils/seo.preview';
+import {SectionsArrayInput} from '@tinloof/sanity-studio';
+
 
 export default defineType({
   name: SANITY_DOCUMENTS.$HORSE_PAGE,
@@ -20,6 +22,7 @@ export default defineType({
       type: SANITY_FIELDS.LOCALE,
       group: ['settings', 'content'],
       validation: (Rule: any) => Rule.required().error('Veuillez défnir une langue.'),
+      initialValue: 'fr'
     },
     {
       name: 'title',
@@ -28,22 +31,39 @@ export default defineType({
       group: 'content',
     },
     {
+      name: 'type',
+      type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          {title: 'Landing page', value: 'landing'},
+          {title: 'Contenu texte simple', value: 'content'},
+        ],
+      },
+      initialValue: 'landing',
+      group: 'content',
+    },
+    {
       name: 'content',
       title: 'Contenu',
       type: SANITY_FIELDS.RICHTEXT_PAGE,
       group: 'content',
+      hidden: ({document}) => document?.type !== 'content',
     },
-    // {
-    //   name: 'sections',
-    //   title: 'Sections',
-    //   type: 'array',
-    //   of: [
-    //     {type: SANITY_SECTIONS.$HORSE_HERO},
-    //     {type: SANITY_SECTIONS.$HORSE_FAQ},
-    //     {type: SANITY_SECTIONS.$HORSE_REUSABLE_CONTENT},
-    //   ],
-    //   group: 'content',
-    // },
+    {
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        {type: 'landing.hero'},
+        {type: 'landing.imageEtTexte'},
+        {type: 'landing.trioProduits'},
+      ],
+      group: 'content',
+      components: {
+        input: SectionsArrayInput,
+      },
+    },
     {
       name: 'slug',
       title: 'Slug',
@@ -55,7 +75,7 @@ export default defineType({
       },
       group: 'settings',
       validation: (Rule: any) =>
-        Rule.custom((slug: { current: string } | undefined) => {
+        Rule.custom((slug: {current: string} | undefined) => {
           if (!slug?.current) return 'Slug obligatoire, veuillez en créer un.';
           if (!/^([a-z][a-z0-9-\/]*[a-z0-9])$/.test(slug.current))
             return 'Erreur de format du slug. Peut contenir uniquement des lettres, des chiffres et des tirets. Et ne peut commencer ni se terminer par un tiret.';

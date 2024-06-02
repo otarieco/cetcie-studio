@@ -14,6 +14,12 @@ import {defaultDocumentNode, structure} from './desk/sanity.structure';
 import {documentInternationalization} from '@sanity/document-internationalization';
 import {i18n, localesFlags} from './i18n.config';
 import Flag from 'react-world-flags';
+import {draftReviewPluginV3} from 'sanity-plugin-draft-review-v3';
+import {visualOptions} from 'sanity-plugin-visual-options';
+
+
+
+
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 
@@ -33,6 +39,9 @@ export default defineConfig({
   projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_DATASET!,
   icon: Horse,
+  scheduledPublishing: {
+    enabled: false,
+  },
   plugins: [
     structureTool({structure, defaultDocumentNode}),
     documentInternationalization({
@@ -55,12 +64,14 @@ export default defineConfig({
     }),
     media(),
     muxInput({mp4_support: 'standard'}),
+    draftReviewPluginV3({}),
     visionTool(),
     imageHotspotArrayPlugin(),
     plausible({
       website: process.env.SANITY_STUDIO_PLAUSIBLE_WEBSITE!,
       auth: process.env.SANITY_STUDIO_PLAUSIBLE_AUTH!,
     }),
+    visualOptions(),
   ],
 
   schema: {

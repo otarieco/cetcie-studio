@@ -17,30 +17,34 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/document-internationalization": "^2.1.2",
-    "@sanity/vision": "^3.40.0",
+    "@sanity/document-internationalization": "^3.0.0",
+    "@sanity/vision": "^3.44.0",
+    "@tinloof/sanity-studio": "^1.2.1",
     "lodash.get": "4.4.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-is": "^18.3.1",
     "react-world-flags": "^1.6.0",
-    "sanity": "^3.40.0",
+    "sanity": "^3.44.0",
     "sanity-pills": "^2.0.0",
-    "sanity-plugin-hotspot-array": "^1.0.1",
+    "sanity-plugin-draft-review-v3": "^0.1.0",
+    "sanity-plugin-hotspot-array": "^2.0.0",
     "sanity-plugin-iframe-pane": "^3.1.6",
+    "sanity-plugin-image-options": "^1.1.1",
     "sanity-plugin-media": "^2.2.5",
     "sanity-plugin-mux-input": "^2.3.4",
-    "styled-components": "^6.1.9"
+    "sanity-plugin-visual-options": "^2.0.2",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^4.0.0",
     "@types/lodash.get": "^4.4.9",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.3",
     "@types/react-world-flags": "^1.4.5",
     "@types/styled-components": "^5.1.34",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
+    "eslint": "^9.4.0",
+    "prettier": "^3.3.0",
     "typescript": "^5.4.5"
   },
   "prettier": {

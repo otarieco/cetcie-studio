@@ -36,7 +36,11 @@ export default defineType({
         ],
         annotations: [
           {name: 'page', title: 'Page', type: SANITY_FIELDS.LINK_INTERNAL, icon: Link},
-          {name: 'url', title: 'Url', type: SANITY_FIELDS.LINK_EXTERNAL, icon: Globe},
+          // {name: 'url', title: 'Url', icon: Globe, type: 'object', fields: [{
+          //   name: 'url',
+          //   title: 'Url',
+          //   type: 'url'
+          // }]},
         ],
       },
     },
