@@ -3,7 +3,7 @@ import {defineType} from 'sanity';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import ProductVariantHiddenInput from '../../../utils/shopify/components/inputs/ProductVariantHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {Image, Stack} from 'phosphor-react';
+import {Image, Stack} from '@phosphor-icons/react';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 
 export default defineType({

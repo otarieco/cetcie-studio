@@ -1,7 +1,7 @@
 import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack, Text} from '@sanity/ui';
-import {TextBolder, TextItalic} from 'phosphor-react';
+import {TextBolder, Megaphone} from '@phosphor-icons/react';
 
 export const CustomRichTextLite = ({
   props,
@@ -37,7 +37,9 @@ export default defineType({
         {
           title: 'Large',
           value: 'large',
-          component: (props) => <span style={{ fontFamily: 'ui-serif, serif', fontSize: '1.3em' }}>{props.children}</span>,
+          component: (props) => (
+            <span style={{fontFamily: 'ui-serif, serif', fontSize: '1.3em'}}>{props.children}</span>
+          ),
         },
         {
           title: 'Manuscrit',
@@ -67,6 +69,12 @@ export default defineType({
         ],
         annotations: [],
       },
+    },
+    {
+      name: 'cta',
+      title: 'CTA',
+      type: SANITY_FIELDS.LINK_INTERNAL,
+      icon: Megaphone,
     },
   ],
 });

@@ -2,7 +2,7 @@ import {Stack, Text} from '@sanity/ui';
 import type {StringInputProps} from 'sanity';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {ArrowSquareOut} from 'phosphor-react';
+import {ArrowSquareOut} from '@phosphor-icons/react';
 
 export const CustomUrlInput = (props: StringInputProps) => {
   const {value, validation} = props;

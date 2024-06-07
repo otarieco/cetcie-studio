@@ -1,4 +1,4 @@
-import {ArrowsClockwise} from 'phosphor-react';
+import {ArrowsClockwise} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_DOCUMENTS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 

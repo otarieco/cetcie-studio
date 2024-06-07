@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {Scroll, SlidersHorizontal, Stack} from 'phosphor-react';
+import {Scroll, SlidersHorizontal, Stack} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 

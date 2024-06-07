@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {Question} from 'phosphor-react';
+import {Question} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {blocksToText} from '../../../utils/blocksToText';
 

@@ -5,7 +5,7 @@ import {
   SANITY_SINGLETONS,
   SHOPIFY_DOCUMENTS,
 } from '../../../types/sanity.schemas';
-import {Link as LinkIcon} from 'phosphor-react';
+import {Link as LinkIcon} from '@phosphor-icons/react';
 
 export default defineType({
   name: SANITY_FIELDS.LINK,

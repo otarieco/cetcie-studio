@@ -1,4 +1,4 @@
-import {Image, Medal} from 'phosphor-react';
+import {Image, Medal} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';

@@ -1,4 +1,4 @@
-import {Handshake} from 'phosphor-react';
+import {Handshake} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';

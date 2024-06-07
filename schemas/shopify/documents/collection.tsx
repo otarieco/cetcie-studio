@@ -3,7 +3,7 @@ import {defineType} from 'sanity';
 import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import CollectionHiddenInput from '../../../utils/shopify/components/inputs/CollectionHidden';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {ListBullets, MagnifyingGlass, Package} from 'phosphor-react';
+import {ListBullets, MagnifyingGlass, Package} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 import {seoPreview} from '../../../utils/seo.preview';
 

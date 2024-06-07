@@ -1,4 +1,4 @@
-import {TextAlignCenter} from 'phosphor-react';
+import {TextAlignCenter} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SHOPIFY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';

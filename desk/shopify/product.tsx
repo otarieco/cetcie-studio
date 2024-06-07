@@ -1,6 +1,6 @@
 import {ListItemBuilder} from 'sanity/desk';
 import defineStructure from '../../utils/defineStructure';
-import {Info} from 'phosphor-react';
+import {Info} from '@phosphor-icons/react';
 import {SHOPIFY_DOCUMENTS} from '../../types/sanity.schemas';
 
 export default defineStructure<ListItemBuilder>((S) =>

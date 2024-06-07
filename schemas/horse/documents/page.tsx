@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {StackSimple, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
+import {StackSimple, MagnifyingGlass, SlidersHorizontal, Stack} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 import type {Page} from '../../../types/horse/documents/page';
@@ -22,7 +22,7 @@ export default defineType({
       type: SANITY_FIELDS.LOCALE,
       group: ['settings', 'content'],
       validation: (Rule: any) => Rule.required().error('Veuillez défnir une langue.'),
-      initialValue: 'fr'
+      initialValue: 'fr',
     },
     {
       name: 'title',
@@ -56,10 +56,26 @@ export default defineType({
       type: 'array',
       of: [
         {type: 'landing.hero'},
+        {type: 'landing.content'},
         {type: 'landing.imageEtTexte'},
+        {type: 'landing.grilleImageEtTexte'},
         {type: 'landing.trioProduits'},
+        {type: 'landing.grilleBenefices'},
+        {type: 'landing.temoignages'},
+        {
+          type: SANITY_SECTIONS.$HORSE_HOME_VISIT_STORE,
+          title: 'Vidéo plein écran',
+          options: {
+            variants: [
+              {
+                assetUrl: 'https://ik.imagekit.io/otariestudio/sanity/cetcie/video.jpg?tr=w-1200',
+              },
+            ],
+          },
+        },
       ],
       group: 'content',
+      hidden: ({document}) => document?.type !== 'landing',
       components: {
         input: SectionsArrayInput,
       },

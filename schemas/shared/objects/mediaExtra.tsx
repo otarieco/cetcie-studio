@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {Camera} from 'phosphor-react';
+import {Camera} from '@phosphor-icons/react';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 
 export default defineType({

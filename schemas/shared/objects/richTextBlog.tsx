@@ -1,7 +1,7 @@
 import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
-import {HighlighterCircle} from 'phosphor-react';
+import {HighlighterCircle} from '@phosphor-icons/react';
 
 const HighlightDecorator = (props: any) => (
   <span style={{backgroundColor: 'yellow'}}>{props.children}</span>

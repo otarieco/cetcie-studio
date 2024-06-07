@@ -1,4 +1,4 @@
-import {Storefront} from 'phosphor-react';
+import {Storefront} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 
@@ -6,7 +6,7 @@ export default defineType({
   name: SANITY_SECTIONS.$HORSE_HOME_VISIT_STORE,
   title: 'Parcourir la boutique',
   type: 'object',
-  icon: () => <Storefront width="1em" height="1em" />,
+  icon: Storefront,
   fields: [
     {
       name: 'media',
@@ -25,7 +25,8 @@ export default defineType({
     },
     prepare({link}) {
       return {
-        title: link?.title,
+        title: 'Vidéo / Photo plein écran',
+        subtitle: link?.title,
       };
     },
   },

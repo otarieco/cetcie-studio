@@ -1,4 +1,4 @@
-import {ListPlus} from 'phosphor-react';
+import {ListPlus} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SHOPIFY_DOCUMENTS, SHOPIFY_SECTIONS} from '../../../../types/sanity.schemas';
 

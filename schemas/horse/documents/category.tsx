@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {TreeStructure} from 'phosphor-react';
+import {TreeStructure} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SHOPIFY_DOCUMENTS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 

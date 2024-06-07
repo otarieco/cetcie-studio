@@ -1,6 +1,6 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
-import {Globe} from 'phosphor-react';
+import {Globe} from '@phosphor-icons/react';
 
 export default defineType({
   name: SANITY_SINGLETONS.$HORSE_FEATURE_FLAGS,

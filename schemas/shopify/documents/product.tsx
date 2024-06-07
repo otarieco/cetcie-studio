@@ -4,7 +4,7 @@ import ShopifyIcon from '../../../utils/shopify/components/icons/Shopify';
 import ProductHiddenInput from '../../../utils/shopify/components/inputs/ProductHidden';
 import {getPriceRange} from '../../../utils/shopify/getPriceRange';
 import ShopifyDocumentStatus from '../../../utils/shopify/components/media/ShopifyDocumentStatus';
-import {Image, ListBullets, MagnifyingGlass, PencilSimpleLine, Tag} from 'phosphor-react';
+import {Image, ListBullets, MagnifyingGlass, PencilSimpleLine, Tag} from '@phosphor-icons/react';
 import {
   SANITY_DOCUMENTS,
   SANITY_FIELDS,

@@ -1,4 +1,4 @@
-import {FileArrowDown, Question} from 'phosphor-react';
+import {FileArrowDown, Question} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_DOCUMENTS, SHOPIFY_SECTIONS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';

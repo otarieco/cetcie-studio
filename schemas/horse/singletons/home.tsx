@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {FlagBanner, House, MagnifyingGlass, SlidersHorizontal, Stack} from 'phosphor-react';
+import {FlagBanner, House, MagnifyingGlass, SlidersHorizontal, Stack} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({

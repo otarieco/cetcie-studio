@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {PawPrint, Storefront, SquareLogo, SquareHalf} from 'phosphor-react';
+import {PawPrint, Storefront, SquareLogo, SquareHalf} from '@phosphor-icons/react';
 import {SHOPIFY_DOCUMENTS, SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 import {noDuplicateRefs} from 'sanity-pills';
 

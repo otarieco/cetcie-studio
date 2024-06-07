@@ -5,7 +5,7 @@ import {
   SANITY_SINGLETONS,
   SHOPIFY_DOCUMENTS,
 } from '../../../types/sanity.schemas';
-import {Square, SquaresFour, File} from 'phosphor-react';
+import {Square, SquaresFour, File} from '@phosphor-icons/react';
 
 export default defineType({
   name: SANITY_FIELDS.LINK_INTERNAL,

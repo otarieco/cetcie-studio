@@ -1,6 +1,6 @@
 import {defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {TextBolder, FileArrowUp, Link} from 'phosphor-react';
+import {TextBolder, FileArrowUp, Link, Megaphone} from '@phosphor-icons/react';
 
 export default defineType({
   name: SANITY_FIELDS.RICHTEXT_PAGE,
@@ -14,6 +14,13 @@ export default defineType({
       styles: [
         {title: 'Paragraphe', value: 'normal'},
         {
+          title: 'Paragraphe large',
+          value: 'large',
+          component: ({children}) => (
+            <span style={{fontFamily: 'ui-serif, serif', fontSize: '1.3em'}}>{children}</span>
+          ),
+        },
+        {
           title: 'Titre',
           value: 'h2',
           component: ({children}) => (
@@ -25,13 +32,6 @@ export default defineType({
           value: 'h3',
           component: ({children}) => (
             <span style={{fontWeight: 600, fontSize: '1.1rem', opacity: '0.5'}}>{children}</span>
-          ),
-        },
-        {
-          title: 'Paragraphe large',
-          value: 'large',
-          component: ({children}) => (
-            <span style={{fontFamily: 'ui-serif, serif', fontSize: '1.3em'}}>{children}</span>
           ),
         },
         {title: 'Encadré', value: 'blockquote'},
@@ -57,10 +57,20 @@ export default defineType({
           },
         ],
         annotations: [
-          {name: 'file', title: 'Fichier', type: 'file', icon: FileArrowUp},
           {name: 'link', title: 'Lien', type: SANITY_FIELDS.LINK, icon: Link},
+          {name: 'file', title: 'Fichier', type: 'file', icon: FileArrowUp},
         ],
       },
+    },
+    {
+      name: 'nedia',
+      type: SANITY_FIELDS.MEDIA,
+    },
+    {
+      name: 'cta',
+      title: 'CTA',
+      type: SANITY_FIELDS.LINK_INTERNAL,
+      icon: Megaphone,
     },
   ],
 });

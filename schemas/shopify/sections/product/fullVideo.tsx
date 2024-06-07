@@ -1,4 +1,4 @@
-import {VideoCamera} from 'phosphor-react';
+import {VideoCamera} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SHOPIFY_SECTIONS} from '../../../../types/sanity.schemas';
 

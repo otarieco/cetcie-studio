@@ -1,7 +1,7 @@
 import {type ArrayOfObjectsInputProps, defineType} from 'sanity';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {Stack} from '@sanity/ui';
-import {TextBolder, TextItalic} from 'phosphor-react';
+import {TextBolder, TextItalic} from '@phosphor-icons/react';
 
 export const CustomRichTextProduct = (props: ArrayOfObjectsInputProps) => {
   return <Stack className="richText richText--product">{props.renderDefault(props)}</Stack>;

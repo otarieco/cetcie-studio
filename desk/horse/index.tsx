@@ -1,5 +1,5 @@
 import defineStructure from '../../utils/defineStructure';
-import {Horse} from 'phosphor-react';
+import {Horse} from '@phosphor-icons/react';
 import page from './page';
 import settings from './settings';
 import blog from './blog';

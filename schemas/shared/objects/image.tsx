@@ -1,4 +1,4 @@
-import {Image} from 'phosphor-react';
+import {Image} from '@phosphor-icons/react';
 import {SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {defineType} from 'sanity';
 

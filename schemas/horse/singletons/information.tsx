@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {Info} from 'phosphor-react';
+import {Info} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({

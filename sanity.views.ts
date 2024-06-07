@@ -1,5 +1,5 @@
 import type {StructureBuilder} from 'sanity/desk';
-import {Eye, PencilSimple} from 'phosphor-react';
+import {Eye, PencilSimple} from '@phosphor-icons/react';
 import {resolveProductionUrl, type ResolveProductionUrlProps} from './utils/resolveProductionUrl';
 import {Iframe} from 'sanity-plugin-iframe-pane';
 

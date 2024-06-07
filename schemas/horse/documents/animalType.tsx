@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {Horse} from 'phosphor-react';
+import {Horse} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 

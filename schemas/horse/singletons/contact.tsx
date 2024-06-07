@@ -4,7 +4,7 @@ import {
   PaperPlaneTilt,
   SlidersHorizontal,
   Stack,
-} from 'phosphor-react';
+} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SANITY_SECTIONS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 import {isUniqueAcrossAllDocuments} from '../../../utils/isUniqueAcrossAllDocuments';
 

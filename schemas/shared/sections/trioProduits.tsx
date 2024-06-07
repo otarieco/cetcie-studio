@@ -1,11 +1,13 @@
 import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 import {defineSection} from '@tinloof/sanity-studio';
 import {blocksToText} from '../../../utils/blocksToText';
+import {SprayBottle} from '@phosphor-icons/react';
 
 export default defineSection({
   name: 'landing.trioProduits',
   title: 'Triptyque de produits',
   type: 'object',
+  icon: SprayBottle,
   options: {
     variants: [
       {
@@ -33,15 +35,21 @@ export default defineSection({
           },
         },
       ],
+      validation: (Rule) => Rule.max(3),
     },
+    {
+      name: 'light',
+      title: 'Fond clair',
+      type: 'boolean',
+    }
   ],
   preview: {
     select: {
       title: 'title',
     },
     prepare: ({title}) => ({
-      title,
-      subtitle: 'Triptyque de produits',
+      title: 'Triptyque de produits',
+      subtitle: title,
     }),
   },
 });

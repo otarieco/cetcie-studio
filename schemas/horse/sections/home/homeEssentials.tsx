@@ -1,4 +1,4 @@
-import {Tag} from 'phosphor-react';
+import {Tag} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SECTIONS, SHOPIFY_DOCUMENTS} from '../../../../types/sanity.schemas';
 import {blocksToText} from '../../../../utils/blocksToText';
@@ -7,17 +7,17 @@ export default defineType({
   name: SANITY_SECTIONS.$HORSE_HOME_ESSENTIALS,
   title: 'Les indispensables',
   type: 'object',
-  icon: () => <Tag width="1em" height="1em" />,
+  icon: Tag,
   fields: [
+    {
+      name: 'description',
+      title: 'Texte introductif',
+      type: SANITY_FIELDS.RICHTEXT_LITE,
+    },
     {
       name: 'title',
       title: 'Titre principal',
       type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: SANITY_FIELDS.RICHTEXT_LITE,
     },
     {
       name: 'products',
@@ -34,6 +34,7 @@ export default defineType({
           },
         },
       ],
+      validation: (Rule) => Rule.max(3),
     },
   ],
   preview: {

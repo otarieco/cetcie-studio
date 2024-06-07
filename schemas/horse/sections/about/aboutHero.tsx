@@ -1,4 +1,4 @@
-import {FlagBanner} from 'phosphor-react';
+import {FlagBanner} from '@phosphor-icons/react';
 import {defineType} from 'sanity';
 import {SANITY_FIELDS, SANITY_SECTIONS} from '../../../../types/sanity.schemas';
 

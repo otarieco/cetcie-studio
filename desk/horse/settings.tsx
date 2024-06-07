@@ -1,5 +1,5 @@
 import defineStructure from '../../utils/defineStructure';
-import {ArrowsClockwise, GearSix, UsersThree} from 'phosphor-react';
+import {ArrowsClockwise, GearSix, UsersThree} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_SINGLETONS} from '../../types/sanity.schemas';
 import faq from './faq';
 import animal from './animalType';

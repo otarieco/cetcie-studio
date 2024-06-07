@@ -1,5 +1,5 @@
 import {defineType} from 'sanity';
-import {SquareHalfBottom, SquareHalf, SquareLogo} from 'phosphor-react';
+import {SquareHalfBottom, SquareHalf, SquareLogo} from '@phosphor-icons/react';
 import {SANITY_FIELDS, SANITY_SINGLETONS} from '../../../types/sanity.schemas';
 
 export default defineType({

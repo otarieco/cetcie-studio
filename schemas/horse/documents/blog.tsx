@@ -1,6 +1,6 @@
 import {defineType} from 'sanity';
 import {SANITY_DOCUMENTS, SANITY_FIELDS} from '../../../types/sanity.schemas';
-import {Article, FlagBanner, MagnifyingGlass, PencilSimpleLine} from 'phosphor-react';
+import {Article, FlagBanner, MagnifyingGlass, PencilSimpleLine} from '@phosphor-icons/react';
 import type {Blog} from '../../../types/horse/documents/blog';
 import {seoPreview} from '../../../utils/seo.preview';
 

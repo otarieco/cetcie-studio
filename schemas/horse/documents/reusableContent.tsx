@@ -1,5 +1,5 @@
 import {defineType} from '@sanity/types';
-import {Cube} from 'phosphor-react';
+import {Cube} from '@phosphor-icons/react';
 import {SANITY_DOCUMENTS, SANITY_FIELDS, SANITY_SECTIONS} from '../../../types/sanity.schemas';
 
 export default defineType({

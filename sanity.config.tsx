@@ -9,7 +9,7 @@ import {muxInput} from 'sanity-plugin-mux-input';
 import {plausible} from './plugins/plausible';
 import './utils/richText.style.css';
 import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array';
-import {Horse} from 'phosphor-react';
+import {Horse} from '@phosphor-icons/react';
 import {defaultDocumentNode, structure} from './desk/sanity.structure';
 import {documentInternationalization} from '@sanity/document-internationalization';
 import {i18n, localesFlags} from './i18n.config';
